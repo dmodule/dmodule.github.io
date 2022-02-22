@@ -16,7 +16,7 @@
 
   <script type="module" crossorigin src="/static/common/index.7efaf428.js"></script>
   <link rel="modulepreload" href="/static/common/vendor.f28bca73.js">
-  <link rel="stylesheet" href="/static/common/index.cb7640db.css">
+  <link rel="stylesheet" href="/static/common/index.b5adcaa9.css">
 </head>
 
 <body x-data>
@@ -33,19 +33,12 @@
         </div>
         <div class="flex-1 px-2 mx-2 flex justify-end">
           <div class="items-stretch hidden md:flex">
-            <a class="btn btn-ghost btn-sm rounded-btn">
-              Home
-            </a>
-            <a class="btn btn-ghost btn-sm rounded-btn">
-              Portfolio
-            </a>
-            <a class="btn btn-ghost btn-sm rounded-btn">
-              About
-            </a>
+            <!--
             <a class="btn btn-ghost btn-sm rounded-btn">
               Contact
             </a>
-            <a class="btn btn-primary btn-sm rounded-btn ml-2">
+            -->
+            <a _target="blank" class="btn btn-primary btn-sm rounded-btn ml-2">
               Login
             </a>
           </div>
@@ -100,12 +93,12 @@
             với mọi
             người, kể cả người không có nhiều kiến thức và kỹ năng về công nghệ.
           </p>
-          <button class="btn btn-secondary mr-auto">Xem thêm</button>
+          <button class="btn btn-secondary mr-auto hidden">Xem thêm</button>
         </div>
       </div>
       <div class="w-full h-screen md:w-1/2 relative overflow-hidden">
         <div class="absolute h-screen w-full bg-cover top-0 left-0 bg-no-repeat"
-          style="background-image: url('/static/img/bg-1.jpg');"></div>
+          style="background-image: url('/static/img/book.jpg');"></div>
       </div>
     </div><!-- End Section 1 -->
     
@@ -177,8 +170,9 @@
     
     <!-- Section 2.1 -->
     <div class="min-h-screen bg-primary border-t-2 border-primary py-12 md:p-0 md:flex">
-      <div class="w-full md:w-1/2 hidden lg:flex items-center justify-center md:justify-end px-8">
-        <img class="mt-8 w-full max-w-md sm:max-w-xl" src="/static/img/register.png" />
+      <div class="w-full md:w-1/2 hidden lg:flex items-center justify-center px-8">
+        <img src="/static/img/signup.jpg" style="width: 520px; height:520px"
+          class="rounded-full object-center object-cover ml-12" />
       </div>
       <div class="w-3/4 lg:w-1/2 mx-auto flex items-center justify-center py-16">
         <div class="w-full bg-base-100 sm:max-w-lg rounded-box p-12 text-base-content shadow-md">
@@ -352,11 +346,11 @@
           <div class="w-full text-left mt-4">
             <img class=" w-48" src="/static/img/ueh.png" />
           </div>
-          <button class="mt-12 btn btn-secondary mr-auto">Xem thêm</button>
+          <button class="mt-12 btn btn-secondary mr-auto hidden">Xem thêm</button>
         </div>
       </div>
       <div class="w-full md:w-1/2 flex items-center justify-center">
-        <img class="mt-8 w-full max-w-md sm:max-w-xl" src="/static/img/bg-3.png" />
+        <img class="mt-8 w-full max-w-md sm:max-w-xl rounded-full" src="/static/img/reward.jpg" />
       </div>
     </div><!-- End Section 3 -->
     
