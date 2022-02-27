@@ -16,7 +16,7 @@
 
   <script type="module" crossorigin src="/static/common/vendor.f28bca73.js"></script>
   <script type="module" crossorigin src="/static/common/main.41555408.js"></script>
-  <link rel="stylesheet" href="/static/common/main.83ee1146.css">
+  <link rel="stylesheet" href="/static/common/main.f496e68e.css">
 </head>
 
 <body x-data>
@@ -35,9 +35,6 @@
         </div>
         <div class="flex-1 px-2 mx-2 flex justify-end">
           <div class="items-stretch hidden md:flex">
-            <a href="/privacy-policies.html" target="_blank" class="btn btn-ghost btn-sm rounded-btn">
-              Privacy Policies
-            </a>
             <a target="_blank" class="btn btn-primary btn-sm rounded-btn ml-2">
               Login
             </a>
@@ -571,8 +568,7 @@
 
     <!-- Footer -->
     <footer class="bg-neutral text-neutral-content border-t border-black border-opacity-20">
-      <div class="py-8 flex flex-wrap mx-auto">
-        <div class="w-full md:w-1/4"></div>
+      <div class="container py-8 flex justify-center flex-wrap mx-auto">
         <div class="flex flex-col w-full md:w-1/4 px-4">
           <div class="flex justify-center md:justify-start items-center divide-x divide-gray-800">
             <a class="pr-4">
@@ -614,7 +610,7 @@
     
         <div class="flex justify-center md:justify-start items-center w-full md:w-1/4">
           <ul class="inline-block">
-            <li class="mt-3">
+            <li class="mt-3 mb-3">
               <a href="#" class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -626,7 +622,7 @@
                 <span class="ml-2">Quận 1, TP. Hồ Chí Minh</span>
               </a>
             </li>
-            <li class="mt-3">
+            <li class="mt-3 hidden">
               <a href="tel:+840999999999" class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -636,7 +632,7 @@
                 <span class="ml-2">(+84) 099 999 9999</span>
               </a>
             </li>
-            <li class="mt-3">
+            <li class="mt-3 mb-3">
               <a href="mailto:cuong.dao@classon.edu.vn" class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -649,7 +645,22 @@
           </ul>
         </div>
     
-        <div class="w-full md:w-1/4"></div>
+        <div class="w-full md:w-1/4">
+          <ul class="inline-block">
+            <li class="mt-3 mb-3">
+              <a href="/privacy-policies.html" class="flex items-center hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span class="ml-2">
+                  Privacy Policies
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
     
         <label for="my-contact" class="btn btn-circle btn-primary modal-button fixed bottom-8 right-8 z-50 shadow">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -699,15 +710,99 @@
   </div>
 
 </body>
-<link href="/static/js/carousel/splide.min.css" rel="stylesheet">
-<script src="/static/js/carousel/splide.min.js"></script>
+<link href="/static/js/slider/embla.css" rel="stylesheet">
+<script src="/static/js/slider/embla.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elms = document.getElementsByClassName('splide');
-    for (var i = 0; i < elms.length; i++) {
-      new Splide(elms[i]).mount();
+  function ratioCalcultion() {
+    var w = 1440;
+    var ratio = 1;
+    if (window.innerWidth > 1440) {
+      ratio = window.innerWidth / w;
     }
-  });
+
+    var app = document.querySelector('#app');
+    if (app) {
+      app.style.cssText = 'transform-origin: top;transform: scale(' + ratio + ')'
+    }
+  };
+  ratioCalcultion()
+  window.addEventListener("resize", function () { ratioCalcultion() }, false);
+
+
+  const setupDotBtns = (dotsArray, embla) => {
+    dotsArray.forEach((dotNode, i) => {
+      dotNode.addEventListener("click", () => embla.scrollTo(i), false);
+    });
+  };
+
+  const generateDotBtns = (dots, embla) => {
+    const template = document.getElementById("embla-dot-template").innerHTML;
+    dots.innerHTML = embla.scrollSnapList().reduce(acc => acc + template, "");
+    return [].slice.call(dots.querySelectorAll(".embla__dot"));
+  };
+
+  const selectDotBtn = (dotsArray, embla) => () => {
+    const previous = embla.previousScrollSnap();
+    const selected = embla.selectedScrollSnap();
+    dotsArray[previous].classList.remove("is-selected");
+    dotsArray[selected].classList.add("is-selected");
+  };
+
+  /* autoplay */
+  const autoplay = (embla, interval) => {
+    let timer = 0;
+
+    const play = () => {
+      stop();
+      requestAnimationFrame(() => (timer = window.setTimeout(next, interval)));
+    };
+
+    const stop = () => {
+      window.clearTimeout(timer);
+      timer = 0;
+    };
+
+    const next = () => {
+      if (embla.canScrollNext()) {
+        embla.scrollNext();
+      } else {
+        embla.scrollTo(0);
+      }
+      play();
+    };
+
+    return { play, stop };
+  };
+
+
+  /*
+   * setup
+   */
+  const cmCarousel = function (el, dots = false, loop = false, auto = 0) {
+    const wrap = document.querySelector(el)
+    const viewPort = wrap.querySelector(".embla__viewport");
+    const embla = EmblaCarousel(viewPort, { align: 'start', skipSnaps: false, loop: loop });
+
+    if (dots) {
+      const dots = document.querySelector(el + " .embla__dots");
+      const dotsArray = generateDotBtns(dots, embla);
+      const setSelectedDotBtn = selectDotBtn(dotsArray, embla);
+      setupDotBtns(dotsArray, embla);
+      embla.on("select", setSelectedDotBtn);
+      embla.on("init", setSelectedDotBtn);
+    }
+
+    if (auto) {
+      const autoplayer = autoplay(embla, auto);
+      embla.on("pointerDown", autoplayer.stop);
+      embla.on("init", autoplayer.play);
+    }
+  }
+
+  cmCarousel('#slide1', true, true, 5000)
+
+  cmCarousel('#slide2', true, false, 5000)
+
 </script>
 
 <script src="/static/js/animasection.js"></script>
