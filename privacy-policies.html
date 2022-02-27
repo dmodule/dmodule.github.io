@@ -16,7 +16,7 @@
 
   <script type="module" crossorigin src="/static/common/vendor.f28bca73.js"></script>
   <script type="module" crossorigin src="/static/common/main.41555408.js"></script>
-  <link rel="stylesheet" href="/static/common/main.f496e68e.css">
+  <link rel="stylesheet" href="/static/common/main.360489c2.css">
 </head>
 
 <body x-data>
@@ -713,21 +713,6 @@
 <link href="/static/js/slider/embla.css" rel="stylesheet">
 <script src="/static/js/slider/embla.js"></script>
 <script>
-  function ratioCalcultion() {
-    var w = 1440;
-    var ratio = 1;
-    if (window.innerWidth > 1440) {
-      ratio = window.innerWidth / w;
-    }
-
-    var app = document.querySelector('#app');
-    if (app) {
-      app.style.cssText = 'transform-origin: top;transform: scale(' + ratio + ')'
-    }
-  };
-  ratioCalcultion()
-  window.addEventListener("resize", function () { ratioCalcultion() }, false);
-
 
   const setupDotBtns = (dotsArray, embla) => {
     dotsArray.forEach((dotNode, i) => {

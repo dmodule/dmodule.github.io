@@ -39,6 +39,11 @@
 .embla__slide2 {
   min-width: 50%;
 }
+@media only screen and (max-width: 600px) {
+  .embla__slide2 {
+    min-width: 100%;
+  }
+}
 
 .embla__slide__inner {
   position: relative;

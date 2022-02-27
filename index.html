@@ -16,7 +16,7 @@
 
   <script type="module" crossorigin src="/static/common/vendor.f28bca73.js"></script>
   <script type="module" crossorigin src="/static/common/main.41555408.js"></script>
-  <link rel="stylesheet" href="/static/common/main.f496e68e.css">
+  <link rel="stylesheet" href="/static/common/main.360489c2.css">
 </head>
 
 <body x-data>
@@ -77,24 +77,26 @@
     </div><!-- End Header -->
     
     <!-- Section 1 -->
-    <div class="min-h-screen bg-primary md:flex relative">
+    <div class="min-h-screen bg-primary content-center flex flex-col place-content-center relative">
       <div class="absolute top-0 right-0 left-auto w-full h-screen md:w-1/2 overflow-hidden">
         <div class="absolute h-screen w-full bg-cover top-0 left-0 bg-no-repeat"
           style="background-image: url('/static/img/bookshelf.jpg');"></div>
       </div>
-      <div class="container z-10 bottom-2 left-0 md:static w-full md:w-1/2 p-4 md:p-8">
-        <div
-          class="bg-black bg-opacity-20 md:bg-opacity-0 rounded-lg border border-black border-opacity-30 md:border-0 p-4 md:p-0 h-full max-w-md mx-auto flex flex-col justify-center items-center transition duration-500"
-          data-class-in="translate-x-0 opacity-100" data-class-out="-translate-x-32 opacity-0">
-          <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 md:mb-12 w-full">Đong đầy kiến thức mọi lúc, mọi
-            nơi.</h1>
-          <p class="md:text-xl mb-4 md:mb-12 w-full">
-            <b class="text-white">ClassOn</b> mang tới một giải pháp đơn giản và nhanh nhất để truyền đạt kiến thức đi
-            khắp mọi nơi, phù hợp
-            với mọi
-            người, kể cả người không có nhiều kiến thức và kỹ năng về công nghệ.
-          </p>
-          <button class="btn btn-secondary mr-auto hidden">Xem thêm</button>
+      <div class="container mx-auto">
+        <div class="w-full md:w-1/2">
+          <div
+            class="bg-black bg-opacity-50 md:bg-opacity-0 rounded-lg border border-black border-opacity-30 md:border-0 p-4 md:p-0 max-w-md flex flex-col justify-center items-center transition duration-500"
+            data-class-in="translate-x-0 opacity-100" data-class-out="-translate-x-32 opacity-0">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 md:mb-12 w-full">Đong đầy kiến thức mọi lúc, mọi
+              nơi.</h1>
+            <p class="md:text-xl mb-4 md:mb-12 w-full">
+              <b class="text-white">ClassOn</b> mang tới một giải pháp đơn giản và nhanh nhất để truyền đạt kiến thức đi
+              khắp mọi nơi, phù hợp
+              với mọi
+              người, kể cả người không có nhiều kiến thức và kỹ năng về công nghệ.
+            </p>
+            <button class="btn btn-secondary mr-auto hidden">Xem thêm</button>
+          </div>
         </div>
       </div>
     </div><!-- End Section 1 -->
@@ -108,7 +110,7 @@
               <div class="embla__slide">
                 <div class="h-full md:flex items-center">
                   <div class="w-full md:w-1/2 md:pr-12 flex items-center">
-                    <img class="mt-8 w-full max-w-md sm:max-w-xl " src="/static/img/bg-2.png" />
+                    <img class="mt-8 w-full max-w-md sm:max-w-xl mx-auto" src="/static/img/bg-2.png" />
                   </div>
                   <div class="w-3/4 md:w-1/2 md:pl-12 md:h-full mx-auto flex flex-col justify-center items-center mt-8">
                     <h2 class="text-xl font-semibold mb-8 w-full">Với nhà trường</h2>
@@ -128,7 +130,7 @@
               <div class="embla__slide">
                 <div class="h-full md:flex items-center">
                   <div class="w-full md:w-1/2 md:pr-12 flex items-center">
-                    <img class="mt-8 w-full max-w-md sm:max-w-xl " src="/static/img/bg-2.png" />
+                    <img class="mt-8 w-full max-w-md sm:max-w-xl mx-auto" src="/static/img/bg-2.png" />
                   </div>
                   <div class="w-3/4 md:w-1/2 md:pl-12 md:h-full mx-auto flex flex-col justify-center items-center mt-8">
                     <h2 class="text-xl font-semibold mb-8 w-full">Với nhà trường</h2>
@@ -148,7 +150,7 @@
               <div class="embla__slide">
                 <div class="h-full md:flex items-center">
                   <div class="w-full md:w-1/2 md:pr-12 flex items-center">
-                    <img class="mt-8 w-full max-w-md sm:max-w-xl " src="/static/img/bg-2.png" />
+                    <img class="mt-8 w-full max-w-md sm:max-w-xl mx-auto" src="/static/img/bg-2.png" />
                   </div>
                   <div class="w-3/4 md:w-1/2 md:pl-12 md:h-full mx-auto flex flex-col justify-center items-center mt-8">
                     <h2 class="text-xl font-semibold mb-8 w-full">Với nhà trường</h2>
@@ -220,17 +222,18 @@
     </div><!-- End Section 2.1 -->
     
     <!-- Section 4 -->
-    <div class="relative min-h-screen py-6 bg-neutral text-neutral-content overflow-hidden flex items-end">
-      <div class="w-full absolute -bottom-64 left-0">
+    <div class="relative md:min-h-screen py-6 bg-neutral text-neutral-content overflow-hidden flex items-center">
+      <div class="w-full absolute top-1/2 -translate-y-1/2 left-0">
         <div class="container flex relative mx-auto">
-          <div class="w-4/5 aspect-1 bg-primary rounded-full mx-auto shadow-lg">
+          <div class="w-full md:w-4/5 aspect-1 bg-primary rounded-full mx-auto shadow-lg transition duration-500"
+            data-class-in="translate-y-0 opacity-100" data-class-out="translate-y-32 opacity-0">
           </div>
         </div>
       </div>
       <div class="container mx-auto relative">
         <div class="relative w-full mx-auto flex flex-col">
           <h2
-            class="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-white h-48 flex items-center justify-center">
+            class="text-center text-3xl md:text-4xl lg:text-5xl font-semibold mb-16 py-4 flex items-center justify-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-200">
             Đánh giá của người dùng
           </h2>
           <div class="flex-grow">
@@ -352,8 +355,8 @@
     
     <!-- Section 3 -->
     <div class="min-h-screen bg-primary py-12 md:p-0 md:flex">
-      <div class="container mx-auto flex">
-        <div class="w-3/4 md:w-1/2">
+      <div class="container mx-auto md:flex">
+        <div class="w-full md:w-1/2 px-4 md:px-0">
           <div class="h-full flex flex-col justify-center text-left transition duration-500"
             data-class-in="translate-x-0 opacity-100" data-class-out="-translate-x-32 opacity-0">
             <h2 class="text-4xl md:text-5xl font-semibold mb-12 w-full">Giải thưởng</h2>
@@ -367,7 +370,7 @@
             <button class="mt-12 btn btn-secondary mr-auto hidden">Xem thêm</button>
           </div>
         </div>
-        <div class="w-full md:w-1/2 flex items-center justify-center">
+        <div class="w-full md:w-1/2 px-4 md:px-0 flex items-center justify-center">
           <img class="mt-8 w-full max-w-md sm:max-w-xl rounded-full" src="/static/img/reward.jpg" />
         </div>
       </div>
@@ -523,21 +526,6 @@
 <link href="/static/js/slider/embla.css" rel="stylesheet">
 <script src="/static/js/slider/embla.js"></script>
 <script>
-  function ratioCalcultion() {
-    var w = 1440;
-    var ratio = 1;
-    if (window.innerWidth > 1440) {
-      ratio = window.innerWidth / w;
-    }
-
-    var app = document.querySelector('#app');
-    if (app) {
-      app.style.cssText = 'transform-origin: top;transform: scale(' + ratio + ')'
-    }
-  };
-  ratioCalcultion()
-  window.addEventListener("resize", function () { ratioCalcultion() }, false);
-
 
   const setupDotBtns = (dotsArray, embla) => {
     dotsArray.forEach((dotNode, i) => {
