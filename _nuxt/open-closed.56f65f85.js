@@ -1,0 +1,1 @@
+import{ac as l,aG as t}from"./entry.315daf49.js";let o=Symbol("Context");var i=(n=>(n[n.Open=1]="Open",n[n.Closed=2]="Closed",n[n.Closing=4]="Closing",n[n.Opening=8]="Opening",n))(i||{});function u(){return r()!==null}function r(){return l(o,null)}function c(n){t(o,n)}export{u as C,c,i as l,r as p};
