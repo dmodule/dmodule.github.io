@@ -1,0 +1,1 @@
+import{_ as n}from"./List.WEaIV4-4.js";import{B as s,r as e,c as r,b as a,o as _}from"./entry.RTXGjyIc.js";import"./client-only.cfO8lq4J.js";const d={__name:"index",setup(c){s(),e(!1);const o=e(null);return(l,p)=>{const t=n;return _(),r("div",null,[a(t,{ref_key:"dndRef",ref:o,class:"p-3"},null,512)])}}};export{d as default};
