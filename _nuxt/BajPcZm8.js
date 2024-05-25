@@ -1,1 +1,0 @@
-import{g as e,c as t,a,o}from"./BBa6so6u.js";const n=a("p",null,"This page will be displayed at the admin route.",-1),s=[n],r=e({__name:"admin",setup(c){return(_,i)=>(o(),t("section",null,s))}});export{r as default};
