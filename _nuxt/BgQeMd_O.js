@@ -1,1 +1,0 @@
-import{h as s,i as u,j as r}from"./izWv8DkB.js";const c={__name:"login",setup(a){return s(()=>{const t=u(),{$auth:e}=r(),{getToken:n,login:o}=e;if(n())return t.push({path:"/"});o()}),(t,e)=>null}};export{c as default};
