@@ -1,0 +1,1 @@
+import{g as n,c as s,T as a,j as r,o as c}from"./DeuvRX2B.js";const _=n({__name:"default",setup(l){const{$auth:e}=r(),{getToken:t}=e;return t(),(o,u)=>(c(),s("div",null,[a(o.$slots,"default")]))}});export{_ as default};
