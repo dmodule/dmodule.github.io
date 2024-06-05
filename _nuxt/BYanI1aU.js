@@ -1,0 +1,1 @@
+import{g as n,c as s,T as a,j as r,o as c}from"./DQbio8Ee.js";const _=n({__name:"auth",setup(u){const{$auth:e}=r(),{getToken:t}=e;return t(),(o,l)=>(c(),s("div",null,[a(o.$slots,"default")]))}});export{_ as default};
