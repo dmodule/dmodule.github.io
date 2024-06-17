@@ -1,0 +1,1 @@
+import{g as e,c as o,a as t,o as a}from"./HwINDOep.js";const s=t("p",null,"This page about public",-1),n=[s],l=e({__name:"about",setup(c){return(_,p)=>(a(),o("section",null,n))}});export{l as default};

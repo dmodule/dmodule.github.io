@@ -1,1 +1,0 @@
-import{g as n,j as s,c as a,K as r,o as c}from"./CcuYpJnQ.js";const _=n({__name:"auth",setup(u){const{$auth:e}=s(),{getToken:t}=e;return t(),(o,l)=>(c(),a("div",null,[r(o.$slots,"default")]))}});export{_ as default};
