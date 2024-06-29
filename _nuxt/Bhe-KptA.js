@@ -1,0 +1,1 @@
+import{h as o,i as n,j as c,c as r,o as u,a as p}from"./CyMIF2kX.js";const _=p("p",null,"Processing authentication...",-1),i=[_],d={__name:"callback",setup(l){return o(async()=>{const t=n(),{$auth:e}=c(),{getToken:s,loadUser:a}=e;return s()?t.push({path:"/"}):(await a(),t.push({path:"/"}))}),(t,e)=>(u(),r("div",null,i))}};export{d as default};
