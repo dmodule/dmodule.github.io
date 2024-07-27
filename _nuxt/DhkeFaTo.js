@@ -1,0 +1,1 @@
+import{h as o,i as n,j as c,c as r,o as u,a as p}from"./CK5d3MQh.js";const i=p("p",null,"Processing authentication...",-1),_=[i],d={__name:"callback",setup(h){return o(async()=>{const t=n(),{$auth:e}=c(),{getToken:s,mwVerify:a}=e;return s()?t.push({path:"/"}):(await a(),t.push({path:"/"}))}),(t,e)=>(u(),r("div",null,_))}};export{d as default};
