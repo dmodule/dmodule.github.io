@@ -1,1 +1,0 @@
-import{o as t,c as a,aF as n}from"./CK5d3MQh.js";const r={__name:"Simple",props:{bg:{type:String,default:"none"}},setup(e){return(l,o)=>(t(),a("div",{class:"absolute inset-0",style:n({background:e.bg})},null,4))}};export{r as default};

@@ -1,0 +1,1 @@
+import{g as n,j as s,c as a,T as r,o as c}from"./CIm_wXk-.js";const _=n({__name:"auth",setup(u){const{$auth:e}=s(),{getToken:t}=e;return t(),(o,l)=>(c(),a("div",null,[r(o.$slots,"default")]))}});export{_ as default};
