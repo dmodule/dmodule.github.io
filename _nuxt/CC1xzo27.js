@@ -1,1 +1,0 @@
-import{_ as a,o,c as r,aq as s}from"./CMgfjk2B.js";const t={};function c(e,n){return o(),r("div",{class:"absolute inset-0",style:s({"background-color":e.$attrs.bg,"background-image":e.$attrs.pic})},null,4)}const i=a(t,[["render",c]]);export{i as default};

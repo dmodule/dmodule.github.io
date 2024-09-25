@@ -1,1 +1,0 @@
-import{a0 as a,h as n,c as s,D as r,o as c}from"./CMgfjk2B.js";const _=a({__name:"auth",setup(u){const{$auth:e}=n(),{getToken:t}=e;return t(),(o,l)=>(c(),s("div",null,[r(o.$slots,"default")]))}});export{_ as default};
