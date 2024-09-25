@@ -1,0 +1,28 @@
+export const BarBasic = {
+	custom: { hue: '' },
+	design: {},
+	attrs: {},
+	categories: [
+		'South Korea',
+		'Canada',
+		'United Kingdom',
+		'Netherlands',
+		'Italy',
+		'France',
+		'Japan',
+		'United States',
+		'China',
+		'Germany',
+	],
+	series: [{ name: 'Product', data: [344, 355, 341, 167, 222, 443, 514, 725, 721, 510] }],
+	addon: {
+		type: 'bar',
+		height: '100%',
+		stroke: 'smooth',
+		strokeWidth: 1,
+		strokeDashes: 0,
+		markers: 0,
+		dark: true,
+		fillSolid: true,
+	},
+};
