@@ -1,0 +1,1 @@
+import{f as r,g as s,h as u}from"./B5KGO6qV.js";import"./Dgc4RXB8.js";const _={__name:"login",setup(a){return r(()=>{const t=s(),{$auth:o}=u(),{getToken:e,login:n}=o;if(e())return t.push({path:"/"});n()}),(t,o)=>null}};export{_ as default};
