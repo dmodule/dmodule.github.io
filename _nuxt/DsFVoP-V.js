@@ -1,1 +1,0 @@
-import{aH as s,aJ as n,bE as r,b1 as u,a$ as l,b3 as c}from"./D0HIuDqn.js";import{u as p}from"./DapDS86f.js";import"./CwKFrmWP.js";import"./BLVB0qGI.js";const b=s({__name:"auth",setup(i){const{token:t,login:e,setGoto:a}=p();return n(async()=>{if(console.log(!t),!t){const{path:o}=r();a(o),await e()}}),(o,m)=>(u(),l("div",null,[c(o.$slots,"default")]))}});export{b as default};
