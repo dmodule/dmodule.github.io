@@ -1,1 +1,0 @@
-import{_ as a,o,c as r,an as t}from"./B5KGO6qV.js";import"./Dgc4RXB8.js";const s={};function c(e,n){return o(),r("div",{class:"absolute inset-0",style:t({"background-color":e.$attrs.bg,"background-image":e.$attrs.pic})},null,4)}const m=a(s,[["render",c]]);export{m as default};

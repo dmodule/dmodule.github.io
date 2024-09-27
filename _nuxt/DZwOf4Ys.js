@@ -1,0 +1,1 @@
+import{aM as u,n as s,u as r}from"./DtJsQ1E2.js";const c={__name:"login",setup(a){return u(()=>{const t=s(),{$auth:n}=r(),{getToken:e,login:o}=n;if(e())return t.push({path:"/"});o()}),(t,n)=>null}};export{c as default};
