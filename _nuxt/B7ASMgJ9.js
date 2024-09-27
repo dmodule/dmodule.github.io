@@ -1,1 +1,0 @@
-import{aM as s,n as o,u as r,b2 as u,b3 as c,b4 as p}from"./DtJsQ1E2.js";const m={__name:"callback",setup(l){return s(async()=>{const e=o(),{$auth:t}=r(),{getToken:a,mwVerify:n}=t;return a()?e.push({path:"/"}):(await n(),e.push({path:"/"}))}),(e,t)=>(p(),u("div",null,t[0]||(t[0]=[c("p",null,"Processing authentication...",-1)])))}};export{m as default};

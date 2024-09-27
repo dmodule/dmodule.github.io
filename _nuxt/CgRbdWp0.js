@@ -1,0 +1,1 @@
+import{t as o,c as t,b as i,a as m}from"./BnaH1qzr.js";import{i as c}from"./XGDPLlJv.js";const x=s=>c(s)?[o[s.text],t[s.color],i[s.bg],m[s.anime]]:[],f=([s="lg",e="none",r="none",a="none"]=[])=>({text:s,color:e,bg:r,anime:a}),g=([s,e,r,a])=>({...s&&{src:s},...e&&{cap:e},...r&&{tip:r},...a&&{tag:a.split(",").map(n=>n.trim())}});export{x as c,g as e,f as o};
