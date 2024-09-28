@@ -1,1 +1,0 @@
-import{aJ as a,u,aL as r,bE as c,n as p,b3 as l,b1 as _,b5 as d}from"./Bsd2YIFp.js";const i=a({__name:"auth",setup(f){const{$auth:e}=u(),{token:o,setGoto:s}=e;return r(async()=>{if(!o){const{path:t}=c();return s(t),p().push({path:"/login"})}}),(t,n)=>(l(),_("div",null,[d(t.$slots,"default")]))}});export{i as default};
