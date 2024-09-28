@@ -1,0 +1,1 @@
+import{o,e}from"./D91HD0dF.js";import{e as p}from"./xgmqYhvG.js";const c=([t=[],s="",[a="/static/svg/light-2.svg"]=[]]=[])=>({opt:o(t),dat:s,ext:e([a])}),m=(t=[],s)=>({opt:o(t),dat:p()});export{m as d,c as p};
