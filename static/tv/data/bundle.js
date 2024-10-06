@@ -17425,7 +17425,27 @@ var mqtt = (() => {
 @jspm/core/nodelibs/browser/buffer.js:
   (*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> *)
 */
-var _finTP, _finSI;
+function gettoken() {
+	fetch('https://protrade.finsc.vn/api/sckt')
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('dddsds');
+			const token = data.tt;
+			const id = '1000049129';
+			const currentTime = new Date().getTime();
+			const updateTimestamp = Math.floor(currentTime / 1000);
+			localStorage.setItem('skdf', JSON.stringify({ tt: token, id: id, time: updateTimestamp }));
+		})
+		.catch((error) => {
+			console.log('Error fetching token:', error);
+		});
+}
+const last = JSON.parse(localStorage.getItem('skdf'));
+const now = new Date().getTime() / 1000;
+const eigthToday = new Date().setHours(8, 0, 0, 0) / 1000;
+if (!last || (now > eigthToday && last.time < eigthToday)) {
+	gettoken();
+}
 !(function (t, e) {
 	'object' == typeof exports && 'undefined' != typeof module
 		? e(exports)
@@ -17564,34 +17584,131 @@ var _finTP, _finSI;
 			? 'derivative'
 			: 'stock';
 	}
+	function babuocgia_css(price, basicPrice, ceilingPrice, floorPrice) {
+		return price === basicPrice
+			? ['bbg-tc']
+			: price === ceilingPrice
+			? ['bbg-ce']
+			: price === floorPrice
+			? ['bbg-fl']
+			: price > basicPrice
+			? ['bbg-t']
+			: ['bbg-g'];
+	}
 	l.on('error', function (t) {
 		l.end();
+		gettoken();
 	}),
 		l.on('reconnect', function () {}),
 		l.on('connect', function () {}),
 		l.on('close', function () {}),
 		l.on('message', function (t, e) {
 			const s = JSON.parse(e);
-			if ('OHLC' === t.split('/')[3]) {
-				let {
-					time: t,
-					open: e,
-					high: o,
-					low: n,
-					close: r,
-					volume: a,
-					symbol: l,
-					resolution: c,
-				} = s;
-				const h = `${u(l)}~${l}~${{ undefined: 1, HOUR1: '1H', DAY: '1D', W: '1W' }[c] || c}`,
-					d = i.get(h);
-				if (!d) return;
-				let p = { time: 1e3 * t, open: e, high: o, low: n, close: r, volume: a };
-				(d.lastDailyBar = p), d.handlers.forEach((t) => t.callback(p));
-			} else {
-				console.log('buf1', t.split('/')[3]);
-				if (t.split('/')[3] === 'TP') _finTP = s;
-				if (t.split('/')[3] === 'SI') _finSI = s;
+			const k = t.split('/')[3];
+
+			switch (k) {
+				case 'OHLC':
+					console.log('message', s, 'topic', k);
+					let {
+						time: t,
+						open: e,
+						high: o,
+						low: n,
+						close: r,
+						volume: a,
+						symbol: l,
+						resolution: c,
+					} = s;
+					const h = `${u(l)}~${l}~${{ undefined: 1, HOUR1: '1H', DAY: '1D', W: '1W' }[c] || c}`,
+						d = i.get(h);
+					if (!d) return;
+					let p = { time: 1e3 * t, open: e, high: o, low: n, close: r, volume: a };
+					(d.lastDailyBar = p), d.handlers.forEach((t) => t.callback(p));
+					break;
+				case 'TP':
+					console.log('message', s, 'topic', k);
+					window._finTP = s;
+					const tbcc = document.querySelectorAll('.tb_cungcau.tb_body tr');
+					if (0 === tbcc.length) return;
+					const prices = [
+							...(s.ask || [])
+								.slice(0, 3)
+								.map((ask) => ask.price)
+								.reverse(),
+							...(s.bid || []).slice(0, 3).map((bid) => bid.price),
+						],
+						qtty = [
+							...(s.ask || [])
+								.slice(0, 3)
+								.map((ask) => 10 * ask.qtty)
+								.reverse(),
+							...(s.bid || []).slice(0, 3).map((bid) => 10 * bid.qtty),
+						],
+						maxQtty = Math.max(...qtty, 10 * si.matchQtty),
+						basicPrice = parseFloat(si.basicPrice),
+						tradingsession = si.tradingSession;
+					tbcc.forEach((tr, index) => {
+						const spans = tr.querySelectorAll('span'),
+							volWidth = tr.querySelector('.klbar'),
+							stepPrice = tr.querySelector('.x1');
+						switch (index) {
+							case 3:
+								const isContinuous = 'ATO' !== tradingsession || 'ATC' !== tradingsession,
+									prK = parseFloat(isContinuous ? si.matchPrice : si.estimatedPrice),
+									qttyK = isContinuous ? parseFloat(10 * si.matchQtty) : 0,
+									changeK = isContinuous ? parseFloat(si.changed || 0) : prK - basicPrice,
+									changeRatioK = isContinuous
+										? parseFloat(si.changedRatio || 0)
+										: (changeK / basicPrice) * 100,
+									plusK = changeK >= 0 ? '+' : '';
+								(spans[0].textContent = prK.toFixed(2)),
+									(spans[1].textContent = isContinuous ? qttyK.toLocaleString('en-US') : ''),
+									(spans[2].textContent = 0 === changeK ? '' : `${plusK}${changeK.toFixed(2)}`),
+									(spans[3].textContent = `${plusK}${changeRatioK.toFixed(1)}%`),
+									(volWidth.style.width =
+										isContinuous && 0 !== maxQtty
+											? `${Math.min(100, (qttyK / maxQtty) * 100)}%`
+											: '0%');
+								const stepPriceCssK = babuocgia_css(
+									prK,
+									si.basicPrice,
+									si.ceilingPrice,
+									si.floorPrice
+								);
+								stepPrice.className = `khop text-bold x1 ${stepPriceCssK.join(' ')}`;
+								break;
+							default:
+								index = index > 3 ? index - 1 : index;
+								const pr = parseFloat(prices[index]),
+									qttyX = parseFloat(qtty[index]),
+									change = pr - basicPrice;
+								(spans[0].textContent = isNaN(pr)
+									? 'ATO' === tradingsession || 'ATC' === tradingsession
+										? tradingsession
+										: ''
+									: pr.toFixed(2)),
+									(spans[1].textContent = isNaN(qttyX) ? '' : qttyX.toLocaleString('en-US')),
+									(spans[2].textContent =
+										isNaN(pr) || 0 === change
+											? ''
+											: `${pr >= basicPrice ? '+' : ''}${change.toFixed(2)}`),
+									(spans[3].textContent = isNaN(pr)
+										? ''
+										: `${pr >= basicPrice ? '+' : ''}${((change / basicPrice) * 100).toFixed(1)}%`),
+									(volWidth.style.width = isNaN(qttyX) ? '0%' : `${(qttyX / maxQtty) * 100}%`);
+								const stepPriceCss = babuocgia_css(
+									pr,
+									si.basicPrice,
+									si.ceilingPrice,
+									si.floorPrice
+								);
+								isNaN(pr) || (stepPrice.className = `x1 ${stepPriceCss.join(' ')}`);
+						}
+					});
+					break;
+				case 'SI':
+					console.log('message', s, 'topic', k);
+					window._finSI = s;
 			}
 		});
 	class h {

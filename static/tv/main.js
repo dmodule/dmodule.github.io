@@ -195,33 +195,20 @@ function finscChart(idd) {
 			.activeChart()
 			.onSymbolChanged()
 			.subscribe(null, function (e) {
-				const sym = e.ticker;
+				sym = e.ticker;
+				symVar1 = e.ticker;
 				console.log(5555, sym);
+			});
+
+		widget
+			.activeChart()
+			.onDataLoaded()
+			.subscribe(null, function (e) {
+				window.symVar1 = sym;
 			});
 	});
 
 	window.frames[0].focus();
-}
-function gettoken() {
-	fetch('https://protrade.finsc.vn/api/sckt')
-		.then((response) => response.json())
-		.then((data) => {
-			const token = data.tt;
-			const id = '1000049129';
-			const currentTime = new Date().getTime();
-			const updateTimestamp = Math.floor(currentTime / 1000);
-			localStorage.setItem('skdf', JSON.stringify({ tt: token, id: id, time: updateTimestamp }));
-		})
-		.catch((error) => {
-			console.log('Error fetching token:', error);
-		});
-}
-
-const last = JSON.parse(localStorage.getItem('skdf'));
-const now = new Date().getTime() / 1000;
-const eigthToday = new Date().setHours(8, 0, 0, 0) / 1000;
-if (!last || (now > eigthToday && last.time < eigthToday)) {
-	gettoken();
 }
 
 window.addEventListener('DOMContentLoaded', finscChart('finsc_chart'), false);
