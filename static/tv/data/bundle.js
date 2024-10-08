@@ -96,7 +96,9 @@ var mqtt = (() => {
 		versions: () => Dl,
 	});
 	function bs(t) {
-		throw new Error('Node.js process ' + t + ' is not supported by JSPM core outside of Node.js');
+		throw new Error(
+			'Node.js process ' + t + ' is not supported by JSPM core outside of Node.js'
+		);
 	}
 	function Jg() {
 		!xr || !Yt || ((xr = !1), Yt.length ? (bt = Yt.concat(bt)) : (Di = -1), bt.length && Bl());
@@ -114,7 +116,8 @@ var mqtt = (() => {
 	}
 	function Pl(t) {
 		var e = new Array(arguments.length - 1);
-		if (arguments.length > 1) for (var r = 1; r < arguments.length; r++) e[r - 1] = arguments[r];
+		if (arguments.length > 1)
+			for (var r = 1; r < arguments.length; r++) e[r - 1] = arguments[r];
 		bt.push(new Ol(t, e)), bt.length === 1 && !xr && setTimeout(Bl, 0);
 	}
 	function Ol(t, e) {
@@ -390,7 +393,12 @@ var mqtt = (() => {
 		Hu();
 	});
 	var _e = {};
-	Qt(_e, { Buffer: () => x, INSPECT_MAX_BYTES: () => ty, default: () => Ut, kMaxLength: () => ry });
+	Qt(_e, {
+		Buffer: () => x,
+		INSPECT_MAX_BYTES: () => ty,
+		default: () => Ut,
+		kMaxLength: () => ry,
+	});
 	function Xg() {
 		if (Vu) return ui;
 		(Vu = !0), (ui.byteLength = a), (ui.toByteArray = c), (ui.fromByteArray = g);
@@ -443,7 +451,8 @@ var mqtt = (() => {
 					(C[R++] = w & 255);
 			return (
 				I === 2 &&
-					((w = (e[y.charCodeAt(N)] << 2) | (e[y.charCodeAt(N + 1)] >> 4)), (C[R++] = w & 255)),
+					((w = (e[y.charCodeAt(N)] << 2) | (e[y.charCodeAt(N + 1)] >> 4)),
+					(C[R++] = w & 255)),
 				I === 1 &&
 					((w =
 						(e[y.charCodeAt(N)] << 10) |
@@ -597,7 +606,9 @@ var mqtt = (() => {
 		function s(p, l, f) {
 			if (typeof p == 'number') {
 				if (typeof l == 'string')
-					throw new TypeError('The "string" argument must be of type string. Received type number');
+					throw new TypeError(
+						'The "string" argument must be of type string. Received type number'
+					);
 				return h(p);
 			}
 			return a(p, l, f);
@@ -692,8 +703,10 @@ var mqtt = (() => {
 			return g(p);
 		}
 		function w(p, l, f) {
-			if (l < 0 || p.byteLength < l) throw new RangeError('"offset" is outside of buffer bounds');
-			if (p.byteLength < l + (f || 0)) throw new RangeError('"length" is outside of buffer bounds');
+			if (l < 0 || p.byteLength < l)
+				throw new RangeError('"offset" is outside of buffer bounds');
+			if (p.byteLength < l + (f || 0))
+				throw new RangeError('"length" is outside of buffer bounds');
 			let b;
 			return (
 				l === void 0 && f === void 0
@@ -711,13 +724,16 @@ var mqtt = (() => {
 					f = o(l);
 				return f.length === 0 || p.copy(f, 0, 0, l), f;
 			}
-			if (p.length !== void 0) return typeof p.length != 'number' || ds(p.length) ? o(0) : g(p);
+			if (p.length !== void 0)
+				return typeof p.length != 'number' || ds(p.length) ? o(0) : g(p);
 			if (p.type === 'Buffer' && Array.isArray(p.data)) return g(p.data);
 		}
 		function S(p) {
 			if (p >= i)
 				throw new RangeError(
-					'Attempt to allocate Buffer larger than maximum size: 0x' + i.toString(16) + ' bytes'
+					'Attempt to allocate Buffer larger than maximum size: 0x' +
+						i.toString(16) +
+						' bytes'
 				);
 			return p | 0;
 		}
@@ -765,7 +781,8 @@ var mqtt = (() => {
 				}
 			}),
 			(s.concat = function (l, f) {
-				if (!Array.isArray(l)) throw new TypeError('"list" argument must be an Array of Buffers');
+				if (!Array.isArray(l))
+					throw new TypeError('"list" argument must be an Array of Buffers');
 				if (l.length === 0) return s.alloc(0);
 				let b;
 				if (f === void 0) for (f = 0, b = 0; b < l.length; ++b) f += l[b].length;
@@ -873,12 +890,19 @@ var mqtt = (() => {
 				let l = this.length;
 				if (l % 8 !== 0) throw new RangeError('Buffer size must be a multiple of 64-bits');
 				for (let f = 0; f < l; f += 8)
-					U(this, f, f + 7), U(this, f + 1, f + 6), U(this, f + 2, f + 5), U(this, f + 3, f + 4);
+					U(this, f, f + 7),
+						U(this, f + 1, f + 6),
+						U(this, f + 2, f + 5),
+						U(this, f + 3, f + 4);
 				return this;
 			}),
 			(s.prototype.toString = function () {
 				let l = this.length;
-				return l === 0 ? '' : arguments.length === 0 ? Cr(this, 0, l) : R.apply(this, arguments);
+				return l === 0
+					? ''
+					: arguments.length === 0
+					? Cr(this, 0, l)
+					: R.apply(this, arguments);
 			}),
 			(s.prototype.toLocaleString = s.prototype.toString),
 			(s.prototype.equals = function (l) {
@@ -1032,12 +1056,17 @@ var mqtt = (() => {
 			else if (b === void 0 && typeof f == 'string') (A = f), (b = this.length), (f = 0);
 			else if (isFinite(f))
 				(f = f >>> 0),
-					isFinite(b) ? ((b = b >>> 0), A === void 0 && (A = 'utf8')) : ((A = b), (b = void 0));
+					isFinite(b)
+						? ((b = b >>> 0), A === void 0 && (A = 'utf8'))
+						: ((A = b), (b = void 0));
 			else
-				throw new Error('Buffer.write(string, encoding, offset[, length]) is no longer supported');
+				throw new Error(
+					'Buffer.write(string, encoding, offset[, length]) is no longer supported'
+				);
 			let T = this.length - f;
 			if (
-				((b === void 0 || b > T) && (b = T), (l.length > 0 && (b < 0 || f < 0)) || f > this.length)
+				((b === void 0 || b > T) && (b = T),
+				(l.length > 0 && (b < 0 || f < 0)) || f > this.length)
 			)
 				throw new RangeError('Attempt to write outside buffer bounds');
 			A || (A = 'utf8');
@@ -1087,7 +1116,8 @@ var mqtt = (() => {
 							break;
 						case 2:
 							(se = p[A + 1]),
-								(se & 192) === 128 && ((J = ((T & 31) << 6) | (se & 63)), J > 127 && (O = J));
+								(se & 192) === 128 &&
+									((J = ((T & 31) << 6) | (se & 63)), J > 127 && (O = J));
 							break;
 						case 3:
 							(se = p[A + 1]),
@@ -1104,7 +1134,11 @@ var mqtt = (() => {
 								(se & 192) === 128 &&
 									(te & 192) === 128 &&
 									(oe & 192) === 128 &&
-									((J = ((T & 15) << 18) | ((se & 63) << 12) | ((te & 63) << 6) | (oe & 63)),
+									((J =
+										((T & 15) << 18) |
+										((se & 63) << 12) |
+										((te & 63) << 6) |
+										(oe & 63)),
 									J > 65535 && J < 1114112 && (O = J));
 					}
 				}
@@ -1148,7 +1182,8 @@ var mqtt = (() => {
 		function Dg(p, l, f) {
 			let b = p.slice(l, f),
 				A = '';
-			for (let T = 0; T < b.length - 1; T += 2) A += String.fromCharCode(b[T] + b[T + 1] * 256);
+			for (let T = 0; T < b.length - 1; T += 2)
+				A += String.fromCharCode(b[T] + b[T + 1] * 256);
 			return A;
 		}
 		s.prototype.slice = function (l, f) {
@@ -1199,7 +1234,8 @@ var mqtt = (() => {
 					return (
 						(l = l >>> 0),
 						f || ge(l, 4, this.length),
-						(this[l] | (this[l + 1] << 8) | (this[l + 2] << 16)) + this[l + 3] * 16777216
+						(this[l] | (this[l + 1] << 8) | (this[l + 2] << 16)) +
+							this[l + 3] * 16777216
 					);
 				}),
 			(s.prototype.readUint32BE = s.prototype.readUInt32BE =
@@ -1207,7 +1243,8 @@ var mqtt = (() => {
 					return (
 						(l = l >>> 0),
 						f || ge(l, 4, this.length),
-						this[l] * 16777216 + ((this[l + 1] << 16) | (this[l + 2] << 8) | this[l + 3])
+						this[l] * 16777216 +
+							((this[l + 1] << 16) | (this[l + 2] << 8) | this[l + 3])
 					);
 				}),
 			(s.prototype.readBigUInt64LE = Mt(function (l) {
@@ -1333,13 +1370,18 @@ var mqtt = (() => {
 					}
 					let T = b - 1,
 						O = 1;
-					for (this[f + T] = l & 255; --T >= 0 && (O *= 256); ) this[f + T] = (l / O) & 255;
+					for (this[f + T] = l & 255; --T >= 0 && (O *= 256); )
+						this[f + T] = (l / O) & 255;
 					return f + b;
 				}),
 			(s.prototype.writeUint8 = s.prototype.writeUInt8 =
 				function (l, f, b) {
 					return (
-						(l = +l), (f = f >>> 0), b || Ce(this, l, f, 1, 255, 0), (this[f] = l & 255), f + 1
+						(l = +l),
+						(f = f >>> 0),
+						b || Ce(this, l, f, 1, 255, 0),
+						(this[f] = l & 255),
+						f + 1
 					);
 				}),
 			(s.prototype.writeUint16LE = s.prototype.writeUInt16LE =
@@ -1563,7 +1605,8 @@ var mqtt = (() => {
 				if (f < 0) throw new RangeError('targetStart out of bounds');
 				if (b < 0 || b >= this.length) throw new RangeError('Index out of range');
 				if (A < 0) throw new RangeError('sourceEnd out of bounds');
-				A > this.length && (A = this.length), l.length - f < A - b && (A = l.length - f + b);
+				A > this.length && (A = this.length),
+					l.length - f < A - b && (A = l.length - f + b);
 				let T = A - b;
 				return (
 					this === l && typeof Uint8Array.prototype.copyWithin == 'function'
@@ -1587,8 +1630,10 @@ var mqtt = (() => {
 						let O = l.charCodeAt(0);
 						((A === 'utf8' && O < 128) || A === 'latin1') && (l = O);
 					}
-				} else typeof l == 'number' ? (l = l & 255) : typeof l == 'boolean' && (l = Number(l));
-				if (f < 0 || this.length < f || this.length < b) throw new RangeError('Out of range index');
+				} else
+					typeof l == 'number' ? (l = l & 255) : typeof l == 'boolean' && (l = Number(l));
+				if (f < 0 || this.length < f || this.length < b)
+					throw new RangeError('Out of range index');
 				if (b <= f) return this;
 				(f = f >>> 0), (b = b === void 0 ? this.length : b >>> 0), l || (l = 0);
 				let T;
@@ -1596,7 +1641,10 @@ var mqtt = (() => {
 				else {
 					let O = s.isBuffer(l) ? l : s.from(l, A),
 						$ = O.length;
-					if ($ === 0) throw new TypeError('The value "' + l + '" is invalid for argument "value"');
+					if ($ === 0)
+						throw new TypeError(
+							'The value "' + l + '" is invalid for argument "value"'
+						);
 					for (T = 0; T < b - f; ++T) this[T + f] = O[T % $];
 				}
 				return this;
@@ -1657,7 +1705,8 @@ var mqtt = (() => {
 							? (A = Tl(String(f)))
 							: typeof f == 'bigint' &&
 							  ((A = String(f)),
-							  (f > BigInt(2) ** BigInt(32) || f < -(BigInt(2) ** BigInt(32))) && (A = Tl(A)),
+							  (f > BigInt(2) ** BigInt(32) || f < -(BigInt(2) ** BigInt(32))) &&
+									(A = Tl(A)),
 							  (A += 'n')),
 						(b += ` It must be ${l}. Received ${A}`),
 						b
@@ -1683,7 +1732,9 @@ var mqtt = (() => {
 					(T > 3
 						? l === 0 || l === BigInt(0)
 							? ($ = `>= 0${O} and < 2${O} ** ${(T + 1) * 8}${O}`)
-							: ($ = `>= -(2${O} ** ${(T + 1) * 8 - 1}${O}) and < 2 ** ${(T + 1) * 8 - 1}${O}`)
+							: ($ = `>= -(2${O} ** ${(T + 1) * 8 - 1}${O}) and < 2 ** ${
+									(T + 1) * 8 - 1
+							  }${O}`)
 						: ($ = `>= ${l}${O} and <= ${f}${O}`),
 					new Or.ERR_OUT_OF_RANGE('value', $, p))
 				);
@@ -1742,7 +1793,12 @@ var mqtt = (() => {
 					T.push((f >> 12) | 224, ((f >> 6) & 63) | 128, (f & 63) | 128);
 				} else if (f < 1114112) {
 					if ((l -= 4) < 0) break;
-					T.push((f >> 18) | 240, ((f >> 12) & 63) | 128, ((f >> 6) & 63) | 128, (f & 63) | 128);
+					T.push(
+						(f >> 18) | 240,
+						((f >> 12) & 63) | 128,
+						((f >> 6) & 63) | 128,
+						(f & 63) | 128
+					);
 				} else throw new Error('Invalid code point');
 			}
 			return T;
@@ -1838,7 +1894,9 @@ var mqtt = (() => {
 			put(e, r) {
 				return r === 0 || r > this.max
 					? !1
-					: ((this.aliasToTopic[r] = e), (this.length = Object.keys(this.aliasToTopic).length), !0);
+					: ((this.aliasToTopic[r] = e),
+					  (this.length = Object.keys(this.aliasToTopic).length),
+					  !0);
 			}
 			getTopicByAlias(e) {
 				return this.aliasToTopic[e];
@@ -2168,7 +2226,11 @@ var mqtt = (() => {
 							? n.push(u.toLowerCase())
 							: hy.test(u)
 							? o.push(u)
-							: (Xt(u !== 'object', 'The value "object" should be written as "Object"'), s.push(u));
+							: (Xt(
+									u !== 'object',
+									'The value "object" should be written as "Object"'
+							  ),
+							  s.push(u));
 				if (o.length > 0) {
 					let u = n.indexOf('object');
 					u !== -1 && (n.splice(n, u, 1), o.push('Object'));
@@ -2292,7 +2354,9 @@ var mqtt = (() => {
 					Number.isInteger(r) && Math.abs(r) > 2 ** 32
 						? (i = Xu(String(r)))
 						: typeof r == 'bigint'
-						? ((i = String(r)), (r > 2n ** 32n || r < -(2n ** 32n)) && (i = Xu(i)), (i += 'n'))
+						? ((i = String(r)),
+						  (r > 2n ** 32n || r < -(2n ** 32n)) && (i = Xu(i)),
+						  (i += 'n'))
 						: (i = Vi(r)),
 					`The value of "${t}" is out of range. It must be ${e}. Received ${i}`
 				);
@@ -2591,7 +2655,9 @@ var mqtt = (() => {
 			er,
 			Ki = -1;
 		function eb() {
-			!Lr || !er || ((Lr = !1), er.length ? (_t = er.concat(_t)) : (Ki = -1), _t.length && hf());
+			!Lr ||
+				!er ||
+				((Lr = !1), er.length ? (_t = er.concat(_t)) : (Ki = -1), _t.length && hf());
 		}
 		function hf() {
 			if (!Lr) {
@@ -2606,7 +2672,8 @@ var mqtt = (() => {
 		}
 		ae.nextTick = function (t) {
 			var e = new Array(arguments.length - 1);
-			if (arguments.length > 1) for (var r = 1; r < arguments.length; r++) e[r - 1] = arguments[r];
+			if (arguments.length > 1)
+				for (var r = 1; r < arguments.length; r++) e[r - 1] = arguments[r];
 			_t.push(new df(t, e)), _t.length === 1 && !Lr && cf(hf);
 		};
 		function df(t, e) {
@@ -2667,7 +2734,8 @@ var mqtt = (() => {
 				typeof t.on == 'function' &&
 				(!e || (typeof t.pause == 'function' && typeof t.resume == 'function')) &&
 				(!t._writableState ||
-					((r = t._readableState) === null || r === void 0 ? void 0 : r.readable) !== !1) &&
+					((r = t._readableState) === null || r === void 0 ? void 0 : r.readable) !==
+						!1) &&
 				(!t._writableState || t._readableState)
 			);
 		}
@@ -2709,10 +2777,20 @@ var mqtt = (() => {
 			);
 		}
 		function Ef(t) {
-			return !!(t && !et(t) && typeof t.getWriter == 'function' && typeof t.abort == 'function');
+			return !!(
+				t &&
+				!et(t) &&
+				typeof t.getWriter == 'function' &&
+				typeof t.abort == 'function'
+			);
 		}
 		function Sf(t) {
-			return !!(t && !et(t) && typeof t.readable == 'object' && typeof t.writable == 'object');
+			return !!(
+				t &&
+				!et(t) &&
+				typeof t.readable == 'object' &&
+				typeof t.writable == 'object'
+			);
 		}
 		function nb(t) {
 			return vf(t) || Ef(t) || Sf(t);
@@ -2774,7 +2852,11 @@ var mqtt = (() => {
 				: Qi(t) && t.readable && !If(t);
 		}
 		function Rf(t) {
-			return typeof t?.writable != 'boolean' ? null : Ji(t) ? !1 : Yi(t) && t.writable && !Af(t);
+			return typeof t?.writable != 'boolean'
+				? null
+				: Ji(t)
+				? !1
+				: Yi(t) && t.writable && !Af(t);
 		}
 		function lb(t, e) {
 			return et(t)
@@ -2788,8 +2870,8 @@ var mqtt = (() => {
 			return et(t)
 				? t.writableErrored
 					? t.writableErrored
-					: (e = (r = t._writableState) === null || r === void 0 ? void 0 : r.errored) !== null &&
-					  e !== void 0
+					: (e = (r = t._writableState) === null || r === void 0 ? void 0 : r.errored) !==
+							null && e !== void 0
 					? e
 					: null
 				: null;
@@ -2799,8 +2881,8 @@ var mqtt = (() => {
 			return et(t)
 				? t.readableErrored
 					? t.readableErrored
-					: (e = (r = t._readableState) === null || r === void 0 ? void 0 : r.errored) !== null &&
-					  e !== void 0
+					: (e = (r = t._readableState) === null || r === void 0 ? void 0 : r.errored) !==
+							null && e !== void 0
 					? e
 					: null
 				: null;
@@ -2845,7 +2927,8 @@ var mqtt = (() => {
 		function pb(t) {
 			var e;
 			return !!(
-				t && ((e = t[mf]) !== null && e !== void 0 ? e : t.readableDidRead || t.readableAborted)
+				t &&
+				((e = t[mf]) !== null && e !== void 0 ? e : t.readableDidRead || t.readableAborted)
 			);
 		}
 		function gb(t) {
@@ -2856,8 +2939,10 @@ var mqtt = (() => {
 					(r =
 						(i =
 							(n =
-								(o = (s = t[_f]) !== null && s !== void 0 ? s : t.readableErrored) !== null &&
-								o !== void 0
+								(o =
+									(s = t[_f]) !== null && s !== void 0
+										? s
+										: t.readableErrored) !== null && o !== void 0
 									? o
 									: t.writableErrored) !== null && n !== void 0
 								? n
@@ -2948,7 +3033,11 @@ var mqtt = (() => {
 		function jf(t, e, r) {
 			var i, n;
 			if (
-				(arguments.length === 2 ? ((r = e), (e = ks)) : e == null ? (e = ks) : mb(e, 'options'),
+				(arguments.length === 2
+					? ((r = e), (e = ks))
+					: e == null
+					? (e = ks)
+					: mb(e, 'options'),
 				_b(r, 'callback'),
 				wb(e.signal, 'options.signal'),
 				(r = xs(r)),
@@ -2966,11 +3055,15 @@ var mqtt = (() => {
 				h = Cb(t) && Os(t) === o && Uf(t) === s,
 				d = Nf(t, !1),
 				g = () => {
-					(d = !0), t.destroyed && (h = !1), !(h && (!t.readable || o)) && (!o || y) && r.call(t);
+					(d = !0),
+						t.destroyed && (h = !1),
+						!(h && (!t.readable || o)) && (!o || y) && r.call(t);
 				},
 				y = xf(t, !1),
 				w = () => {
-					(y = !0), t.destroyed && (h = !1), !(h && (!t.writable || s)) && (!s || d) && r.call(t);
+					(y = !0),
+						t.destroyed && (h = !1),
+						!(h && (!t.writable || s)) && (!s || d) && r.call(t);
 				},
 				E = (N) => {
 					r.call(t, N);
@@ -3252,7 +3345,13 @@ var mqtt = (() => {
 					: rt.nextTick(Kf, t),
 				t.destroyed || (t[Ub] = !0));
 		}
-		Gf.exports = { construct: $b, destroyer: Kb, destroy: jb, undestroy: Wb, errorOrDestroy: qs };
+		Gf.exports = {
+			construct: $b,
+			destroyer: Kb,
+			destroy: jb,
+			undestroy: Wb,
+			errorOrDestroy: qs,
+		};
 	});
 	function Y() {
 		Y.init.call(this);
@@ -3279,7 +3378,11 @@ var mqtt = (() => {
 		)
 			(s = o[e] = r), ++t._eventsCount;
 		else if (
-			(typeof s == 'function' ? (s = o[e] = i ? [r, s] : [s, r]) : i ? s.unshift(r) : s.push(r),
+			(typeof s == 'function'
+				? (s = o[e] = i ? [r, s] : [s, r])
+				: i
+				? s.unshift(r)
+				: s.push(r),
 			(n = nc(t)) > 0 && s.length > n && !s.warned)
 		) {
 			s.warned = !0;
@@ -3326,7 +3429,8 @@ var mqtt = (() => {
 				: [n]
 			: r
 			? (function (o) {
-					for (var s = new Array(o.length), a = 0; a < s.length; ++a) s[a] = o[a].listener || o[a];
+					for (var s = new Array(o.length), a = 0; a < s.length; ++a)
+						s[a] = o[a].listener || o[a];
 					return s;
 			  })(n)
 			: sc(n, n.length);
@@ -3367,7 +3471,9 @@ var mqtt = (() => {
 					? Ur.ownKeys
 					: Object.getOwnPropertySymbols
 					? function (t) {
-							return Object.getOwnPropertyNames(t).concat(Object.getOwnPropertySymbols(t));
+							return Object.getOwnPropertyNames(t).concat(
+								Object.getOwnPropertySymbols(t)
+							);
 					  }
 					: function (t) {
 							return Object.getOwnPropertyNames(t);
@@ -3399,7 +3505,8 @@ var mqtt = (() => {
 				},
 			}),
 				(Y.init = function () {
-					(this._events !== void 0 && this._events !== Object.getPrototypeOf(this)._events) ||
+					(this._events !== void 0 &&
+						this._events !== Object.getPrototypeOf(this)._events) ||
 						((this._events = Object.create(null)), (this._eventsCount = 0)),
 						(this._maxListeners = this._maxListeners || void 0);
 				}),
@@ -3457,7 +3564,8 @@ var mqtt = (() => {
 					if (r === e || r.listener === e)
 						--this._eventsCount == 0
 							? (this._events = Object.create(null))
-							: (delete i[t], i.removeListener && this.emit('removeListener', t, r.listener || e));
+							: (delete i[t],
+							  i.removeListener && this.emit('removeListener', t, r.listener || e));
 					else if (typeof r != 'function') {
 						for (n = -1, o = r.length - 1; o >= 0; o--)
 							if (r[o] === e || r[o].listener === e) {
@@ -3485,7 +3593,9 @@ var mqtt = (() => {
 							arguments.length === 0
 								? ((this._events = Object.create(null)), (this._eventsCount = 0))
 								: r[t] !== void 0 &&
-								  (--this._eventsCount == 0 ? (this._events = Object.create(null)) : delete r[t]),
+								  (--this._eventsCount == 0
+										? (this._events = Object.create(null))
+										: delete r[t]),
 							this
 						);
 					if (arguments.length === 0) {
@@ -3501,7 +3611,8 @@ var mqtt = (() => {
 						);
 					}
 					if (typeof (e = r[t]) == 'function') this.removeListener(t, e);
-					else if (e !== void 0) for (i = e.length - 1; i >= 0; i--) this.removeListener(t, e[i]);
+					else if (e !== void 0)
+						for (i = e.length - 1; i >= 0; i--) this.removeListener(t, e[i]);
 					return this;
 				}),
 				(Y.prototype.listeners = function (t) {
@@ -3511,7 +3622,9 @@ var mqtt = (() => {
 					return ec(this, t, !1);
 				}),
 				(Y.listenerCount = function (t, e) {
-					return typeof t.listenerCount == 'function' ? t.listenerCount(e) : tc.call(t, e);
+					return typeof t.listenerCount == 'function'
+						? t.listenerCount(e)
+						: tc.call(t, e);
 				}),
 				(Y.prototype.listenerCount = tc),
 				(Y.prototype.eventNames = function () {
@@ -3633,7 +3746,8 @@ var mqtt = (() => {
 			function n() {
 				r.readable && r.resume && r.resume();
 			}
-			t.on('drain', n), !t._isStdio && (!e || e.end !== !1) && (r.on('end', s), r.on('close', a));
+			t.on('drain', n),
+				!t._isStdio && (!e || e.end !== !1) && (r.on('end', s), r.on('close', a));
 			let o = !1;
 			function s() {
 				o || ((o = !0), t.end());
@@ -3697,7 +3811,8 @@ var mqtt = (() => {
 			return (
 				t.aborted
 					? r()
-					: (t.addEventListener('abort', r), sw(e, () => t.removeEventListener('abort', r))),
+					: (t.addEventListener('abort', r),
+					  sw(e, () => t.removeEventListener('abort', r))),
 				e
 			);
 		};
@@ -3721,7 +3836,9 @@ var mqtt = (() => {
 			}
 			push(e) {
 				let r = { data: e, next: null };
-				this.length > 0 ? (this.tail.next = r) : (this.head = r), (this.tail = r), ++this.length;
+				this.length > 0 ? (this.tail.next = r) : (this.head = r),
+					(this.tail = r),
+					++this.length;
 			}
 			unshift(e) {
 				let r = { data: e, next: this.head };
@@ -3731,7 +3848,9 @@ var mqtt = (() => {
 				if (this.length === 0) return;
 				let e = this.head.data;
 				return (
-					this.length === 1 ? (this.head = this.tail = null) : (this.head = this.head.next),
+					this.length === 1
+						? (this.head = this.tail = null)
+						: (this.head = this.head.next),
 					--this.length,
 					e
 				);
@@ -3777,7 +3896,9 @@ var mqtt = (() => {
 					if (e > o.length) (r += o), (e -= o.length);
 					else {
 						e === o.length
-							? ((r += o), ++n, i.next ? (this.head = i.next) : (this.head = this.tail = null))
+							? ((r += o),
+							  ++n,
+							  i.next ? (this.head = i.next) : (this.head = this.tail = null))
 							: ((r += cc(o, 0, e)), (this.head = i), (i.data = cc(o, e)));
 						break;
 					}
@@ -3847,18 +3968,23 @@ var mqtt = (() => {
 	function gw(t, e, r) {
 		for (var i, n, o = [], s = e; s < r; s += 3)
 			(i = ((t[s] << 16) & 16711680) + ((t[s + 1] << 8) & 65280) + (255 & t[s + 2])),
-				o.push($e[((n = i) >> 18) & 63] + $e[(n >> 12) & 63] + $e[(n >> 6) & 63] + $e[63 & n]);
+				o.push(
+					$e[((n = i) >> 18) & 63] + $e[(n >> 12) & 63] + $e[(n >> 6) & 63] + $e[63 & n]
+				);
 		return o.join('');
 	}
 	function Et(t) {
-		if (t > 2147483647) throw new RangeError('The value "' + t + '" is invalid for option "size"');
+		if (t > 2147483647)
+			throw new RangeError('The value "' + t + '" is invalid for option "size"');
 		var e = new Uint8Array(t);
 		return Object.setPrototypeOf(e, k.prototype), e;
 	}
 	function k(t, e, r) {
 		if (typeof t == 'number') {
 			if (typeof e == 'string')
-				throw new TypeError('The "string" argument must be of type string. Received type number');
+				throw new TypeError(
+					'The "string" argument must be of type string. Received type number'
+				);
 			return Vs(t);
 		}
 		return Cc(t, e, r);
@@ -3887,7 +4013,9 @@ var mqtt = (() => {
 		)
 			return mc(t, e, r);
 		if (typeof t == 'number')
-			throw new TypeError('The "value" argument must not be of type number. Received type number');
+			throw new TypeError(
+				'The "value" argument must not be of type number. Received type number'
+			);
 		var i = t.valueOf && t.valueOf();
 		if (i != null && i !== t) return k.from(i, e, r);
 		var n = (function (o) {
@@ -3896,7 +4024,8 @@ var mqtt = (() => {
 					a = Et(s);
 				return a.length === 0 || o.copy(a, 0, 0, s), a;
 			}
-			if (o.length !== void 0) return typeof o.length != 'number' || Qs(o.length) ? Et(0) : Ws(o);
+			if (o.length !== void 0)
+				return typeof o.length != 'number' || Qs(o.length) ? Et(0) : Ws(o);
 			if (o.type === 'Buffer' && Array.isArray(o.data)) return Ws(o.data);
 		})(t);
 		if (n) return n;
@@ -3925,7 +4054,8 @@ var mqtt = (() => {
 	}
 	function mc(t, e, r) {
 		if (e < 0 || t.byteLength < e) throw new RangeError('"offset" is outside of buffer bounds');
-		if (t.byteLength < e + (r || 0)) throw new RangeError('"length" is outside of buffer bounds');
+		if (t.byteLength < e + (r || 0))
+			throw new RangeError('"length" is outside of buffer bounds');
 		var i;
 		return (
 			(i =
@@ -4148,7 +4278,9 @@ var mqtt = (() => {
 						c < 128 && (h = c);
 						break;
 					case 2:
-						(192 & (o = t[n + 1])) == 128 && (u = ((31 & c) << 6) | (63 & o)) > 127 && (h = u);
+						(192 & (o = t[n + 1])) == 128 &&
+							(u = ((31 & c) << 6) | (63 & o)) > 127 &&
+							(h = u);
 						break;
 					case 3:
 						(o = t[n + 1]),
@@ -4166,7 +4298,11 @@ var mqtt = (() => {
 							(192 & o) == 128 &&
 								(192 & s) == 128 &&
 								(192 & a) == 128 &&
-								(u = ((15 & c) << 18) | ((63 & o) << 12) | ((63 & s) << 6) | (63 & a)) > 65535 &&
+								(u =
+									((15 & c) << 18) |
+									((63 & o) << 12) |
+									((63 & s) << 6) |
+									(63 & a)) > 65535 &&
 								u < 1114112 &&
 								(h = u);
 				}
@@ -4262,7 +4398,12 @@ var mqtt = (() => {
 			} else {
 				if (!(r < 1114112)) throw new Error('Invalid code point');
 				if ((e -= 4) < 0) break;
-				o.push((r >> 18) | 240, ((r >> 12) & 63) | 128, ((r >> 6) & 63) | 128, (63 & r) | 128);
+				o.push(
+					(r >> 18) | 240,
+					((r >> 12) & 63) | 128,
+					((r >> 6) & 63) | 128,
+					(63 & r) | 128
+				);
 			}
 		}
 		return o;
@@ -4498,14 +4639,20 @@ var mqtt = (() => {
 						);
 					},
 					fromByteArray: function (t) {
-						for (var e, r = t.length, i = r % 3, n = [], o = 0, s = r - i; o < s; o += 16383)
+						for (
+							var e, r = t.length, i = r % 3, n = [], o = 0, s = r - i;
+							o < s;
+							o += 16383
+						)
 							n.push(gw(t, o, o + 16383 > s ? s : o + 16383));
 						return (
 							i === 1
 								? ((e = t[r - 1]), n.push($e[e >> 2] + $e[(e << 4) & 63] + '=='))
 								: i === 2 &&
 								  ((e = (t[r - 2] << 8) + t[r - 1]),
-								  n.push($e[e >> 10] + $e[(e >> 4) & 63] + $e[(e << 2) & 63] + '=')),
+								  n.push(
+										$e[e >> 10] + $e[(e >> 4) & 63] + $e[(e << 2) & 63] + '='
+								  )),
 							n.join('')
 						);
 					},
@@ -4566,7 +4713,8 @@ var mqtt = (() => {
 								? ((a = isNaN(e) ? 1 : 0), (s = h))
 								: ((s = Math.floor(Math.log(e) / Math.LN2)),
 								  e * (u = Math.pow(2, -s)) < 1 && (s--, (u *= 2)),
-								  (e += s + d >= 1 ? g / u : g * Math.pow(2, 1 - d)) * u >= 2 && (s++, (u /= 2)),
+								  (e += s + d >= 1 ? g / u : g * Math.pow(2, 1 - d)) * u >= 2 &&
+										(s++, (u /= 2)),
 								  s + d >= h
 										? ((a = 0), (s = h))
 										: s + d >= 1
@@ -4575,7 +4723,11 @@ var mqtt = (() => {
 						n >= 8;
 						t[r + y] = 255 & a, y += w, a /= 256, n -= 8
 					);
-					for (s = (s << n) | a, c += n; c > 0; t[r + y] = 255 & s, y += w, s /= 256, c -= 8);
+					for (
+						s = (s << n) | a, c += n;
+						c > 0;
+						t[r + y] = 255 & s, y += w, s /= 256, c -= 8
+					);
 					t[r + y - w] |= 128 * E;
 				},
 			}),
@@ -4692,7 +4844,8 @@ var mqtt = (() => {
 					}
 				}),
 				(k.concat = function (t, e) {
-					if (!Array.isArray(t)) throw new TypeError('"list" argument must be an Array of Buffers');
+					if (!Array.isArray(t))
+						throw new TypeError('"list" argument must be an Array of Buffers');
 					if (t.length === 0) return k.alloc(0);
 					var r;
 					if (e === void 0) for (e = 0, r = 0; r < t.length; ++r) e += t[r].length;
@@ -4710,19 +4863,22 @@ var mqtt = (() => {
 				(k.prototype._isBuffer = !0),
 				(k.prototype.swap16 = function () {
 					var t = this.length;
-					if (t % 2 != 0) throw new RangeError('Buffer size must be a multiple of 16-bits');
+					if (t % 2 != 0)
+						throw new RangeError('Buffer size must be a multiple of 16-bits');
 					for (var e = 0; e < t; e += 2) sr(this, e, e + 1);
 					return this;
 				}),
 				(k.prototype.swap32 = function () {
 					var t = this.length;
-					if (t % 4 != 0) throw new RangeError('Buffer size must be a multiple of 32-bits');
+					if (t % 4 != 0)
+						throw new RangeError('Buffer size must be a multiple of 32-bits');
 					for (var e = 0; e < t; e += 4) sr(this, e, e + 3), sr(this, e + 1, e + 2);
 					return this;
 				}),
 				(k.prototype.swap64 = function () {
 					var t = this.length;
-					if (t % 8 != 0) throw new RangeError('Buffer size must be a multiple of 64-bits');
+					if (t % 8 != 0)
+						throw new RangeError('Buffer size must be a multiple of 64-bits');
 					for (var e = 0; e < t; e += 8)
 						sr(this, e, e + 7),
 							sr(this, e + 1, e + 6),
@@ -4732,7 +4888,11 @@ var mqtt = (() => {
 				}),
 				(k.prototype.toString = function () {
 					var t = this.length;
-					return t === 0 ? '' : arguments.length === 0 ? kc(this, 0, t) : bw.apply(this, arguments);
+					return t === 0
+						? ''
+						: arguments.length === 0
+						? kc(this, 0, t)
+						: bw.apply(this, arguments);
 				}),
 				(k.prototype.toLocaleString = k.prototype.toString),
 				(k.prototype.equals = function (t) {
@@ -4752,7 +4912,10 @@ var mqtt = (() => {
 				}),
 				_c && (k.prototype[_c] = k.prototype.inspect),
 				(k.prototype.compare = function (t, e, r, i, n) {
-					if ((St(t, Uint8Array) && (t = k.from(t, t.offset, t.byteLength)), !k.isBuffer(t)))
+					if (
+						(St(t, Uint8Array) && (t = k.from(t, t.offset, t.byteLength)),
+						!k.isBuffer(t))
+					)
 						throw new TypeError(
 							'The "target" argument must be one of type Buffer or Uint8Array. Received type ' +
 								typeof t
@@ -4796,14 +4959,17 @@ var mqtt = (() => {
 				}),
 				(k.prototype.write = function (t, e, r, i) {
 					if (e === void 0) (i = 'utf8'), (r = this.length), (e = 0);
-					else if (r === void 0 && typeof e == 'string') (i = e), (r = this.length), (e = 0);
+					else if (r === void 0 && typeof e == 'string')
+						(i = e), (r = this.length), (e = 0);
 					else {
 						if (!isFinite(e))
 							throw new Error(
 								'Buffer.write(string, encoding, offset[, length]) is no longer supported'
 							);
 						(e >>>= 0),
-							isFinite(r) ? ((r >>>= 0), i === void 0 && (i = 'utf8')) : ((i = r), (r = void 0));
+							isFinite(r)
+								? ((r >>>= 0), i === void 0 && (i = 'utf8'))
+								: ((i = r), (r = void 0));
 					}
 					var n = this.length - e;
 					if (
@@ -4837,7 +5003,10 @@ var mqtt = (() => {
 						}
 				}),
 				(k.prototype.toJSON = function () {
-					return { type: 'Buffer', data: Array.prototype.slice.call(this._arr || this, 0) };
+					return {
+						type: 'Buffer',
+						data: Array.prototype.slice.call(this._arr || this, 0),
+					};
 				});
 			(k.prototype.slice = function (t, e) {
 				var r = this.length;
@@ -4849,12 +5018,14 @@ var mqtt = (() => {
 			}),
 				(k.prototype.readUIntLE = function (t, e, r) {
 					(t >>>= 0), (e >>>= 0), r || be(t, e, this.length);
-					for (var i = this[t], n = 1, o = 0; ++o < e && (n *= 256); ) i += this[t + o] * n;
+					for (var i = this[t], n = 1, o = 0; ++o < e && (n *= 256); )
+						i += this[t + o] * n;
 					return i;
 				}),
 				(k.prototype.readUIntBE = function (t, e, r) {
 					(t >>>= 0), (e >>>= 0), r || be(t, e, this.length);
-					for (var i = this[t + --e], n = 1; e > 0 && (n *= 256); ) i += this[t + --e] * n;
+					for (var i = this[t + --e], n = 1; e > 0 && (n *= 256); )
+						i += this[t + --e] * n;
 					return i;
 				}),
 				(k.prototype.readUInt8 = function (t, e) {
@@ -4870,24 +5041,28 @@ var mqtt = (() => {
 					return (
 						(t >>>= 0),
 						e || be(t, 4, this.length),
-						(this[t] | (this[t + 1] << 8) | (this[t + 2] << 16)) + 16777216 * this[t + 3]
+						(this[t] | (this[t + 1] << 8) | (this[t + 2] << 16)) +
+							16777216 * this[t + 3]
 					);
 				}),
 				(k.prototype.readUInt32BE = function (t, e) {
 					return (
 						(t >>>= 0),
 						e || be(t, 4, this.length),
-						16777216 * this[t] + ((this[t + 1] << 16) | (this[t + 2] << 8) | this[t + 3])
+						16777216 * this[t] +
+							((this[t + 1] << 16) | (this[t + 2] << 8) | this[t + 3])
 					);
 				}),
 				(k.prototype.readIntLE = function (t, e, r) {
 					(t >>>= 0), (e >>>= 0), r || be(t, e, this.length);
-					for (var i = this[t], n = 1, o = 0; ++o < e && (n *= 256); ) i += this[t + o] * n;
+					for (var i = this[t], n = 1, o = 0; ++o < e && (n *= 256); )
+						i += this[t + o] * n;
 					return i >= (n *= 128) && (i -= Math.pow(2, 8 * e)), i;
 				}),
 				(k.prototype.readIntBE = function (t, e, r) {
 					(t >>>= 0), (e >>>= 0), r || be(t, e, this.length);
-					for (var i = e, n = 1, o = this[t + --i]; i > 0 && (n *= 256); ) o += this[t + --i] * n;
+					for (var i = e, n = 1, o = this[t + --i]; i > 0 && (n *= 256); )
+						o += this[t + --i] * n;
 					return o >= (n *= 128) && (o -= Math.pow(2, 8 * e)), o;
 				}),
 				(k.prototype.readInt8 = function (t, e) {
@@ -4934,21 +5109,34 @@ var mqtt = (() => {
 					return (t >>>= 0), e || be(t, 8, this.length), Nr.read(this, t, !1, 52, 8);
 				}),
 				(k.prototype.writeUIntLE = function (t, e, r, i) {
-					(t = +t), (e >>>= 0), (r >>>= 0), i || Pe(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);
+					(t = +t),
+						(e >>>= 0),
+						(r >>>= 0),
+						i || Pe(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);
 					var n = 1,
 						o = 0;
 					for (this[e] = 255 & t; ++o < r && (n *= 256); ) this[e + o] = (t / n) & 255;
 					return e + r;
 				}),
 				(k.prototype.writeUIntBE = function (t, e, r, i) {
-					(t = +t), (e >>>= 0), (r >>>= 0), i || Pe(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);
+					(t = +t),
+						(e >>>= 0),
+						(r >>>= 0),
+						i || Pe(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);
 					var n = r - 1,
 						o = 1;
-					for (this[e + n] = 255 & t; --n >= 0 && (o *= 256); ) this[e + n] = (t / o) & 255;
+					for (this[e + n] = 255 & t; --n >= 0 && (o *= 256); )
+						this[e + n] = (t / o) & 255;
 					return e + r;
 				}),
 				(k.prototype.writeUInt8 = function (t, e, r) {
-					return (t = +t), (e >>>= 0), r || Pe(this, t, e, 1, 255, 0), (this[e] = 255 & t), e + 1;
+					return (
+						(t = +t),
+						(e >>>= 0),
+						r || Pe(this, t, e, 1, 255, 0),
+						(this[e] = 255 & t),
+						e + 1
+					);
 				}),
 				(k.prototype.writeUInt16LE = function (t, e, r) {
 					return (
@@ -5101,7 +5289,8 @@ var mqtt = (() => {
 					if (e < 0) throw new RangeError('targetStart out of bounds');
 					if (r < 0 || r >= this.length) throw new RangeError('Index out of range');
 					if (i < 0) throw new RangeError('sourceEnd out of bounds');
-					i > this.length && (i = this.length), t.length - e < i - r && (i = t.length - e + r);
+					i > this.length && (i = this.length),
+						t.length - e < i - r && (i = t.length - e + r);
 					var n = i - r;
 					if (this === t && typeof Uint8Array.prototype.copyWithin == 'function')
 						this.copyWithin(e, r, i);
@@ -5125,7 +5314,10 @@ var mqtt = (() => {
 							var n = t.charCodeAt(0);
 							((i === 'utf8' && n < 128) || i === 'latin1') && (t = n);
 						}
-					} else typeof t == 'number' ? (t &= 255) : typeof t == 'boolean' && (t = Number(t));
+					} else
+						typeof t == 'number'
+							? (t &= 255)
+							: typeof t == 'boolean' && (t = Number(t));
 					if (e < 0 || this.length < e || this.length < r)
 						throw new RangeError('Out of range index');
 					if (r <= e) return this;
@@ -5141,7 +5333,9 @@ var mqtt = (() => {
 						var s = k.isBuffer(t) ? t : k.from(t, i),
 							a = s.length;
 						if (a === 0)
-							throw new TypeError('The value "' + t + '" is invalid for argument "value"');
+							throw new TypeError(
+								'The value "' + t + '" is invalid for argument "value"'
+							);
 						for (o = 0; o < r - e; ++o) this[o + e] = s[o % a];
 					}
 					return this;
@@ -5169,7 +5363,14 @@ var mqtt = (() => {
 				(or.alloc = function (t, e, r) {
 					if (typeof t != 'number') throw new TypeError('Argument must be a number');
 					var i = it(t);
-					return e !== void 0 ? (typeof r == 'string' ? i.fill(e, r) : i.fill(e)) : i.fill(0), i;
+					return (
+						e !== void 0
+							? typeof r == 'string'
+								? i.fill(e, r)
+								: i.fill(e)
+							: i.fill(0),
+						i
+					);
 				}),
 				(or.allocUnsafe = function (t) {
 					if (typeof t != 'number') throw new TypeError('Argument must be a number');
@@ -5411,7 +5612,9 @@ var mqtt = (() => {
 				(this.dataEmitted = !1),
 				(this.decoder = null),
 				(this.encoding = null),
-				t && t.encoding && ((this.decoder = new Vc(t.encoding)), (this.encoding = t.encoding));
+				t &&
+					t.encoding &&
+					((this.decoder = new Vc(t.encoding)), (this.encoding = t.encoding));
 		}
 		function F(t) {
 			if (!(this instanceof F)) return new F(t);
@@ -5457,7 +5660,8 @@ var mqtt = (() => {
 						? (r = '')
 						: Dt._isUint8Array(e)
 						? ((e = Dt._uint8ArrayToBuffer(e)), (r = ''))
-						: e != null && (o = new o_('chunk', ['string', 'Buffer', 'Uint8Array'], e))),
+						: e != null &&
+						  (o = new o_('chunk', ['string', 'Buffer', 'Uint8Array'], e))),
 				o)
 			)
 				qr(t, o);
@@ -5508,7 +5712,14 @@ var mqtt = (() => {
 		function p_(t) {
 			if (t > d_) throw new l_('size', '<= 1GiB', t);
 			return (
-				t--, (t |= t >>> 1), (t |= t >>> 2), (t |= t >>> 4), (t |= t >>> 8), (t |= t >>> 16), t++, t
+				t--,
+				(t |= t >>> 1),
+				(t |= t >>> 2),
+				(t |= t >>> 4),
+				(t |= t >>> 8),
+				(t |= t >>> 16),
+				t++,
+				t
 			);
 		}
 		function Wc(t, e) {
@@ -5535,7 +5746,8 @@ var mqtt = (() => {
 				t !== 0 && (e.emittedReadable = !1),
 				t === 0 &&
 					e.needReadable &&
-					((e.highWaterMark !== 0 ? e.length >= e.highWaterMark : e.length > 0) || e.ended))
+					((e.highWaterMark !== 0 ? e.length >= e.highWaterMark : e.length > 0) ||
+						e.ended))
 			)
 				return (
 					H('read: emitReadable', e.length, e.ended),
@@ -5552,7 +5764,10 @@ var mqtt = (() => {
 			)
 				(i = !1), H('reading, ended or constructing', i);
 			else if (i) {
-				H('do read'), (e.reading = !0), (e.sync = !0), e.length === 0 && (e.needReadable = !0);
+				H('do read'),
+					(e.reading = !0),
+					(e.sync = !0),
+					e.length === 0 && (e.needReadable = !0);
 				try {
 					this._read(e.highWaterMark);
 				} catch (o) {
@@ -5566,8 +5781,11 @@ var mqtt = (() => {
 				n === null
 					? ((e.needReadable = e.length <= e.highWaterMark), (t = 0))
 					: ((e.length -= t),
-					  e.multiAwaitDrain ? e.awaitDrainWriters.clear() : (e.awaitDrainWriters = null)),
-				e.length === 0 && (e.ended || (e.needReadable = !0), r !== t && e.ended && to(this)),
+					  e.multiAwaitDrain
+							? e.awaitDrainWriters.clear()
+							: (e.awaitDrainWriters = null)),
+				e.length === 0 &&
+					(e.ended || (e.needReadable = !0), r !== t && e.ended && to(this)),
 				n !== null &&
 					!e.errorEmitted &&
 					!e.closeEmitted &&
@@ -5581,7 +5799,8 @@ var mqtt = (() => {
 					let r = e.decoder.end();
 					r && r.length && (e.buffer.push(r), (e.length += e.objectMode ? 1 : r.length));
 				}
-				(e.ended = !0), e.sync ? cn(t) : ((e.needReadable = !1), (e.emittedReadable = !0), Kc(t));
+				(e.ended = !0),
+					e.sync ? cn(t) : ((e.needReadable = !1), (e.emittedReadable = !0), Kc(t));
 			}
 		}
 		function cn(t) {
@@ -5607,7 +5826,9 @@ var mqtt = (() => {
 		function y_(t, e) {
 			for (
 				;
-				!e.reading && !e.ended && (e.length < e.highWaterMark || (e.flowing && e.length === 0));
+				!e.reading &&
+				!e.ended &&
+				(e.length < e.highWaterMark || (e.flowing && e.length === 0));
 
 			) {
 				let r = e.length;
@@ -5624,7 +5845,9 @@ var mqtt = (() => {
 			i.pipes.length === 1 &&
 				(i.multiAwaitDrain ||
 					((i.multiAwaitDrain = !0),
-					(i.awaitDrainWriters = new Yw(i.awaitDrainWriters ? [i.awaitDrainWriters] : [])))),
+					(i.awaitDrainWriters = new Yw(
+						i.awaitDrainWriters ? [i.awaitDrainWriters] : []
+					)))),
 				i.pipes.push(t),
 				H('pipe count=%d opts=%j', i.pipes.length, e);
 			let o = (!e || e.end !== !1) && t !== He.stdout && t !== He.stderr ? a : S;
@@ -5648,7 +5871,10 @@ var mqtt = (() => {
 					r.removeListener('end', S),
 					r.removeListener('data', g),
 					(c = !0),
-					u && i.awaitDrainWriters && (!t._writableState || t._writableState.needDrain) && u();
+					u &&
+						i.awaitDrainWriters &&
+						(!t._writableState || t._writableState.needDrain) &&
+						u();
 			}
 			function d() {
 				c ||
@@ -5670,7 +5896,12 @@ var mqtt = (() => {
 				H('dest.write', C), C === !1 && d();
 			}
 			function y(I) {
-				if ((H('onerror', I), S(), t.removeListener('error', y), t.listenerCount('error') === 0)) {
+				if (
+					(H('onerror', I),
+					S(),
+					t.removeListener('error', y),
+					t.listenerCount('error') === 0)
+				) {
 					let C = t._writableState || t._readableState;
 					C && !C.errorEmitted ? qr(t, I) : t.emit('error', I);
 				}
@@ -5689,7 +5920,9 @@ var mqtt = (() => {
 			}
 			return (
 				t.emit('pipe', r),
-				t.writableNeedDrain === !0 ? i.flowing && d() : i.flowing || (H('pipe resume'), r.resume()),
+				t.writableNeedDrain === !0
+					? i.flowing && d()
+					: i.flowing || (H('pipe resume'), r.resume()),
 				t
 			);
 		};
@@ -5866,7 +6099,9 @@ var mqtt = (() => {
 				__proto__: null,
 				get() {
 					let t = this._readableState;
-					return !!t && t.readable !== !1 && !t.destroyed && !t.errorEmitted && !t.endEmitted;
+					return (
+						!!t && t.readable !== !1 && !t.destroyed && !t.errorEmitted && !t.endEmitted
+					);
 				},
 				set(t) {
 					this._readableState && (this._readableState.readable = !!t);
@@ -6038,8 +6273,8 @@ var mqtt = (() => {
 			var r, i;
 			return new F({
 				objectMode:
-					(r = (i = t.readableObjectMode) !== null && i !== void 0 ? i : t.objectMode) !== null &&
-					r !== void 0
+					(r = (i = t.readableObjectMode) !== null && i !== void 0 ? i : t.objectMode) !==
+						null && r !== void 0
 						? r
 						: !0,
 				...e,
@@ -6172,7 +6407,8 @@ var mqtt = (() => {
 			}
 			if (e === null) throw new N_();
 			if (!n.objectMode)
-				if (typeof e == 'string') n.decodeStrings !== !1 && ((e = hn.from(e, r)), (r = 'buffer'));
+				if (typeof e == 'string')
+					n.decodeStrings !== !1 && ((e = hn.from(e, r)), (r = 'buffer'));
 				else if (e instanceof hn) r = 'buffer';
 				else if (pi._isUint8Array(e)) (e = pi._uint8ArrayToBuffer(e)), (r = 'buffer');
 				else throw new x_('chunk', ['string', 'Buffer', 'Uint8Array'], e);
@@ -6245,13 +6481,20 @@ var mqtt = (() => {
 				e
 					? (e.stack,
 					  r.errored || (r.errored = e),
-					  t._readableState && !t._readableState.errored && (t._readableState.errored = e),
+					  t._readableState &&
+							!t._readableState.errored &&
+							(t._readableState.errored = e),
 					  i ? ur.nextTick(th, t, r, e, n) : th(t, r, e, n))
 					: (r.buffered.length > r.bufferedIndex && lo(t, r),
 					  i
 							? r.afterWriteTickInfo !== null && r.afterWriteTickInfo.cb === n
 								? r.afterWriteTickInfo.count++
-								: ((r.afterWriteTickInfo = { count: 1, cb: n, stream: t, state: r }),
+								: ((r.afterWriteTickInfo = {
+										count: 1,
+										cb: n,
+										stream: t,
+										state: r,
+								  }),
 								  ur.nextTick(F_, r.afterWriteTickInfo))
 							: uh(t, r, 1, n));
 		}
@@ -6370,7 +6613,10 @@ var mqtt = (() => {
 					jr(t, n, e.sync);
 				} else
 					dn(e) &&
-						((e.prefinished = !0), t.emit('prefinish'), e.pendingcb++, ur.nextTick(so, t, e));
+						((e.prefinished = !0),
+						t.emit('prefinish'),
+						e.pendingcb++,
+						ur.nextTick(so, t, e));
 			}
 			(e.sync = !0), e.pendingcb++;
 			try {
@@ -6431,7 +6677,14 @@ var mqtt = (() => {
 				__proto__: null,
 				get() {
 					let t = this._writableState;
-					return !!t && t.writable !== !1 && !t.destroyed && !t.errored && !t.ending && !t.ended;
+					return (
+						!!t &&
+						t.writable !== !1 &&
+						!t.destroyed &&
+						!t.errored &&
+						!t.ending &&
+						!t.ended
+					);
 				},
 				set(t) {
 					this._writableState && (this._writableState.writable = !!t);
@@ -6509,7 +6762,9 @@ var mqtt = (() => {
 		ie.prototype.destroy = function (t, e) {
 			let r = this._writableState;
 			return (
-				!r.destroyed && (r.bufferedIndex < r.buffered.length || r[Fr].length) && ur.nextTick(ao, r),
+				!r.destroyed &&
+					(r.bufferedIndex < r.buffered.length || r[Fr].length) &&
+					ur.nextTick(ao, r),
 				H_.call(this, t, e),
 				this
 			);
@@ -6624,8 +6879,18 @@ var mqtt = (() => {
 			if (Z_(e)) return t(e.arrayBuffer());
 			if (hh(e)) return wh(fr, e, { objectMode: !0, writable: !1 });
 			if (typeof e?.writable == 'object' || typeof e?.readable == 'object') {
-				let n = e != null && e.readable ? (dh(e?.readable) ? e?.readable : t(e.readable)) : void 0,
-					o = e != null && e.writable ? (ph(e?.writable) ? e?.writable : t(e.writable)) : void 0;
+				let n =
+						e != null && e.readable
+							? dh(e?.readable)
+								? e?.readable
+								: t(e.readable)
+							: void 0,
+					o =
+						e != null && e.writable
+							? ph(e?.writable)
+								? e?.writable
+								: t(e.writable)
+							: void 0;
 				return yn({ readable: n, writable: o });
 			}
 			let i = e?.then;
@@ -6693,7 +6958,10 @@ var mqtt = (() => {
 			};
 		}
 		function yn(t) {
-			let e = t.readable && typeof t.readable.read != 'function' ? X_.wrap(t.readable) : t.readable,
+			let e =
+					t.readable && typeof t.readable.read != 'function'
+						? X_.wrap(t.readable)
+						: t.readable,
 				r = t.writable,
 				i = !!z_(e),
 				n = !!K_(r),
@@ -6811,7 +7079,10 @@ var mqtt = (() => {
 		}
 		r0(Ve.prototype, {
 			writable: { __proto__: null, ...It(Ne.prototype, 'writable') },
-			writableHighWaterMark: { __proto__: null, ...It(Ne.prototype, 'writableHighWaterMark') },
+			writableHighWaterMark: {
+				__proto__: null,
+				...It(Ne.prototype, 'writableHighWaterMark'),
+			},
 			writableObjectMode: { __proto__: null, ...It(Ne.prototype, 'writableObjectMode') },
 			writableBuffer: { __proto__: null, ...It(Ne.prototype, 'writableBuffer') },
 			writableLength: { __proto__: null, ...It(Ne.prototype, 'writableLength') },
@@ -7061,7 +7332,9 @@ var mqtt = (() => {
 				y(C, --d === 0);
 			}
 			function y(C, R) {
-				if ((C && (!u || u.code === 'ERR_STREAM_PREMATURE_CLOSE') && (u = C), !(!u && !R))) {
+				if (
+					(C && (!u || u.code === 'ERR_STREAM_PREMATURE_CLOSE') && (u = C), !(!u && !R))
+				) {
 					for (; h.length; ) h.shift()(u);
 					o?.removeEventListener('abort', a),
 						i.abort(),
@@ -7077,7 +7350,10 @@ var mqtt = (() => {
 					K = C === t.length - 1;
 				if (kh(R)) {
 					let z = function (Q) {
-						Q && Q.name !== 'AbortError' && Q.code !== 'ERR_STREAM_PREMATURE_CLOSE' && g(Q);
+						Q &&
+							Q.name !== 'AbortError' &&
+							Q.code !== 'ERR_STREAM_PREMATURE_CLOSE' &&
+							g(Q);
 					};
 					var I = z;
 					if (W) {
@@ -7113,7 +7389,10 @@ var mqtt = (() => {
 								Q.call(
 									w,
 									(pe) => {
-										(c = pe), pe != null && z.write(pe), W && z.end(), wi.nextTick(g);
+										(c = pe),
+											pe != null && z.write(pe),
+											W && z.end(),
+											wi.nextTick(g);
 									},
 									(pe) => {
 										z.destroy(pe), wi.nextTick(g, pe);
@@ -7140,7 +7419,13 @@ var mqtt = (() => {
 					else
 						throw new Co(
 							'val',
-							['Readable', 'Iterable', 'AsyncIterable', 'ReadableStream', 'TransformStream'],
+							[
+								'Readable',
+								'Iterable',
+								'AsyncIterable',
+								'ReadableStream',
+								'TransformStream',
+							],
 							w
 						);
 					w = R;
@@ -7151,7 +7436,13 @@ var mqtt = (() => {
 					else
 						throw new Co(
 							'val',
-							['Readable', 'Iterable', 'AsyncIterable', 'ReadableStream', 'TransformStream'],
+							[
+								'Readable',
+								'Iterable',
+								'AsyncIterable',
+								'ReadableStream',
+								'TransformStream',
+							],
 							w
 						);
 					w = R;
@@ -7218,7 +7509,8 @@ var mqtt = (() => {
 			if (e.length === 1) return vn.from(e[0]);
 			let r = [...e];
 			if (
-				(typeof e[0] == 'function' && (e[0] = vn.from(e[0])), typeof e[e.length - 1] == 'function')
+				(typeof e[0] == 'function' && (e[0] = vn.from(e[0])),
+				typeof e[e.length - 1] == 'function')
 			) {
 				let y = e.length - 1;
 				e[y] = vn.from(e[y]);
@@ -7395,7 +7687,10 @@ var mqtt = (() => {
 						h = { signal: c },
 						d = () => s.abort();
 					e != null && (n = e.signal) !== null && n !== void 0 && n.aborted && d(),
-						e == null || (o = e.signal) === null || o === void 0 || o.addEventListener('abort', d);
+						e == null ||
+							(o = e.signal) === null ||
+							o === void 0 ||
+							o.addEventListener('abort', d);
 					let g,
 						y,
 						w = !1;
@@ -7414,8 +7709,8 @@ var mqtt = (() => {
 									R = $h(U);
 								}
 								R !== Sn &&
-									(typeof ((I = R) === null || I === void 0 ? void 0 : I.catch) == 'function' &&
-										R.catch(E),
+									(typeof ((I = R) === null || I === void 0 ? void 0 : I.catch) ==
+										'function' && R.catch(E),
 									u.push(R),
 									g && (g(), (g = null)),
 									!w &&
@@ -7500,7 +7795,8 @@ var mqtt = (() => {
 		}
 		var Oo = class extends x0 {
 			constructor() {
-				super('reduce'), (this.message = 'Reduce of an empty stream requires an initial value');
+				super('reduce'),
+					(this.message = 'Reduce of an empty stream requires an initial value');
 			}
 		};
 		async function X0(t, e, r) {
@@ -7522,7 +7818,10 @@ var mqtt = (() => {
 			try {
 				for await (let c of this) {
 					var u;
-					if (((a = !0), r != null && (u = r.signal) !== null && u !== void 0 && u.aborted))
+					if (
+						((a = !0),
+						r != null && (u = r.signal) !== null && u !== void 0 && u.aborted)
+					)
 						throw new st();
 					n ? (e = await t(e, c, { signal: s })) : ((e = c), (n = !0));
 				}
@@ -7561,10 +7860,12 @@ var mqtt = (() => {
 				(t = Gh(t)),
 				async function* () {
 					var i;
-					if (e != null && (i = e.signal) !== null && i !== void 0 && i.aborted) throw new st();
+					if (e != null && (i = e.signal) !== null && i !== void 0 && i.aborted)
+						throw new st();
 					for await (let o of this) {
 						var n;
-						if (e != null && (n = e.signal) !== null && n !== void 0 && n.aborted) throw new st();
+						if (e != null && (n = e.signal) !== null && n !== void 0 && n.aborted)
+							throw new st();
 						t-- <= 0 && (yield o);
 					}
 				}.call(this)
@@ -7577,10 +7878,12 @@ var mqtt = (() => {
 				(t = Gh(t)),
 				async function* () {
 					var i;
-					if (e != null && (i = e.signal) !== null && i !== void 0 && i.aborted) throw new st();
+					if (e != null && (i = e.signal) !== null && i !== void 0 && i.aborted)
+						throw new st();
 					for await (let o of this) {
 						var n;
-						if (e != null && (n = e.signal) !== null && n !== void 0 && n.aborted) throw new st();
+						if (e != null && (n = e.signal) !== null && n !== void 0 && n.aborted)
+							throw new st();
 						if (t-- > 0) yield o;
 						else return;
 					}
@@ -7779,14 +8082,21 @@ var mqtt = (() => {
 					r &&
 						((e.super_ = r),
 						(e.prototype = Object.create(r.prototype, {
-							constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 },
+							constructor: {
+								value: e,
+								enumerable: !1,
+								writable: !0,
+								configurable: !0,
+							},
 						})));
 			  })
 			: (Do.exports = function (e, r) {
 					if (r) {
 						e.super_ = r;
 						var i = function () {};
-						(i.prototype = r.prototype), (e.prototype = new i()), (e.prototype.constructor = e);
+						(i.prototype = r.prototype),
+							(e.prototype = new i()),
+							(e.prototype.constructor = e);
 					}
 			  });
 	});
@@ -7851,7 +8161,10 @@ var mqtt = (() => {
 				c = (o && r) || 0,
 				h = s[1];
 			if (i === 0 && n === this.length) {
-				if (!o) return this._bufs.length === 1 ? this._bufs[0] : ze.concat(this._bufs, this.length);
+				if (!o)
+					return this._bufs.length === 1
+						? this._bufs[0]
+						: ze.concat(this._bufs, this.length);
 				for (let d = 0; d < this._bufs.length; d++)
 					this._bufs[d].copy(e, c), (c += this._bufs[d].length);
 				return e;
@@ -7895,7 +8208,9 @@ var mqtt = (() => {
 			if (((e = Math.trunc(e)), Number.isNaN(e) || e <= 0)) return this;
 			for (; this._bufs.length; )
 				if (e >= this._bufs[0].length)
-					(e -= this._bufs[0].length), (this.length -= this._bufs[0].length), this._bufs.shift();
+					(e -= this._bufs[0].length),
+						(this.length -= this._bufs[0].length),
+						this._bufs.shift();
 				else {
 					(this._bufs[0] = this._bufs[0].slice(e)), (this.length -= e);
 					break;
@@ -8125,7 +8440,11 @@ var mqtt = (() => {
 		for (let t in L.requiredHeaderFlags) {
 			let e = L.requiredHeaderFlags[t];
 			L.requiredHeaderFlagsErrors[t] =
-				'Invalid header flag bits, must be 0x' + e.toString(16) + ' for ' + L.types[t] + ' packet';
+				'Invalid header flag bits, must be 0x' +
+				e.toString(16) +
+				' for ' +
+				L.types[t] +
+				' packet';
 		}
 		L.codes = {};
 		for (let t in L.types) {
@@ -8222,7 +8541,10 @@ var mqtt = (() => {
 						let n = Oe.alloc(1);
 						return (
 							n.writeUInt8(
-								(L.codes[t] << L.CMD_SHIFT) | (r ? L.DUP_MASK : 0) | (e << L.QOS_SHIFT) | i,
+								(L.codes[t] << L.CMD_SHIFT) |
+									(r ? L.DUP_MASK : 0) |
+									(e << L.QOS_SHIFT) |
+									i,
 								0,
 								!0
 							),
@@ -8348,7 +8670,9 @@ var mqtt = (() => {
 			var r = typeof t;
 			if (r === 'string' && t.length > 0) return mm(t);
 			if (r === 'number' && isFinite(t)) return e.long ? Em(t) : vm(t);
-			throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(t));
+			throw new Error(
+				'val is not a non-empty string or a valid number. val=' + JSON.stringify(t)
+			);
 		};
 		function mm(t) {
 			if (((t = String(t)), !(t.length > 100))) {
@@ -8498,7 +8822,10 @@ var mqtt = (() => {
 						enumerable: !0,
 						configurable: !1,
 						get: () =>
-							g !== null ? g : (y !== r.namespaces && ((y = r.namespaces), (w = r.enabled(h))), w),
+							g !== null
+								? g
+								: (y !== r.namespaces && ((y = r.namespaces), (w = r.enabled(h))),
+								  w),
 						set: (S) => {
 							g = S;
 						},
@@ -8654,7 +8981,9 @@ var mqtt = (() => {
 				window.process &&
 				(window.process.type === 'renderer' || window.process.__nwjs)
 				? !0
-				: typeof P < 'u' && P.userAgent && P.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)
+				: typeof P < 'u' &&
+				  P.userAgent &&
+				  P.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)
 				? !1
 				: (typeof document < 'u' &&
 						document.documentElement &&
@@ -8662,12 +8991,15 @@ var mqtt = (() => {
 						document.documentElement.style.WebkitAppearance) ||
 				  (typeof window < 'u' &&
 						window.console &&
-						(window.console.firebug || (window.console.exception && window.console.table))) ||
+						(window.console.firebug ||
+							(window.console.exception && window.console.table))) ||
 				  (typeof P < 'u' &&
 						P.userAgent &&
 						P.userAgent.toLowerCase().match(/firefox\/(\d+)/) &&
 						parseInt(RegExp.$1, 10) >= 31) ||
-				  (typeof P < 'u' && P.userAgent && P.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+				  (typeof P < 'u' &&
+						P.userAgent &&
+						P.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 		}
 		function Im(t) {
 			if (
@@ -8735,7 +9067,12 @@ var mqtt = (() => {
 				static parser(e) {
 					return this instanceof t
 						? ((this.settings = e || {}),
-						  (this._states = ['_parseHeader', '_parseLength', '_parsePayload', '_newPacket']),
+						  (this._states = [
+								'_parseHeader',
+								'_parseLength',
+								'_parsePayload',
+								'_newPacket',
+						  ]),
 						  this._resetState(),
 						  this)
 						: new t().parser(e);
@@ -8758,7 +9095,10 @@ var mqtt = (() => {
 
 					)
 						this._stateCounter++,
-							D('parse: state complete. _stateCounter is now: %d', this._stateCounter),
+							D(
+								'parse: state complete. _stateCounter is now: %d',
+								this._stateCounter
+							),
 							D(
 								'parse: packet.length: %d, buffer list length: %d',
 								this.packet.length,
@@ -8785,7 +9125,9 @@ var mqtt = (() => {
 						: ((this.packet.retain = (e & V.RETAIN_MASK) !== 0),
 						  (this.packet.qos = (e >> V.QOS_SHIFT) & V.QOS_MASK),
 						  this.packet.qos > 2
-								? this._emitError(new Error('Packet must not have both QoS bits set to 1'))
+								? this._emitError(
+										new Error('Packet must not have both QoS bits set to 1')
+								  )
 								: ((this.packet.dup = (e & V.DUP_MASK) !== 0),
 								  D('_parseHeader: packet: %o', this.packet),
 								  this._list.consume(1),
@@ -8865,13 +9207,17 @@ var mqtt = (() => {
 						((s.protocolVersion = this._list.readUInt8(this._pos)),
 						s.protocolVersion >= 128 &&
 							((s.bridgeMode = !0), (s.protocolVersion = s.protocolVersion - 128)),
-						s.protocolVersion !== 3 && s.protocolVersion !== 4 && s.protocolVersion !== 5)
+						s.protocolVersion !== 3 &&
+							s.protocolVersion !== 4 &&
+							s.protocolVersion !== 5)
 					)
 						return this._emitError(new Error('Invalid protocol version'));
 					if ((this._pos++, this._pos >= this._list.length))
 						return this._emitError(new Error('Packet too short'));
 					if (this._list.readUInt8(this._pos) & 1)
-						return this._emitError(new Error('Connect flag bit 0 must be 0, but got 1'));
+						return this._emitError(
+							new Error('Connect flag bit 0 must be 0, but got 1')
+						);
 					(o.username = this._list.readUInt8(this._pos) & V.USERNAME_MASK),
 						(o.password = this._list.readUInt8(this._pos) & V.PASSWORD_MASK),
 						(o.will = this._list.readUInt8(this._pos) & V.WILL_FLAG_MASK);
@@ -8881,7 +9227,9 @@ var mqtt = (() => {
 					else {
 						if (u)
 							return this._emitError(
-								new Error('Will Retain Flag must be set to zero when Will Flag is set to 0')
+								new Error(
+									'Will Retain Flag must be set to zero when Will Flag is set to 0'
+								)
 							);
 						if (c)
 							return this._emitError(
@@ -8901,7 +9249,11 @@ var mqtt = (() => {
 					}
 					let h = this._parseString();
 					if (h === null) return this._emitError(new Error('Packet too short'));
-					if (((s.clientId = h), D('_parseConnect: packet.clientId: %s', s.clientId), o.will)) {
+					if (
+						((s.clientId = h),
+						D('_parseConnect: packet.clientId: %s', s.clientId),
+						o.will)
+					) {
 						if (s.protocolVersion === 5) {
 							let d = this._parseProperties();
 							Object.getOwnPropertyNames(d).length && (s.will.properties = d);
@@ -8915,7 +9267,8 @@ var mqtt = (() => {
 							r === null)
 						)
 							return this._emitError(new Error('Cannot parse will payload'));
-						(s.will.payload = r), D('_parseConnect: packet.will.paylaod: %s', s.will.payload);
+						(s.will.payload = r),
+							D('_parseConnect: packet.will.paylaod: %s', s.will.payload);
 					}
 					if (o.username) {
 						if (((n = this._parseString()), n === null))
@@ -8935,7 +9288,9 @@ var mqtt = (() => {
 					if (this._list.length < 1) return null;
 					let r = this._list.readUInt8(this._pos++);
 					if (r > 1)
-						return this._emitError(new Error('Invalid connack flags, bits 7-1 must be set to 0'));
+						return this._emitError(
+							new Error('Invalid connack flags, bits 7-1 must be set to 0')
+						);
 					if (
 						((e.sessionPresent = !!(r & V.SESSIONPRESENT_MASK)),
 						this.settings.protocolVersion === 5)
@@ -8985,7 +9340,9 @@ var mqtt = (() => {
 							Object.getOwnPropertyNames(c).length && (e.properties = c);
 						}
 						if (e.length <= 0)
-							return this._emitError(new Error('Malformed subscribe, no payload specified'));
+							return this._emitError(
+								new Error('Malformed subscribe, no payload specified')
+							);
 						for (; this._pos < e.length; ) {
 							if (((r = this._parseString()), r === null))
 								return this._emitError(new Error('Cannot parse topic'));
@@ -8994,25 +9351,42 @@ var mqtt = (() => {
 							if (((i = this._parseByte()), this.settings.protocolVersion === 5)) {
 								if (i & 192)
 									return this._emitError(
-										new Error('Invalid subscribe topic flag bits, bits 7-6 must be 0')
+										new Error(
+											'Invalid subscribe topic flag bits, bits 7-6 must be 0'
+										)
 									);
 							} else if (i & 252)
 								return this._emitError(
-									new Error('Invalid subscribe topic flag bits, bits 7-2 must be 0')
+									new Error(
+										'Invalid subscribe topic flag bits, bits 7-2 must be 0'
+									)
 								);
 							if (((n = i & V.SUBSCRIBE_OPTIONS_QOS_MASK), n > 2))
-								return this._emitError(new Error('Invalid subscribe QoS, must be <= 2'));
+								return this._emitError(
+									new Error('Invalid subscribe QoS, must be <= 2')
+								);
 							if (
-								((a = ((i >> V.SUBSCRIBE_OPTIONS_NL_SHIFT) & V.SUBSCRIBE_OPTIONS_NL_MASK) !== 0),
-								(s = ((i >> V.SUBSCRIBE_OPTIONS_RAP_SHIFT) & V.SUBSCRIBE_OPTIONS_RAP_MASK) !== 0),
-								(o = (i >> V.SUBSCRIBE_OPTIONS_RH_SHIFT) & V.SUBSCRIBE_OPTIONS_RH_MASK),
+								((a =
+									((i >> V.SUBSCRIBE_OPTIONS_NL_SHIFT) &
+										V.SUBSCRIBE_OPTIONS_NL_MASK) !==
+									0),
+								(s =
+									((i >> V.SUBSCRIBE_OPTIONS_RAP_SHIFT) &
+										V.SUBSCRIBE_OPTIONS_RAP_MASK) !==
+									0),
+								(o =
+									(i >> V.SUBSCRIBE_OPTIONS_RH_SHIFT) &
+									V.SUBSCRIBE_OPTIONS_RH_MASK),
 								o > 2)
 							)
-								return this._emitError(new Error('Invalid retain handling, must be <= 2'));
+								return this._emitError(
+									new Error('Invalid retain handling, must be <= 2')
+								);
 							(u = { topic: r, qos: n }),
 								this.settings.protocolVersion === 5
 									? ((u.nl = a), (u.rap = s), (u.rh = o))
-									: this.settings.bridgeMode && ((u.rh = 0), (u.rap = !0), (u.nl = !0)),
+									: this.settings.bridgeMode &&
+									  ((u.rh = 0), (u.rap = !0), (u.nl = !0)),
 								D('_parseSubscribe: push subscription `%s` to subscription', u),
 								e.subscriptions.push(u);
 						}
@@ -9027,14 +9401,18 @@ var mqtt = (() => {
 							Object.getOwnPropertyNames(r).length && (e.properties = r);
 						}
 						if (e.length <= 0)
-							return this._emitError(new Error('Malformed suback, no payload specified'));
+							return this._emitError(
+								new Error('Malformed suback, no payload specified')
+							);
 						for (; this._pos < this.packet.length; ) {
 							let r = this._list.readUInt8(this._pos++);
 							if (this.settings.protocolVersion === 5) {
 								if (!V.MQTT5_SUBACK_CODES[r])
 									return this._emitError(new Error('Invalid suback code'));
 							} else if (r > 2 && r !== 128)
-								return this._emitError(new Error('Invalid suback QoS, must be 0, 1, 2 or 128'));
+								return this._emitError(
+									new Error('Invalid suback QoS, must be 0, 1, 2 or 128')
+								);
 							this.packet.granted.push(r);
 						}
 					}
@@ -9048,7 +9426,9 @@ var mqtt = (() => {
 							Object.getOwnPropertyNames(r).length && (e.properties = r);
 						}
 						if (e.length <= 0)
-							return this._emitError(new Error('Malformed unsubscribe, no payload specified'));
+							return this._emitError(
+								new Error('Malformed unsubscribe, no payload specified')
+							);
 						for (; this._pos < e.length; ) {
 							let r = this._parseString();
 							if (r === null) return this._emitError(new Error('Cannot parse topic'));
@@ -9060,18 +9440,25 @@ var mqtt = (() => {
 				_parseUnsuback() {
 					D('_parseUnsuback');
 					let e = this.packet;
-					if (!this._parseMessageId()) return this._emitError(new Error('Cannot parse messageId'));
+					if (!this._parseMessageId())
+						return this._emitError(new Error('Cannot parse messageId'));
 					if (
-						(this.settings.protocolVersion === 3 || this.settings.protocolVersion === 4) &&
+						(this.settings.protocolVersion === 3 ||
+							this.settings.protocolVersion === 4) &&
 						e.length !== 2
 					)
-						return this._emitError(new Error('Malformed unsuback, payload length must be 2'));
+						return this._emitError(
+							new Error('Malformed unsuback, payload length must be 2')
+						);
 					if (e.length <= 0)
-						return this._emitError(new Error('Malformed unsuback, no payload specified'));
+						return this._emitError(
+							new Error('Malformed unsuback, no payload specified')
+						);
 					if (this.settings.protocolVersion === 5) {
 						let r = this._parseProperties();
 						for (
-							Object.getOwnPropertyNames(r).length && (e.properties = r), e.granted = [];
+							Object.getOwnPropertyNames(r).length && (e.properties = r),
+								e.granted = [];
 							this._pos < this.packet.length;
 
 						) {
@@ -9129,7 +9516,9 @@ var mqtt = (() => {
 					D('_parseAuth');
 					let e = this.packet;
 					if (this.settings.protocolVersion !== 5)
-						return this._emitError(new Error('Not supported auth packet for this version MQTT'));
+						return this._emitError(
+							new Error('Not supported auth packet for this version MQTT')
+						);
 					if (((e.reasonCode = this._parseByte()), !V.MQTT5_AUTH_CODES[e.reasonCode]))
 						return this._emitError(new Error('Invalid auth reason code'));
 					let r = this._parseProperties();
@@ -9156,7 +9545,10 @@ var mqtt = (() => {
 					return (this._pos += r), D('_parseString: result: %s', n), n;
 				}
 				_parseStringPair() {
-					return D('_parseStringPair'), { name: this._parseString(), value: this._parseString() };
+					return (
+						D('_parseStringPair'),
+						{ name: this._parseString(), value: this._parseString() }
+					);
 				}
 				_parseBuffer() {
 					let e = this._parseNum(),
@@ -9210,7 +9602,8 @@ var mqtt = (() => {
 				_parseByte() {
 					let e;
 					return (
-						this._pos < this._list.length && ((e = this._list.readUInt8(this._pos)), this._pos++),
+						this._pos < this._list.length &&
+							((e = this._list.readUInt8(this._pos)), this._pos++),
 						D('_parseByte: result: %o', e),
 						e
 					);
@@ -9242,7 +9635,10 @@ var mqtt = (() => {
 						n = {};
 					for (; this._pos < i; ) {
 						let o = this._parseByte();
-						if (!o) return this._emitError(new Error('Cannot parse property code type')), !1;
+						if (!o)
+							return (
+								this._emitError(new Error('Cannot parse property code type')), !1
+							);
 						let s = V.propertiesCodes[o];
 						if (!s) return this._emitError(new Error('Unknown property')), !1;
 						if (s === 'userProperties') {
@@ -9260,7 +9656,8 @@ var mqtt = (() => {
 						n[s]
 							? Array.isArray(n[s])
 								? n[s].push(this._parseByType(V.propertiesTypes[s]))
-								: ((n[s] = [n[s]]), n[s].push(this._parseByType(V.propertiesTypes[s])))
+								: ((n[s] = [n[s]]),
+								  n[s].push(this._parseByType(V.propertiesTypes[s])))
 							: (n[s] = this._parseByType(V.propertiesTypes[s]));
 					}
 					return n;
@@ -9336,7 +9733,8 @@ var mqtt = (() => {
 			? (Ho.exports = { nextTick: Nm })
 			: (Ho.exports = B);
 		function Nm(t, e, r, i) {
-			if (typeof t != 'function') throw new TypeError('"callback" argument must be a function');
+			if (typeof t != 'function')
+				throw new TypeError('"callback" argument must be a function');
 			var n = arguments.length,
 				o,
 				s;
@@ -9453,9 +9851,12 @@ var mqtt = (() => {
 			if (((y += 1), (typeof c == 'string' || q.isBuffer(c)) && (c || o >= 4) && (c || a)))
 				y += q.byteLength(c) + 2;
 			else {
-				if (o < 4) return e.destroy(new Error('clientId must be supplied before 3.1.1')), !1;
+				if (o < 4)
+					return e.destroy(new Error('clientId must be supplied before 3.1.1')), !1;
 				if (a * 1 === 0)
-					return e.destroy(new Error('clientId must be given if cleanSession set to 0')), !1;
+					return (
+						e.destroy(new Error('clientId must be given if cleanSession set to 0')), !1
+					);
 			}
 			if (typeof u != 'number' || u < 0 || u > 65535 || u % 1 !== 0)
 				return e.destroy(new Error('Invalid keepalive')), !1;
@@ -9471,7 +9872,9 @@ var mqtt = (() => {
 					return e.destroy(new Error('Invalid will topic')), !1;
 				if (((y += q.byteLength(s.topic) + 2), (y += 2), s.payload))
 					if (s.payload.length >= 0)
-						typeof s.payload == 'string' ? (y += q.byteLength(s.payload)) : (y += s.payload.length);
+						typeof s.payload == 'string'
+							? (y += q.byteLength(s.payload))
+							: (y += s.payload.length);
 					else return e.destroy(new Error('Invalid will payload')), !1;
 				if (((E = {}), o === 5)) {
 					if (((E = Wt(e, s.properties)), !E)) return !1;
@@ -9555,7 +9958,10 @@ var mqtt = (() => {
 			if (typeof a == 'string') d += q.byteLength(a) + 2;
 			else if (q.isBuffer(a)) d += a.length + 2;
 			else return e.destroy(new Error('Invalid topic')), !1;
-			if ((q.isBuffer(u) ? (d += u.length) : (d += q.byteLength(u)), o && typeof c != 'number'))
+			if (
+				(q.isBuffer(u) ? (d += u.length) : (d += q.byteLength(u)),
+				o && typeof c != 'number')
+			)
 				return e.destroy(new Error('Invalid messageId')), !1;
 			o && (d += 2);
 			let g = null;
@@ -9627,14 +10033,24 @@ var mqtt = (() => {
 						return e.destroy(new Error('Invalid subscriptions - invalid qos')), !1;
 					if (i === 5) {
 						if (typeof (a[g].nl || !1) != 'boolean')
-							return e.destroy(new Error('Invalid subscriptions - invalid No Local')), !1;
+							return (
+								e.destroy(new Error('Invalid subscriptions - invalid No Local')), !1
+							);
 						if (typeof (a[g].rap || !1) != 'boolean')
 							return (
-								e.destroy(new Error('Invalid subscriptions - invalid Retain as Published')), !1
+								e.destroy(
+									new Error('Invalid subscriptions - invalid Retain as Published')
+								),
+								!1
 							);
 						let I = a[g].rh || 0;
 						if (typeof I != 'number' || I > 2)
-							return e.destroy(new Error('Invalid subscriptions - invalid Retain Handling')), !1;
+							return (
+								e.destroy(
+									new Error('Invalid subscriptions - invalid Retain Handling')
+								),
+								!1
+							);
 					}
 					c += q.byteLength(y) + 2 + 1;
 				}
@@ -9672,7 +10088,8 @@ var mqtt = (() => {
 			if (typeof o != 'number') return e.destroy(new Error('Invalid messageId')), !1;
 			if (((u += 2), typeof s == 'object' && s.length))
 				for (let h = 0; h < s.length; h += 1) {
-					if (typeof s[h] != 'number') return e.destroy(new Error('Invalid qos vector')), !1;
+					if (typeof s[h] != 'number')
+						return e.destroy(new Error('Invalid qos vector')), !1;
 					u += 1;
 				}
 			else return e.destroy(new Error('Invalid qos vector')), !1;
@@ -9682,7 +10099,11 @@ var mqtt = (() => {
 				u += c.length;
 			}
 			return (
-				e.write(j.SUBACK_HEADER), De(e, u), Ie(e, o), c !== null && c.write(), e.write(q.from(s))
+				e.write(j.SUBACK_HEADER),
+				De(e, u),
+				Ie(e, o),
+				c !== null && c.write(),
+				e.write(q.from(s))
 			);
 		}
 		function Jm(t, e, r) {
@@ -9696,7 +10117,8 @@ var mqtt = (() => {
 			if (typeof o != 'number') return e.destroy(new Error('Invalid messageId')), !1;
 			if (((c += 2), typeof a == 'object' && a.length))
 				for (let g = 0; g < a.length; g += 1) {
-					if (typeof a[g] != 'string') return e.destroy(new Error('Invalid unsubscriptions')), !1;
+					if (typeof a[g] != 'string')
+						return e.destroy(new Error('Invalid unsubscriptions')), !1;
 					c += q.byteLength(a[g]) + 2;
 				}
 			else return e.destroy(new Error('Invalid unsubscriptions')), !1;
@@ -9705,7 +10127,10 @@ var mqtt = (() => {
 				if (((h = Wt(e, u)), !h)) return !1;
 				c += h.length;
 			}
-			e.write(j.UNSUBSCRIBE_HEADER[1][s ? 1 : 0][0]), De(e, c), Ie(e, o), h !== null && h.write();
+			e.write(j.UNSUBSCRIBE_HEADER[1][s ? 1 : 0][0]),
+				De(e, c),
+				Ie(e, o),
+				h !== null && h.write();
 			let d = !0;
 			for (let g = 0; g < a.length; g++) d = yr(e, a[g]);
 			return d;
@@ -9724,7 +10149,8 @@ var mqtt = (() => {
 			if (i === 5)
 				if (typeof a == 'object' && a.length)
 					for (let y = 0; y < a.length; y += 1) {
-						if (typeof a[y] != 'number') return e.destroy(new Error('Invalid qos vector')), !1;
+						if (typeof a[y] != 'number')
+							return e.destroy(new Error('Invalid qos vector')), !1;
 						d += 1;
 					}
 				else return e.destroy(new Error('Invalid qos vector')), !1;
@@ -9801,7 +10227,9 @@ var mqtt = (() => {
 		}
 		function zo(t, e) {
 			return (
-				qe('writeNumberCached: number: %d', e), qe('writeNumberCached: %o', Cn[e]), t.write(Cn[e])
+				qe('writeNumberCached: number: %d', e),
+				qe('writeNumberCached: %o', Cn[e]),
+				t.write(Cn[e])
 			);
 		}
 		function r1(t, e) {
@@ -9829,7 +10257,8 @@ var mqtt = (() => {
 					u = 0;
 				switch (a) {
 					case 'byte': {
-						if (typeof s != 'boolean') return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
+						if (typeof s != 'boolean')
+							return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
 						u += 1 + 1;
 						break;
 					}
@@ -9863,24 +10292,36 @@ var mqtt = (() => {
 						break;
 					}
 					case 'string': {
-						if (typeof s != 'string') return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
+						if (typeof s != 'string')
+							return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
 						u += 1 + 2 + q.byteLength(s.toString());
 						break;
 					}
 					case 'pair': {
-						if (typeof s != 'object') return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
+						if (typeof s != 'object')
+							return t.destroy(new Error(`Invalid ${o}: ${s}`)), !1;
 						u += Object.getOwnPropertyNames(s).reduce((c, h) => {
 							let d = s[h];
 							return (
 								Array.isArray(d)
 									? (c += d.reduce(
 											(g, y) => (
-												(g += 1 + 2 + q.byteLength(h.toString()) + 2 + q.byteLength(y.toString())),
+												(g +=
+													1 +
+													2 +
+													q.byteLength(h.toString()) +
+													2 +
+													q.byteLength(y.toString())),
 												g
 											),
 											0
 									  ))
-									: (c += 1 + 2 + q.byteLength(h.toString()) + 2 + q.byteLength(s[h].toString())),
+									: (c +=
+											1 +
+											2 +
+											q.byteLength(h.toString()) +
+											2 +
+											q.byteLength(s[h].toString())),
 								c
 							);
 						}, 0);
@@ -9918,7 +10359,9 @@ var mqtt = (() => {
 		function Si(t, e, r, i) {
 			let n = ['reasonString', 'userProperties'],
 				o =
-					r && r.properties && r.properties.maximumPacketSize ? r.properties.maximumPacketSize : 0,
+					r && r.properties && r.properties.maximumPacketSize
+						? r.properties.maximumPacketSize
+						: 0,
 				s = Wt(t, e);
 			if (o)
 				for (; i + s.length > o; ) {
@@ -9963,9 +10406,11 @@ var mqtt = (() => {
 						let o = r[n];
 						Array.isArray(o)
 							? o.forEach((s) => {
-									t.write(q.from([j.properties[e]])), Rd(t, n.toString(), s.toString());
+									t.write(q.from([j.properties[e]])),
+										Rd(t, n.toString(), s.toString());
 							  })
-							: (t.write(q.from([j.properties[e]])), Rd(t, n.toString(), o.toString()));
+							: (t.write(q.from([j.properties[e]])),
+							  Rd(t, n.toString(), o.toString()));
 					});
 					break;
 				}
@@ -10325,13 +10770,22 @@ var mqtt = (() => {
 											u
 										);
 								else {
-									t.log('handlePublish :: unregistered topic alias. alias: %d', u),
-										t.emit('error', new Error('Received unregistered Topic Alias'));
+									t.log(
+										'handlePublish :: unregistered topic alias. alias: %d',
+										u
+									),
+										t.emit(
+											'error',
+											new Error('Received unregistered Topic Alias')
+										);
 									return;
 								}
 							} else {
 								t.log('handlePublish :: topic alias out of range. alias: %d', u),
-									t.emit('error', new Error('Received Topic Alias is out of range'));
+									t.emit(
+										'error',
+										new Error('Received Topic Alias is out of range')
+									);
 								return;
 							}
 						else if (t.topicAliasRecv.put(i, u))
@@ -10345,7 +10799,8 @@ var mqtt = (() => {
 				switch ((t.log('handlePublish: qos %d', o), o)) {
 					case 2: {
 						a.customHandleAcks(i, n, e, (u, c) => {
-							if ((typeof u == 'number' && ((c = u), (u = null)), u)) return t.emit('error', u);
+							if ((typeof u == 'number' && ((c = u), (u = null)), u))
+								return t.emit('error', u);
 							if (Hd.indexOf(c) === -1)
 								return t.emit('error', new Error('Wrong reason code for pubrec'));
 							c
@@ -10358,13 +10813,17 @@ var mqtt = (() => {
 					}
 					case 1: {
 						a.customHandleAcks(i, n, e, (u, c) => {
-							if ((typeof u == 'number' && ((c = u), (u = null)), u)) return t.emit('error', u);
+							if ((typeof u == 'number' && ((c = u), (u = null)), u))
+								return t.emit('error', u);
 							if (Hd.indexOf(c) === -1)
 								return t.emit('error', new Error('Wrong reason code for puback'));
 							c || t.emit('message', i, n, e),
 								t.handleMessage(e, (h) => {
 									if (h) return r && r(h);
-									t._sendPacket({ cmd: 'puback', messageId: s, reasonCode: c }, r);
+									t._sendPacket(
+										{ cmd: 'puback', messageId: s, reasonCode: c },
+										r
+									);
 								});
 						});
 						break;
@@ -10413,7 +10872,8 @@ var mqtt = (() => {
 						Object.defineProperty(
 							t.prototype,
 							s,
-							(i = Object.getOwnPropertyDescriptor(o.prototype, s)) !== null && i !== void 0
+							(i = Object.getOwnPropertyDescriptor(o.prototype, s)) !== null &&
+								i !== void 0
 								? i
 								: Object.create(null)
 						);
@@ -10569,7 +11029,10 @@ var mqtt = (() => {
 					}
 					if (n === 24) (t.reconnecting = !1), t._sendPacket(s);
 					else {
-						let a = new Kd.ErrorWithReasonCode(`Connection refused: ${b1.ReasonCodes[n]}`, n);
+						let a = new Kd.ErrorWithReasonCode(
+							`Connection refused: ${b1.ReasonCodes[n]}`,
+							n
+						);
 						t.emit('error', a);
 					}
 				});
@@ -10584,7 +11047,9 @@ var mqtt = (() => {
 		Object.defineProperty(kn, '__esModule', { value: !0 });
 		kn.LRUCache = void 0;
 		var Ii =
-				typeof performance == 'object' && performance && typeof performance.now == 'function'
+				typeof performance == 'object' &&
+				performance &&
+				typeof performance.now == 'function'
 					? performance
 					: Date,
 			Yd = new Set(),
@@ -10780,7 +11245,8 @@ var mqtt = (() => {
 						allowStaleOnFetchAbort: U,
 						ignoreFetchAbort: N,
 					} = e;
-					if (r !== 0 && !$t(r)) throw new TypeError('max option must be a nonnegative integer');
+					if (r !== 0 && !$t(r))
+						throw new TypeError('max option must be a nonnegative integer');
 					let W = r ? Xd(r) : Array;
 					if (!W) throw new Error('invalid max value: ' + r);
 					if (
@@ -10829,7 +11295,9 @@ var mqtt = (() => {
 						if (this.#c !== 0 && !$t(this.#c))
 							throw new TypeError('maxSize must be a positive integer if specified');
 						if (!$t(this.maxEntrySize))
-							throw new TypeError('maxEntrySize must be a positive integer if specified');
+							throw new TypeError(
+								'maxEntrySize must be a positive integer if specified'
+							);
 						this.#q();
 					}
 					if (
@@ -10842,7 +11310,8 @@ var mqtt = (() => {
 						(this.ttl = i || 0),
 						this.ttl)
 					) {
-						if (!$t(this.ttl)) throw new TypeError('ttl must be a positive integer if specified');
+						if (!$t(this.ttl))
+							throw new TypeError('ttl must be a positive integer if specified');
 						this.#x();
 					}
 					if (this.#l === 0 && this.ttl === 0 && this.#c === 0)
@@ -10868,7 +11337,9 @@ var mqtt = (() => {
 					(this.#w = e),
 						(this.#S = r),
 						(this.#M = (o, s, a = Ii.now()) => {
-							if (((r[o] = s !== 0 ? a : 0), (e[o] = s), s !== 0 && this.ttlAutopurge)) {
+							if (
+								((r[o] = s !== 0 ? a : 0), (e[o] = s), s !== 0 && this.ttlAutopurge)
+							) {
 								let u = setTimeout(() => {
 									this.#d(o) && this.delete(this.#r[o]);
 								}, s + 1);
@@ -10926,7 +11397,9 @@ var mqtt = (() => {
 									if (typeof o != 'function')
 										throw new TypeError('sizeCalculation must be a function');
 									if (((n = o(i, r)), !$t(n)))
-										throw new TypeError('sizeCalculation return invalid (expect positive integer)');
+										throw new TypeError(
+											'sizeCalculation return invalid (expect positive integer)'
+										);
 								} else
 									throw new TypeError(
 										'invalid size value (must be positive integer). When maxSize or maxEntrySize is used, sizeCalculation or size must be set.'
@@ -10938,14 +11411,17 @@ var mqtt = (() => {
 								let o = this.#c - e[r];
 								for (; this.#y > o; ) this.#O(!0);
 							}
-							(this.#y += e[r]), n && ((n.entrySize = i), (n.totalCalculatedSize = this.#y));
+							(this.#y += e[r]),
+								n && ((n.entrySize = i), (n.totalCalculatedSize = this.#y));
 						});
 				}
 				#R = (e) => {};
 				#P = (e, r, i) => {};
 				#L = (e, r, i, n) => {
 					if (i || n)
-						throw new TypeError('cannot set size without setting maxSize or maxEntrySize on cache');
+						throw new TypeError(
+							'cannot set size without setting maxSize or maxEntrySize on cache'
+						);
 					return 0;
 				};
 				*#m({ allowStale: e = this.allowStale } = {}) {
@@ -11072,7 +11548,11 @@ var mqtt = (() => {
 						{ noUpdateTTL: c = this.noUpdateTTL } = i,
 						h = this.#L(e, r, i.size || 0, a);
 					if (this.maxEntrySize && h > this.maxEntrySize)
-						return u && ((u.set = 'miss'), (u.maxEntrySizeExceeded = !0)), this.delete(e), this;
+						return (
+							u && ((u.set = 'miss'), (u.maxEntrySizeExceeded = !0)),
+							this.delete(e),
+							this
+						);
 					let d = this.#i === 0 ? void 0 : this.#n.get(e);
 					if (d === void 0)
 						(d =
@@ -11102,9 +11582,12 @@ var mqtt = (() => {
 								let { __staleWhileFetching: y } = g;
 								y !== void 0 &&
 									!s &&
-									(this.#_ && this.#p?.(y, e, 'set'), this.#f && this.#o?.push([y, e, 'set']));
+									(this.#_ && this.#p?.(y, e, 'set'),
+									this.#f && this.#o?.push([y, e, 'set']));
 							} else
-								s || (this.#_ && this.#p?.(g, e, 'set'), this.#f && this.#o?.push([g, e, 'set']));
+								s ||
+									(this.#_ && this.#p?.(g, e, 'set'),
+									this.#f && this.#o?.push([g, e, 'set']));
 							if ((this.#R(d), this.#P(d, h, u), (this.#e[d] = r), u)) {
 								u.set = 'replace';
 								let y = g && this.#t(g) ? g.__staleWhileFetching : g;
@@ -11147,7 +11630,8 @@ var mqtt = (() => {
 						this.#I && this.#t(n)
 							? n.__abortController.abort(new Error('evicted'))
 							: (this.#_ || this.#f) &&
-							  (this.#_ && this.#p?.(n, i, 'evict'), this.#f && this.#o?.push([n, i, 'evict'])),
+							  (this.#_ && this.#p?.(n, i, 'evict'),
+							  this.#f && this.#o?.push([n, i, 'evict'])),
 						this.#R(r),
 						e && ((this.#r[r] = void 0), (this.#e[r] = void 0), this.#b.push(r)),
 						this.#i === 1
@@ -11204,12 +11688,14 @@ var mqtt = (() => {
 										? R.__staleWhileFetching
 											? (this.#e[r] = R.__staleWhileFetching)
 											: this.delete(e)
-										: (i.status && (i.status.fetchUpdated = !0), this.set(e, E, u.options))),
+										: (i.status && (i.status.fetchUpdated = !0),
+										  this.set(e, E, u.options))),
 								E
 							);
 						},
 						h = (E) => (
-							i.status && ((i.status.fetchRejected = !0), (i.status.fetchError = E)), d(E)
+							i.status && ((i.status.fetchRejected = !0), (i.status.fetchError = E)),
+							d(E)
 						),
 						d = (E) => {
 							let { aborted: S } = s.signal,
@@ -11225,17 +11711,22 @@ var mqtt = (() => {
 								C)
 							)
 								return (
-									i.status && U.__staleWhileFetching !== void 0 && (i.status.returnedStale = !0),
+									i.status &&
+										U.__staleWhileFetching !== void 0 &&
+										(i.status.returnedStale = !0),
 									U.__staleWhileFetching
 								);
 							if (U.__returned === U) throw E;
 						},
 						g = (E, S) => {
 							let I = this.#B?.(e, o, u);
-							I && I instanceof Promise && I.then((C) => E(C === void 0 ? void 0 : C), S),
+							I &&
+								I instanceof Promise &&
+								I.then((C) => E(C === void 0 ? void 0 : C), S),
 								s.signal.addEventListener('abort', () => {
 									(!i.ignoreFetchAbort || i.allowStaleOnFetchAbort) &&
-										(E(void 0), i.allowStaleOnFetchAbort && (E = (C) => c(C, !0)));
+										(E(void 0),
+										i.allowStaleOnFetchAbort && (E = (C) => c(C, !0)));
 								});
 						};
 					i.status && (i.status.fetchDispatched = !0);
@@ -11247,7 +11738,8 @@ var mqtt = (() => {
 						});
 					return (
 						r === void 0
-							? (this.set(e, w, { ...u.options, status: void 0 }), (r = this.#n.get(e)))
+							? (this.set(e, w, { ...u.options, status: void 0 }),
+							  (r = this.#n.get(e)))
 							: (this.#e[r] = w),
 						w
 					);
@@ -11284,7 +11776,12 @@ var mqtt = (() => {
 					if (!this.#I)
 						return (
 							I && (I.fetch = 'get'),
-							this.get(e, { allowStale: i, updateAgeOnGet: n, noDeleteOnStaleGet: o, status: I })
+							this.get(e, {
+								allowStale: i,
+								updateAgeOnGet: n,
+								noDeleteOnStaleGet: o,
+								status: I,
+							})
 						);
 					let R = {
 							allowStale: i,
@@ -11318,11 +11815,19 @@ var mqtt = (() => {
 						}
 						let W = this.#d(U);
 						if (!S && !W)
-							return I && (I.fetch = 'hit'), this.#C(U), n && this.#T(U), I && this.#A(I, U), N;
+							return (
+								I && (I.fetch = 'hit'),
+								this.#C(U),
+								n && this.#T(U),
+								I && this.#A(I, U),
+								N
+							);
 						let K = this.#k(e, U, R, E),
 							Q = K.__staleWhileFetching !== void 0 && i;
 						return (
-							I && ((I.fetch = W ? 'stale' : 'refresh'), Q && W && (I.returnedStale = !0)),
+							I &&
+								((I.fetch = W ? 'stale' : 'refresh'),
+								Q && W && (I.returnedStale = !0)),
 							Q ? K.__staleWhileFetching : (K.__returned = K)
 						);
 					}
@@ -11343,9 +11848,14 @@ var mqtt = (() => {
 							this.#d(a)
 								? (s && (s.get = 'stale'),
 								  c
-										? (s && i && u.__staleWhileFetching !== void 0 && (s.returnedStale = !0),
+										? (s &&
+												i &&
+												u.__staleWhileFetching !== void 0 &&
+												(s.returnedStale = !0),
 										  i ? u.__staleWhileFetching : void 0)
-										: (o || this.delete(e), s && i && (s.returnedStale = !0), i ? u : void 0))
+										: (o || this.delete(e),
+										  s && i && (s.returnedStale = !0),
+										  i ? u : void 0))
 								: (s && (s.get = 'hit'),
 								  c ? u.__staleWhileFetching : (this.#C(a), n && this.#T(a), u))
 						);
@@ -11381,7 +11891,8 @@ var mqtt = (() => {
 										? (this.#s = this.#h[i])
 										: i === this.#a
 										? (this.#a = this.#u[i])
-										: ((this.#u[this.#h[i]] = this.#u[i]), (this.#h[this.#u[i]] = this.#h[i])),
+										: ((this.#u[this.#h[i]] = this.#u[i]),
+										  (this.#h[this.#u[i]] = this.#h[i])),
 									this.#i--,
 									this.#b.push(i);
 							}
@@ -11399,7 +11910,8 @@ var mqtt = (() => {
 						if (this.#t(r)) r.__abortController.abort(new Error('deleted'));
 						else {
 							let i = this.#r[e];
-							this.#_ && this.#p?.(r, i, 'delete'), this.#f && this.#o?.push([r, i, 'delete']);
+							this.#_ && this.#p?.(r, i, 'delete'),
+								this.#f && this.#o?.push([r, i, 'delete']);
 						}
 					}
 					if (
@@ -11663,24 +12175,34 @@ var mqtt = (() => {
 						(this.o = e),
 						this.iteratorType === 0
 							? ((this.pre = function () {
-									return this.o === 0 && (0, Dn.throwIteratorAccessError)(), (this.o -= 1), this;
+									return (
+										this.o === 0 && (0, Dn.throwIteratorAccessError)(),
+										(this.o -= 1),
+										this
+									);
 							  }),
 							  (this.next = function () {
 									return (
-										this.o === this.container.size() && (0, Dn.throwIteratorAccessError)(),
+										this.o === this.container.size() &&
+											(0, Dn.throwIteratorAccessError)(),
 										(this.o += 1),
 										this
 									);
 							  }))
 							: ((this.pre = function () {
 									return (
-										this.o === this.container.size() - 1 && (0, Dn.throwIteratorAccessError)(),
+										this.o === this.container.size() - 1 &&
+											(0, Dn.throwIteratorAccessError)(),
 										(this.o += 1),
 										this
 									);
 							  }),
 							  (this.next = function () {
-									return this.o === -1 && (0, Dn.throwIteratorAccessError)(), (this.o -= 1), this;
+									return (
+										this.o === -1 && (0, Dn.throwIteratorAccessError)(),
+										(this.o -= 1),
+										this
+									);
 							  }));
 				}
 				get pointer() {
@@ -11784,7 +12306,8 @@ var mqtt = (() => {
 				}
 				unique() {
 					let e = 1;
-					for (let r = 1; r < this.i; ++r) this.J[r] !== this.J[r - 1] && (this.J[e++] = this.J[r]);
+					for (let r = 1; r < this.i; ++r)
+						this.J[r] !== this.J[r - 1] && (this.J[e++] = this.J[r]);
 					return (this.i = this.J.length = e), this.i;
 				}
 				sort(e) {
@@ -11926,7 +12449,12 @@ var mqtt = (() => {
 				}
 				eraseElementByIterator(e) {
 					let r = e.o;
-					return r === this.h && (0, _r.throwIteratorAccessError)(), (e = e.next()), this.V(r), e;
+					return (
+						r === this.h && (0, _r.throwIteratorAccessError)(),
+						(e = e.next()),
+						this.V(r),
+						e
+					);
 				}
 				pushBack(e) {
 					return this.G(e, this._), this.i;
@@ -12472,20 +13000,32 @@ var mqtt = (() => {
 						}
 						if (e === r.U) {
 							let i = r.W;
-							if (i.ee === 1) (i.ee = 0), (r.ee = 1), r === this.Y ? (this.Y = r.te()) : r.te();
+							if (i.ee === 1)
+								(i.ee = 0), (r.ee = 1), r === this.Y ? (this.Y = r.te()) : r.te();
 							else if (i.W && i.W.ee === 1) {
-								(i.ee = r.ee), (r.ee = 0), (i.W.ee = 0), r === this.Y ? (this.Y = r.te()) : r.te();
+								(i.ee = r.ee),
+									(r.ee = 0),
+									(i.W.ee = 0),
+									r === this.Y ? (this.Y = r.te()) : r.te();
 								return;
 							} else
-								i.U && i.U.ee === 1 ? ((i.ee = 1), (i.U.ee = 0), i.se()) : ((i.ee = 1), (e = r));
+								i.U && i.U.ee === 1
+									? ((i.ee = 1), (i.U.ee = 0), i.se())
+									: ((i.ee = 1), (e = r));
 						} else {
 							let i = r.U;
-							if (i.ee === 1) (i.ee = 0), (r.ee = 1), r === this.Y ? (this.Y = r.se()) : r.se();
+							if (i.ee === 1)
+								(i.ee = 0), (r.ee = 1), r === this.Y ? (this.Y = r.se()) : r.se();
 							else if (i.U && i.U.ee === 1) {
-								(i.ee = r.ee), (r.ee = 0), (i.U.ee = 0), r === this.Y ? (this.Y = r.se()) : r.se();
+								(i.ee = r.ee),
+									(r.ee = 0),
+									(i.U.ee = 0),
+									r === this.Y ? (this.Y = r.se()) : r.se();
 								return;
 							} else
-								i.W && i.W.ee === 1 ? ((i.ee = 1), (i.W.ee = 0), i.te()) : ((i.ee = 1), (e = r));
+								i.W && i.W.ee === 1
+									? ((i.ee = 1), (i.W.ee = 0), i.te())
+									: ((i.ee = 1), (e = r));
 						}
 					}
 				}
@@ -12497,9 +13037,15 @@ var mqtt = (() => {
 						else r = r.U;
 						([e.u, r.u] = [r.u, e.u]), ([e.l, r.l] = [r.l, e.l]), (e = r);
 					}
-					this.h.U === r ? (this.h.U = r.tt) : this.h.W === r && (this.h.W = r.tt), this.ue(r);
+					this.h.U === r ? (this.h.U = r.tt) : this.h.W === r && (this.h.W = r.tt),
+						this.ue(r);
 					let i = r.tt;
-					return r === i.U ? (i.U = void 0) : (i.W = void 0), (this.i -= 1), (this.Y.ee = 0), i;
+					return (
+						r === i.U ? (i.U = void 0) : (i.W = void 0),
+						(this.i -= 1),
+						(this.Y.ee = 0),
+						i
+					);
 				}
 				oe(e, r) {
 					return e === void 0 ? !1 : this.oe(e.U, r) || r(e) ? !0 : this.oe(e.W, r);
@@ -12538,7 +13084,8 @@ var mqtt = (() => {
 									(i.ee = 1),
 									{ parentNode: r, grandParent: i, curNode: e }
 								);
-							} else (r.ee = 0), i === this.Y ? (this.Y = i.se()) : i.se(), (i.ee = 1);
+							} else
+								(r.ee = 0), i === this.Y ? (this.Y = i.se()) : i.se(), (i.ee = 1);
 						} else {
 							let n = i.U;
 							if (n && n.ee === 1) {
@@ -12568,7 +13115,8 @@ var mqtt = (() => {
 									(i.ee = 1),
 									{ parentNode: r, grandParent: i, curNode: e }
 								);
-							} else (r.ee = 0), i === this.Y ? (this.Y = i.te()) : i.te(), (i.ee = 1);
+							} else
+								(r.ee = 0), i === this.Y ? (this.Y = i.te()) : i.te(), (i.ee = 1);
 						}
 						return;
 					}
@@ -12590,14 +13138,16 @@ var mqtt = (() => {
 					if (s === 0) {
 						o.l = r;
 						return;
-					} else if (s > 0) (o.U = new this.re(e, r)), (o.U.tt = o), (n = o.U), (this.h.U = n);
+					} else if (s > 0)
+						(o.U = new this.re(e, r)), (o.U.tt = o), (n = o.U), (this.h.U = n);
 					else {
 						let a = this.h.W,
 							u = this.v(a.u, e);
 						if (u === 0) {
 							a.l = r;
 							return;
-						} else if (u < 0) (a.W = new this.re(e, r)), (a.W.tt = a), (n = a.W), (this.h.W = n);
+						} else if (u < 0)
+							(a.W = new this.re(e, r)), (a.W.tt = a), (n = a.W), (this.h.W = n);
 						else {
 							if (i !== void 0) {
 								let c = i.o;
@@ -12615,7 +13165,9 @@ var mqtt = (() => {
 										} else
 											g < 0 &&
 												((n = new this.re(e, r)),
-												d.W === void 0 ? ((d.W = n), (n.tt = d)) : ((c.U = n), (n.tt = c)));
+												d.W === void 0
+													? ((d.W = n), (n.tt = d))
+													: ((c.U = n), (n.tt = c)));
 									}
 								}
 							}
@@ -12653,7 +13205,10 @@ var mqtt = (() => {
 					return e || this.h;
 				}
 				clear() {
-					(this.i = 0), (this.Y = void 0), (this.h.tt = void 0), (this.h.U = this.h.W = void 0);
+					(this.i = 0),
+						(this.Y = void 0),
+						(this.h.tt = void 0),
+						(this.h.U = this.h.W = void 0);
 				}
 				updateKeyByIterator(e, r) {
 					let i = e.o;
@@ -12687,7 +13242,9 @@ var mqtt = (() => {
 					r === this.h && (0, lp.throwIteratorAccessError)();
 					let i = r.W === void 0;
 					return (
-						e.iteratorType === 0 ? i && e.next() : (!i || r.U === void 0) && e.next(), this.V(r), e
+						e.iteratorType === 0 ? i && e.next() : (!i || r.U === void 0) && e.next(),
+						this.V(r),
+						e
 					);
 				}
 				forEach(e) {
@@ -13019,7 +13576,9 @@ var mqtt = (() => {
 						  }),
 						  (this.next = function () {
 								return (
-									this.o === this.h && (0, Ti.throwIteratorAccessError)(), (this.o = this.o.B), this
+									this.o === this.h && (0, Ti.throwIteratorAccessError)(),
+									(this.o = this.o.B),
+									this
 								);
 						  }))
 						: ((this.pre = function () {
@@ -13031,7 +13590,9 @@ var mqtt = (() => {
 						  }),
 						  (this.next = function () {
 								return (
-									this.o === this.h && (0, Ti.throwIteratorAccessError)(), (this.o = this.o.L), this
+									this.o === this.h && (0, Ti.throwIteratorAccessError)(),
+									(this.o = this.o.L),
+									this
 								);
 						  }));
 			}
@@ -13061,7 +13622,10 @@ var mqtt = (() => {
 				if (i) {
 					let o = e[this.HASH_TAG];
 					if (o !== void 0) return (this.H[o].l = r), this.i;
-					Object.defineProperty(e, this.HASH_TAG, { value: this.H.length, configurable: !0 }),
+					Object.defineProperty(e, this.HASH_TAG, {
+						value: this.H.length,
+						configurable: !0,
+					}),
 						(n = { u: e, l: r, L: this._, B: this.h }),
 						this.H.push(n);
 				} else {
@@ -13450,7 +14014,9 @@ var mqtt = (() => {
 				}
 				r.pre();
 				let i = r.pointer.high;
-				r.pointer.high + 1 === t ? this.ss.updateKeyByIterator(r, new Te(i, t)) : this.ss.insert(e);
+				r.pointer.high + 1 === t
+					? this.ss.updateKeyByIterator(r, new Te(i, t))
+					: this.ss.insert(e);
 			} else if (r.equals(this.ss.begin()))
 				if (t + 1 === r.pointer.low) {
 					let i = r.pointer.high;
@@ -13463,7 +14029,8 @@ var mqtt = (() => {
 				let o = r.pointer.low;
 				r.pointer.high + 1 === t
 					? t + 1 === i
-						? (this.ss.eraseElementByIterator(r), this.ss.updateKeyByIterator(r, new Te(o, n)))
+						? (this.ss.eraseElementByIterator(r),
+						  this.ss.updateKeyByIterator(r, new Te(o, n)))
 						: this.ss.updateKeyByIterator(r, new Te(o, t))
 					: t + 1 === i
 					? (this.ss.eraseElementByIterator(r.next()), this.ss.insert(new Te(t, n)))
@@ -13560,7 +14127,10 @@ var mqtt = (() => {
 				if ((clearTimeout(t.connackTimer), delete t.topicAliasSend, e.properties)) {
 					if (e.properties.topicAliasMaximum) {
 						if (e.properties.topicAliasMaximum > 65535) {
-							t.emit('error', new Error('topicAliasMaximum from broker is out of range'));
+							t.emit(
+								'error',
+								new Error('topicAliasMaximum from broker is out of range')
+							);
 							return;
 						}
 						e.properties.topicAliasMaximum > 0 &&
@@ -13575,7 +14145,10 @@ var mqtt = (() => {
 				}
 				if (n === 0) (t.reconnecting = !1), t._onConnect(e);
 				else if (n > 0) {
-					let o = new Tv.ErrorWithReasonCode(`Connection refused: ${Av.ReasonCodes[n]}`, n);
+					let o = new Tv.ErrorWithReasonCode(
+						`Connection refused: ${Av.ReasonCodes[n]}`,
+						n
+					);
 					t.emit('error', o);
 				}
 			};
@@ -13706,8 +14279,8 @@ var mqtt = (() => {
 				return !!(
 					typeof self == 'object' &&
 					!(
-						(e = (t = self?.constructor) === null || t === void 0 ? void 0 : t.name) === null ||
-						e === void 0
+						(e = (t = self?.constructor) === null || t === void 0 ? void 0 : t.name) ===
+							null || e === void 0
 					) &&
 					e.includes('WorkerGlobalScope')
 				);
@@ -13727,7 +14300,8 @@ var mqtt = (() => {
 				? e(Zn)
 				: typeof define == 'function' && define.amd
 				? define(['exports'], e)
-				: ((t = typeof globalThis < 'u' ? globalThis : t || self), e((t.fastUniqueNumbers = {})));
+				: ((t = typeof globalThis < 'u' ? globalThis : t || self),
+				  e((t.fastUniqueNumbers = {})));
 		})(Zn, function (t) {
 			'use strict';
 			var e = function (g) {
@@ -13818,7 +14392,8 @@ var mqtt = (() => {
 						} else if (i(S)) {
 							var z = S.id,
 								Q = c.get(z);
-							if (Q === void 0) throw new Error('The timer is in an undefined state.');
+							if (Q === void 0)
+								throw new Error('The timer is in an undefined state.');
 							var de = Q.timerId,
 								Gt = Q.timerType;
 							c.delete(z), Gt === 'interval' ? a.delete(de) : u.delete(de);
@@ -13848,7 +14423,10 @@ var mqtt = (() => {
 								});
 						},
 						y = function (S) {
-							var I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0,
+							var I =
+									arguments.length > 1 && arguments[1] !== void 0
+										? arguments[1]
+										: 0,
 								C = e.generateUniqueNumber(a);
 							return (
 								a.set(C, function () {
@@ -13868,20 +14446,33 @@ var mqtt = (() => {
 								h.postMessage({
 									id: null,
 									method: 'set',
-									params: { delay: I, now: performance.now(), timerId: C, timerType: 'interval' },
+									params: {
+										delay: I,
+										now: performance.now(),
+										timerId: C,
+										timerType: 'interval',
+									},
 								}),
 								C
 							);
 						},
 						w = function (S) {
-							var I = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0,
+							var I =
+									arguments.length > 1 && arguments[1] !== void 0
+										? arguments[1]
+										: 0,
 								C = e.generateUniqueNumber(u);
 							return (
 								u.set(C, S),
 								h.postMessage({
 									id: null,
 									method: 'set',
-									params: { delay: I, now: performance.now(), timerId: C, timerType: 'timeout' },
+									params: {
+										delay: I,
+										now: performance.now(),
+										timerId: C,
+										timerType: 'timeout',
+									},
 								}),
 								C
 							);
@@ -13977,7 +14568,9 @@ var mqtt = (() => {
 					var e = {};
 					if (t != null)
 						for (var r in t)
-							r !== 'default' && Object.prototype.hasOwnProperty.call(t, r) && jv(e, t, r);
+							r !== 'default' &&
+								Object.prototype.hasOwnProperty.call(t, r) &&
+								jv(e, t, r);
 					return Fv(e, t), e;
 				};
 		Object.defineProperty(Ct, '__esModule', { value: !0 });
@@ -14073,7 +14666,9 @@ var mqtt = (() => {
 					var e = {};
 					if (t != null)
 						for (var r in t)
-							r !== 'default' && Object.prototype.hasOwnProperty.call(t, r) && zv(e, t, r);
+							r !== 'default' &&
+								Object.prototype.hasOwnProperty.call(t, r) &&
+								zv(e, t, r);
 					return Kv(e, t), e;
 				},
 			Vt =
@@ -14122,13 +14717,18 @@ var mqtt = (() => {
 				constructor(e, r) {
 					super(), (this.options = r || {});
 					for (let i in Wp)
-						typeof this.options[i] > 'u' ? (this.options[i] = Wp[i]) : (this.options[i] = r[i]);
+						typeof this.options[i] > 'u'
+							? (this.options[i] = Wp[i])
+							: (this.options[i] = r[i]);
 					(this.log = this.options.log || (0, Jv.default)('mqttjs:client')),
 						(this.noop = this._noop.bind(this)),
 						this.log('MqttClient :: version:', t.VERSION),
 						Fp.isWebWorker
 							? this.log('MqttClient :: environment', 'webworker')
-							: this.log('MqttClient :: environment', Fp.default ? 'browser' : 'node'),
+							: this.log(
+									'MqttClient :: environment',
+									Fp.default ? 'browser' : 'node'
+							  ),
 						this.log('MqttClient :: options.protocol', r.protocol),
 						this.log('MqttClient :: options.protocolVersion', r.protocolVersion),
 						this.log('MqttClient :: options.username', r.username),
@@ -14139,7 +14739,8 @@ var mqtt = (() => {
 							'MqttClient :: options.properties.topicAliasMaximum',
 							r.properties ? r.properties.topicAliasMaximum : void 0
 						),
-						(this.options.clientId = typeof r.clientId == 'string' ? r.clientId : t.defaultId()),
+						(this.options.clientId =
+							typeof r.clientId == 'string' ? r.clientId : t.defaultId()),
 						this.log('MqttClient :: clientId', this.options.clientId),
 						(this.options.customHandleAcks =
 							r.protocolVersion === 5 && r.customHandleAcks
@@ -14173,8 +14774,12 @@ var mqtt = (() => {
 						r.properties &&
 							r.properties.topicAliasMaximum > 0 &&
 							(r.properties.topicAliasMaximum > 65535
-								? this.log('MqttClient :: options.properties.topicAliasMaximum is out of range')
-								: (this.topicAliasRecv = new Gv.default(r.properties.topicAliasMaximum))),
+								? this.log(
+										'MqttClient :: options.properties.topicAliasMaximum is out of range'
+								  )
+								: (this.topicAliasRecv = new Gv.default(
+										r.properties.topicAliasMaximum
+								  ))),
 						this.on('connect', () => {
 							let { queue: i } = this,
 								n = () => {
@@ -14185,7 +14790,8 @@ var mqtt = (() => {
 										this._resubscribe();
 										return;
 									}
-									(s = o.packet), this.log('deliver :: call _sendPacket for %o', s);
+									(s = o.packet),
+										this.log('deliver :: call _sendPacket for %o', s);
 									let a = !0;
 									s.messageId &&
 										s.messageId !== 0 &&
@@ -14235,7 +14841,9 @@ var mqtt = (() => {
 						o = [];
 					this.log('connect :: calling method to clear reconnect'),
 						this._clearReconnect(),
-						this.log('connect :: using streamBuilder provided to client to create stream'),
+						this.log(
+							'connect :: using streamBuilder provided to client to create stream'
+						),
 						(this.stream = this.streamBuilder(this)),
 						i.on('packet', (h) => {
 							this.log('parser :: on packet push to packets array.'), o.push(h);
@@ -14243,7 +14851,9 @@ var mqtt = (() => {
 					let s = () => {
 							this.log('work :: getting next packet in queue');
 							let h = o.shift();
-							if (h) this.log('work :: packet pulled from queue'), (0, Xv.default)(this, h, a);
+							if (h)
+								this.log('work :: packet pulled from queue'),
+									(0, Xv.default)(this, h, a);
 							else {
 								this.log('work :: no packets in queue');
 								let d = n;
@@ -14263,7 +14873,8 @@ var mqtt = (() => {
 					let u = (h) => {
 						this.log('streamErrorHandler :: error', h.message),
 							h.code
-								? (this.log('streamErrorHandler :: emitting error'), this.emit('error', h))
+								? (this.log('streamErrorHandler :: emitting error'),
+								  this.emit('error', h))
 								: this.noop(h);
 					};
 					this.log('connect :: pipe stream to writable stream'),
@@ -14290,11 +14901,15 @@ var mqtt = (() => {
 					if (
 						(this.options.will &&
 							(c.will = Object.assign(Object.assign({}, this.options.will), {
-								payload: (e = this.options.will) === null || e === void 0 ? void 0 : e.payload,
+								payload:
+									(e = this.options.will) === null || e === void 0
+										? void 0
+										: e.payload,
 							})),
 						this.topicAliasRecv &&
 							(c.properties || (c.properties = {}),
-							this.topicAliasRecv && (c.properties.topicAliasMaximum = this.topicAliasRecv.max)),
+							this.topicAliasRecv &&
+								(c.properties.topicAliasMaximum = this.topicAliasRecv.max)),
 						this._writePacket(c),
 						i.on('error', this.emit.bind(this, 'error')),
 						this.options.properties)
@@ -14305,7 +14920,10 @@ var mqtt = (() => {
 						)
 							return (
 								this.end(() =>
-									this.emit('error', new Error('Packet has no Authentication Method'))
+									this.emit(
+										'error',
+										new Error('Packet has no Authentication Method')
+									)
 								),
 								this
 							);
@@ -14314,7 +14932,10 @@ var mqtt = (() => {
 							this.options.authPacket &&
 							typeof this.options.authPacket == 'object'
 						) {
-							let h = Object.assign({ cmd: 'auth', reasonCode: 0 }, this.options.authPacket);
+							let h = Object.assign(
+								{ cmd: 'auth', reasonCode: 0 },
+								this.options.authPacket
+							);
 							this._writePacket(h);
 						}
 					}
@@ -14351,7 +14972,9 @@ var mqtt = (() => {
 							dup: c,
 						};
 						switch (
-							(o.protocolVersion === 5 && (w.properties = h), this.log('publish :: qos', a), a)
+							(o.protocolVersion === 5 && (w.properties = h),
+							this.log('publish :: qos', a),
+							a)
 						) {
 							case 1:
 							case 2:
@@ -14360,14 +14983,19 @@ var mqtt = (() => {
 									this._sendPacket(w, void 0, d);
 								break;
 							default:
-								this.log('MqttClient:publish: packet cmd: %s', w.cmd), this._sendPacket(w, n, d);
+								this.log('MqttClient:publish: packet cmd: %s', w.cmd),
+									this._sendPacket(w, n, d);
 								break;
 						}
 						return !0;
 					};
 					return (
 						(this._storeProcessing || this._storeProcessingQueue.length > 0 || !g()) &&
-							this._storeProcessingQueue.push({ invoke: g, cbStorePut: i.cbStorePut, callback: n }),
+							this._storeProcessingQueue.push({
+								invoke: g,
+								cbStorePut: i.cbStorePut,
+								callback: n,
+							}),
 						this
 					);
 				}
@@ -14391,7 +15019,8 @@ var mqtt = (() => {
 						  ((o = e.resubscribe), delete e.resubscribe, (s = Object.keys(e)));
 					let a = jp.validateTopics(s);
 					if (a !== null) return Wa(i, new Error(`Invalid topic ${a}`)), this;
-					if (this._checkDisconnecting(i)) return this.log('subscribe: discconecting true'), this;
+					if (this._checkDisconnecting(i))
+						return this.log('subscribe: discconecting true'), this;
 					let u = { qos: 0 };
 					n === 5 && ((u.nl = !1), (u.rap = !1), (u.rh = 0)),
 						(r = Object.assign(Object.assign({}, u), r));
@@ -14405,7 +15034,11 @@ var mqtt = (() => {
 									o)
 							) {
 								let E = { topic: y, qos: w.qos };
-								n === 5 && ((E.nl = w.nl), (E.rap = w.rap), (E.rh = w.rh), (E.properties = c)),
+								n === 5 &&
+									((E.nl = w.nl),
+									(E.rap = w.rap),
+									(E.rh = w.rh),
+									(E.properties = c)),
 									this.log(
 										'subscribe: pushing topic `%s` and qos `%s` to subs list',
 										E.topic,
@@ -14525,9 +15158,16 @@ var mqtt = (() => {
 								(this.disconnected = !0),
 								this.incomingStore.close((s) => {
 									this.outgoingStore.close((a) => {
-										if ((this.log('end :: closeStores: emitting end'), this.emit('end'), i)) {
+										if (
+											(this.log('end :: closeStores: emitting end'),
+											this.emit('end'),
+											i)
+										) {
 											let u = s || a;
-											this.log('end :: closeStores: invoking callback with args'), i(u);
+											this.log(
+												'end :: closeStores: invoking callback with args'
+											),
+												i(u);
 										}
 									});
 								}),
@@ -14542,7 +15182,9 @@ var mqtt = (() => {
 								this._cleanUp(
 									e,
 									() => {
-										this.log('end :: finish :: calling process.nextTick on closeStores'),
+										this.log(
+											'end :: finish :: calling process.nextTick on closeStores'
+										),
 											(0, is.nextTick)(n);
 									},
 									r
@@ -14558,7 +15200,10 @@ var mqtt = (() => {
 										this.options.clientId
 								  ),
 								  this.once('outgoingEmpty', setTimeout.bind(null, o, 10)))
-								: (this.log('end :: (%s) :: immediately calling finish', this.options.clientId),
+								: (this.log(
+										'end :: (%s) :: immediately calling finish',
+										this.options.clientId
+								  ),
 								  o()),
 						  this);
 				}
@@ -14584,7 +15229,8 @@ var mqtt = (() => {
 						e
 							? ((this.options.incomingStore = e.incomingStore),
 							  (this.options.outgoingStore = e.outgoingStore))
-							: ((this.options.incomingStore = null), (this.options.outgoingStore = null)),
+							: ((this.options.incomingStore = null),
+							  (this.options.outgoingStore = null)),
 							(this.incomingStore = this.options.incomingStore || new rs.default()),
 							(this.outgoingStore = this.options.outgoingStore || new rs.default()),
 							(this.disconnecting = !1),
@@ -14593,7 +15239,10 @@ var mqtt = (() => {
 							this._reconnect();
 					};
 					return (
-						this.disconnecting && !this.disconnected ? (this._deferredReconnect = r) : r(), this
+						this.disconnecting && !this.disconnected
+							? (this._deferredReconnect = r)
+							: r(),
+						this
 					);
 				}
 				_flushVolatile() {
@@ -14604,7 +15253,8 @@ var mqtt = (() => {
 						Object.keys(this.outgoing).forEach((e) => {
 							this.outgoing[e].volatile &&
 								typeof this.outgoing[e].cb == 'function' &&
-								(this.outgoing[e].cb(new Error('Connection closed')), delete this.outgoing[e]);
+								(this.outgoing[e].cb(new Error('Connection closed')),
+								delete this.outgoing[e]);
 						}));
 				}
 				_flush() {
@@ -14612,7 +15262,8 @@ var mqtt = (() => {
 						(this.log('_flush: queue exists? %b', !!this.outgoing),
 						Object.keys(this.outgoing).forEach((e) => {
 							typeof this.outgoing[e].cb == 'function' &&
-								(this.outgoing[e].cb(new Error('Connection closed')), delete this.outgoing[e]);
+								(this.outgoing[e].cb(new Error('Connection closed')),
+								delete this.outgoing[e]);
 						}));
 				}
 				_removeTopicAliasAndRecoverTopicName(e) {
@@ -14620,7 +15271,11 @@ var mqtt = (() => {
 					e.properties && (r = e.properties.topicAlias);
 					let i = e.topic.toString();
 					if (
-						(this.log('_removeTopicAliasAndRecoverTopicName :: alias %d, topic %o', r, i),
+						(this.log(
+							'_removeTopicAliasAndRecoverTopicName :: alias %d, topic %o',
+							r,
+							i
+						),
 						i.length === 0)
 					) {
 						if (typeof r > 'u') return new Error('Unregistered Topic Alias');
@@ -14661,7 +15316,8 @@ var mqtt = (() => {
 								this.options.reconnectPeriod
 						  ),
 						  (this.reconnectTimer = setInterval(() => {
-								this.log('reconnectTimer :: reconnect triggered!'), this._reconnect();
+								this.log('reconnectTimer :: reconnect triggered!'),
+									this._reconnect();
 						  }, this.options.reconnectPeriod)))
 						: this.log('_setupReconnect :: doing nothing...');
 				}
@@ -14679,7 +15335,10 @@ var mqtt = (() => {
 						e)
 					)
 						this.options.reconnectPeriod === 0 && this.options.clean && this._flush(),
-							this.log('_cleanUp :: (%s) :: destroying stream', this.options.clientId),
+							this.log(
+								'_cleanUp :: (%s) :: destroying stream',
+								this.options.clientId
+							),
 							this.stream.destroy();
 					else {
 						let n = Object.assign({ cmd: 'disconnect' }, i);
@@ -14688,10 +15347,16 @@ var mqtt = (() => {
 							this.options.clientId
 						),
 							this._sendPacket(n, () => {
-								this.log('_cleanUp :: (%s) :: destroying stream', this.options.clientId),
+								this.log(
+									'_cleanUp :: (%s) :: destroying stream',
+									this.options.clientId
+								),
 									Wa(() => {
 										this.stream.end(() => {
-											this.log('_cleanUp :: (%s) :: stream destroyed', this.options.clientId);
+											this.log(
+												'_cleanUp :: (%s) :: stream destroyed',
+												this.options.clientId
+											);
 										});
 									});
 							});
@@ -14719,7 +15384,9 @@ var mqtt = (() => {
 						o;
 					if (
 						n.cmd === 'publish' &&
-						((n = (0, Dp.default)(e)), (o = this._removeTopicAliasAndRecoverTopicName(n)), o)
+						((n = (0, Dp.default)(e)),
+						(o = this._removeTopicAliasAndRecoverTopicName(n)),
+						o)
 					)
 						return r && r(o);
 					this.outgoingStore.put(n, (s) => {
@@ -14736,11 +15403,19 @@ var mqtt = (() => {
 							if (r) {
 								if (
 									i.length !== 0 &&
-									(this.log('applyTopicAlias :: register topic: %s - alias: %d', i, r),
+									(this.log(
+										'applyTopicAlias :: register topic: %s - alias: %d',
+										i,
+										r
+									),
 									!this.topicAliasSend.put(i, r))
 								)
 									return (
-										this.log('applyTopicAlias :: error out of range. topic: %s - alias: %d', i, r),
+										this.log(
+											'applyTopicAlias :: error out of range. topic: %s - alias: %d',
+											i,
+											r
+										),
 										new Error('Sending Topic Alias out of range')
 									);
 							} else
@@ -14749,9 +15424,12 @@ var mqtt = (() => {
 										? ((r = this.topicAliasSend.getAliasByTopic(i)),
 										  r
 												? ((e.topic = ''),
-												  (e.properties = Object.assign(Object.assign({}, e.properties), {
-														topicAlias: r,
-												  })),
+												  (e.properties = Object.assign(
+														Object.assign({}, e.properties),
+														{
+															topicAlias: r,
+														}
+												  )),
 												  this.log(
 														'applyTopicAlias :: auto assign(use) topic: %s - alias: %d',
 														i,
@@ -14759,21 +15437,39 @@ var mqtt = (() => {
 												  ))
 												: ((r = this.topicAliasSend.getLruAlias()),
 												  this.topicAliasSend.put(i, r),
-												  (e.properties = Object.assign(Object.assign({}, e.properties), {
-														topicAlias: r,
-												  })),
-												  this.log('applyTopicAlias :: auto assign topic: %s - alias: %d', i, r)))
+												  (e.properties = Object.assign(
+														Object.assign({}, e.properties),
+														{
+															topicAlias: r,
+														}
+												  )),
+												  this.log(
+														'applyTopicAlias :: auto assign topic: %s - alias: %d',
+														i,
+														r
+												  )))
 										: this.options.autoUseTopicAlias &&
 										  ((r = this.topicAliasSend.getAliasByTopic(i)),
 										  r &&
 												((e.topic = ''),
-												(e.properties = Object.assign(Object.assign({}, e.properties), {
-													topicAlias: r,
-												})),
-												this.log('applyTopicAlias :: auto use topic: %s - alias: %d', i, r))));
+												(e.properties = Object.assign(
+													Object.assign({}, e.properties),
+													{
+														topicAlias: r,
+													}
+												)),
+												this.log(
+													'applyTopicAlias :: auto use topic: %s - alias: %d',
+													i,
+													r
+												))));
 						else if (r)
 							return (
-								this.log('applyTopicAlias :: error out of range. topic: %s - alias: %d', i, r),
+								this.log(
+									'applyTopicAlias :: error out of range. topic: %s - alias: %d',
+									i,
+									r
+								),
 								new Error('Sending Topic Alias out of range')
 							);
 					}
@@ -14789,7 +15485,9 @@ var mqtt = (() => {
 					let i = Fa.default.writeToStream(e, this.stream, this.options);
 					this.log('_writePacket :: writeToStream result %s', i),
 						!i && r && r !== this.noop
-							? (this.log('_writePacket :: handle events on `drain` once through callback.'),
+							? (this.log(
+									'_writePacket :: handle events on `drain` once through callback.'
+							  ),
 							  this.stream.once('drain', r))
 							: r && (this.log('_writePacket :: invoking cb'), r());
 				}
@@ -14889,7 +15587,8 @@ var mqtt = (() => {
 				_checkPing() {
 					this.log('_checkPing :: checking ping...'),
 						Date.now() - this.pingResp - 100 <= this.options.keepalive * 1e3
-							? (this.log('_checkPing :: ping response received in time'), this._sendPing())
+							? (this.log('_checkPing :: ping response received in time'),
+							  this._sendPing())
 							: (this.emit('error', new Error('Keepalive timeout')),
 							  this.log('_checkPing :: calling _cleanUp with force true'),
 							  this._cleanUp(!0));
@@ -14903,7 +15602,8 @@ var mqtt = (() => {
 					if (
 						!this._firstConnection &&
 						(this.options.clean ||
-							(this.options.protocolVersion >= 4 && !this.connackPacket.sessionPresent)) &&
+							(this.options.protocolVersion >= 4 &&
+								!this.connackPacket.sessionPresent)) &&
 						e.length > 0
 					)
 						if (this.options.resubscribe)
@@ -14916,7 +15616,8 @@ var mqtt = (() => {
 										this.subscribe(i, { properties: i[e[r]].properties });
 								}
 							} else
-								(this._resubscribeTopics.resubscribe = !0), this.subscribe(this._resubscribeTopics);
+								(this._resubscribeTopics.resubscribe = !0),
+									this.subscribe(this._resubscribeTopics);
 						else this._resubscribeTopics = {};
 					this._firstConnection = !1;
 				}
@@ -14935,7 +15636,8 @@ var mqtt = (() => {
 								i.destroy(), (i = null), this._flushStoreProcessingQueue(), o();
 							},
 							o = () => {
-								(this._storeProcessing = !1), (this._packetIdsDuringStoreProcessing = {});
+								(this._storeProcessing = !1),
+									(this._packetIdsDuringStoreProcessing = {});
 							};
 						this.once('close', n),
 							i.on('error', (a) => {
@@ -14953,13 +15655,16 @@ var mqtt = (() => {
 								return;
 							}
 							if (
-								((this._storeProcessing = !0), this._packetIdsDuringStoreProcessing[a.messageId])
+								((this._storeProcessing = !0),
+								this._packetIdsDuringStoreProcessing[a.messageId])
 							) {
 								s();
 								return;
 							}
 							!this.disconnecting && !this.reconnectTimer
-								? ((u = this.outgoing[a.messageId] ? this.outgoing[a.messageId].cb : null),
+								? ((u = this.outgoing[a.messageId]
+										? this.outgoing[a.messageId].cb
+										: null),
 								  (this.outgoing[a.messageId] = {
 										volatile: !1,
 										cb(c, h) {
@@ -14980,7 +15685,11 @@ var mqtt = (() => {
 									break;
 								}
 							this.removeListener('close', n),
-								a ? (o(), this._invokeAllStoreProcessingQueue(), this.emit('connect', e)) : r();
+								a
+									? (o(),
+									  this._invokeAllStoreProcessingQueue(),
+									  this.emit('connect', e))
+									: r();
 						}),
 							s();
 					};
@@ -15005,7 +15714,9 @@ var mqtt = (() => {
 				_removeOutgoingAndStoreMessage(e, r) {
 					delete this.outgoing[e],
 						this.outgoingStore.del({ messageId: e }, (i, n) => {
-							r(i, n), this.messageIdProvider.deallocate(e), this._invokeStoreProcessingQueue();
+							r(i, n),
+								this.messageIdProvider.deallocate(e),
+								this._invokeStoreProcessingQueue();
 						});
 				}
 			};
@@ -15064,7 +15775,9 @@ var mqtt = (() => {
 			let n = t.charCodeAt(r++);
 			if (n >= 55296 && n <= 56319 && r < i) {
 				let o = t.charCodeAt(r++);
-				(64512 & o) == 56320 ? e.push(((1023 & n) << 10) + (1023 & o) + 65536) : (e.push(n), r--);
+				(64512 & o) == 56320
+					? e.push(((1023 & n) << 10) + (1023 & o) + 65536)
+					: (e.push(n), r--);
 			} else e.push(n);
 		}
 		return e;
@@ -15099,7 +15812,8 @@ var mqtt = (() => {
 			}),
 				(Yp = function (t, e, r) {
 					let i = 0;
-					for (t = r ? dt(t / 700) : t >> 1, t += dt(t / e); t > 455; i += 36) t = dt(t / 35);
+					for (t = r ? dt(t / 700) : t >> 1, t += dt(t / e); t > 455; i += 36)
+						t = dt(t / 35);
 					return dt(i + (36 * t) / (t + 38));
 				}),
 				(Kp = function (t) {
@@ -15124,7 +15838,8 @@ var mqtt = (() => {
 									: a - 97 < 26
 									? a - 97
 									: 36;
-							(y >= 36 || y > dt((2147483647 - i) / d)) && Ir('overflow'), (i += y * d);
+							(y >= 36 || y > dt((2147483647 - i) / d)) && Ir('overflow'),
+								(i += y * d);
 							let w = g <= o ? 1 : g >= o + 26 ? 26 : g - o;
 							if (y < w) break;
 							let E = 36 - w;
@@ -15153,7 +15868,9 @@ var mqtt = (() => {
 						let u = 2147483647;
 						for (let h of t) h >= i && h < u && (u = h);
 						let c = a + 1;
-						u - i > dt((2147483647 - n) / c) && Ir('overflow'), (n += (u - i) * c), (i = u);
+						u - i > dt((2147483647 - n) / c) && Ir('overflow'),
+							(n += (u - i) * c),
+							(i = u);
 						for (let h of t)
 							if ((h < i && ++n > 2147483647 && Ir('overflow'), h == i)) {
 								let d = n;
@@ -15224,7 +15941,11 @@ var mqtt = (() => {
 					w >= 0 ? ((c = y.substr(0, w)), (h = y.substr(w + 1))) : ((c = y), (h = '')),
 						(d = decodeURIComponent(c)),
 						(g = decodeURIComponent(h)),
-						oE(n, d) ? (Array.isArray(n[d]) ? n[d].push(g) : (n[d] = [n[d], g])) : (n[d] = g);
+						oE(n, d)
+							? Array.isArray(n[d])
+								? n[d].push(g)
+								: (n[d] = [n[d], g])
+							: (n[d] = g);
 				}
 				return n;
 			}),
@@ -15304,7 +16025,8 @@ var mqtt = (() => {
 				(ri = !1),
 				(function (r) {
 					if (Ot === clearTimeout) return clearTimeout(r);
-					if ((Ot === Ka || !Ot) && clearTimeout) return (Ot = clearTimeout), clearTimeout(r);
+					if ((Ot === Ka || !Ot) && clearTimeout)
+						return (Ot = clearTimeout), clearTimeout(r);
 					try {
 						Ot(r);
 					} catch {
@@ -15482,7 +16204,8 @@ var mqtt = (() => {
 		}
 		t.nextTick = function (E) {
 			var S = new Array(arguments.length - 1);
-			if (arguments.length > 1) for (var I = 1; I < arguments.length; I++) S[I - 1] = arguments[I];
+			if (arguments.length > 1)
+				for (var I = 1; I < arguments.length; I++) S[I - 1] = arguments[I];
 			a.push(new y(E, S)), a.length === 1 && !u && o(g);
 		};
 		function y(E, S) {
@@ -15590,7 +16313,8 @@ var mqtt = (() => {
 									if (y !== a.length - 1) {
 										y === -1
 											? ((a = ''), (u = 0))
-											: ((a = a.slice(0, y)), (u = a.length - 1 - a.lastIndexOf('/'))),
+											: ((a = a.slice(0, y)),
+											  (u = a.length - 1 - a.lastIndexOf('/'))),
 											(c = g),
 											(h = 0);
 										continue;
@@ -15647,9 +16371,14 @@ var mqtt = (() => {
 				return s === void 0 ? '.' : n.normalize(s);
 			},
 			relative: function (s, a) {
-				if ((e(s), e(a), s === a || ((s = n.resolve(s)), (a = n.resolve(a)), s === a))) return '';
+				if ((e(s), e(a), s === a || ((s = n.resolve(s)), (a = n.resolve(a)), s === a)))
+					return '';
 				for (var u = 1; u < s.length && s.charCodeAt(u) === 47; ++u);
-				for (var c = s.length, h = c - u, d = 1; d < a.length && a.charCodeAt(d) === 47; ++d);
+				for (
+					var c = s.length, h = c - u, d = 1;
+					d < a.length && a.charCodeAt(d) === 47;
+					++d
+				);
 				for (var g = a.length, y = g - d, w = h < y ? h : y, E = -1, S = 0; S <= w; ++S) {
 					if (S === w) {
 						if (y > w) {
@@ -15665,7 +16394,8 @@ var mqtt = (() => {
 				}
 				var R = '';
 				for (S = u + E + 1; S <= c; ++S)
-					(S === c || s.charCodeAt(S) === 47) && (R.length === 0 ? (R += '..') : (R += '/..'));
+					(S === c || s.charCodeAt(S) === 47) &&
+						(R.length === 0 ? (R += '..') : (R += '/..'));
 				return R.length > 0
 					? R + a.slice(d + E)
 					: ((d += E), a.charCodeAt(d) === 47 && ++d, a.slice(d));
@@ -15675,7 +16405,11 @@ var mqtt = (() => {
 			},
 			dirname: function (s) {
 				if ((e(s), s.length === 0)) return '.';
-				for (var a = s.charCodeAt(0), u = a === 47, c = -1, h = !0, d = s.length - 1; d >= 1; --d)
+				for (
+					var a = s.charCodeAt(0), u = a === 47, c = -1, h = !0, d = s.length - 1;
+					d >= 1;
+					--d
+				)
 					if (((a = s.charCodeAt(d)), a === 47)) {
 						if (!h) {
 							c = d;
@@ -15705,7 +16439,10 @@ var mqtt = (() => {
 							}
 						} else
 							y === -1 && ((h = !1), (y = d + 1)),
-								g >= 0 && (w === a.charCodeAt(g) ? --g === -1 && (c = d) : ((g = -1), (c = y)));
+								g >= 0 &&
+									(w === a.charCodeAt(g)
+										? --g === -1 && (c = d)
+										: ((g = -1), (c = y)));
 					}
 					return u === c ? (c = y) : c === -1 && (c = s.length), s.slice(u, c);
 				} else {
@@ -15740,7 +16477,8 @@ var mqtt = (() => {
 			format: function (s) {
 				if (s === null || typeof s != 'object')
 					throw new TypeError(
-						'The "pathObject" argument must be of type Object. Received type ' + typeof s
+						'The "pathObject" argument must be of type Object. Received type ' +
+							typeof s
 					);
 				return i('/', s);
 			},
@@ -15766,7 +16504,9 @@ var mqtt = (() => {
 				return (
 					d === -1 || y === -1 || S === 0 || (S === 1 && d === y - 1 && d === g + 1)
 						? y !== -1 &&
-						  (g === 0 && c ? (a.base = a.name = s.slice(1, y)) : (a.base = a.name = s.slice(g, y)))
+						  (g === 0 && c
+								? (a.base = a.name = s.slice(1, y))
+								: (a.base = a.name = s.slice(g, y)))
 						: (g === 0 && c
 								? ((a.name = s.slice(1, d)), (a.base = s.slice(1, y)))
 								: ((a.name = s.slice(g, d)), (a.base = s.slice(g, y))),
@@ -15853,7 +16593,8 @@ var mqtt = (() => {
 									if (y !== a.length - 1) {
 										y === -1
 											? ((a = ''), (u = 0))
-											: ((a = a.slice(0, y)), (u = a.length - 1 - a.lastIndexOf('/'))),
+											: ((a = a.slice(0, y)),
+											  (u = a.length - 1 - a.lastIndexOf('/'))),
 											(c = g),
 											(h = 0);
 										continue;
@@ -15910,9 +16651,14 @@ var mqtt = (() => {
 				return s === void 0 ? '.' : n.normalize(s);
 			},
 			relative: function (s, a) {
-				if ((e(s), e(a), s === a || ((s = n.resolve(s)), (a = n.resolve(a)), s === a))) return '';
+				if ((e(s), e(a), s === a || ((s = n.resolve(s)), (a = n.resolve(a)), s === a)))
+					return '';
 				for (var u = 1; u < s.length && s.charCodeAt(u) === 47; ++u);
-				for (var c = s.length, h = c - u, d = 1; d < a.length && a.charCodeAt(d) === 47; ++d);
+				for (
+					var c = s.length, h = c - u, d = 1;
+					d < a.length && a.charCodeAt(d) === 47;
+					++d
+				);
 				for (var g = a.length, y = g - d, w = h < y ? h : y, E = -1, S = 0; S <= w; ++S) {
 					if (S === w) {
 						if (y > w) {
@@ -15928,7 +16674,8 @@ var mqtt = (() => {
 				}
 				var R = '';
 				for (S = u + E + 1; S <= c; ++S)
-					(S === c || s.charCodeAt(S) === 47) && (R.length === 0 ? (R += '..') : (R += '/..'));
+					(S === c || s.charCodeAt(S) === 47) &&
+						(R.length === 0 ? (R += '..') : (R += '/..'));
 				return R.length > 0
 					? R + a.slice(d + E)
 					: ((d += E), a.charCodeAt(d) === 47 && ++d, a.slice(d));
@@ -15938,7 +16685,11 @@ var mqtt = (() => {
 			},
 			dirname: function (s) {
 				if ((e(s), s.length === 0)) return '.';
-				for (var a = s.charCodeAt(0), u = a === 47, c = -1, h = !0, d = s.length - 1; d >= 1; --d)
+				for (
+					var a = s.charCodeAt(0), u = a === 47, c = -1, h = !0, d = s.length - 1;
+					d >= 1;
+					--d
+				)
 					if (((a = s.charCodeAt(d)), a === 47)) {
 						if (!h) {
 							c = d;
@@ -15968,7 +16719,10 @@ var mqtt = (() => {
 							}
 						} else
 							y === -1 && ((h = !1), (y = d + 1)),
-								g >= 0 && (w === a.charCodeAt(g) ? --g === -1 && (c = d) : ((g = -1), (c = y)));
+								g >= 0 &&
+									(w === a.charCodeAt(g)
+										? --g === -1 && (c = d)
+										: ((g = -1), (c = y)));
 					}
 					return u === c ? (c = y) : c === -1 && (c = s.length), s.slice(u, c);
 				} else {
@@ -16003,7 +16757,8 @@ var mqtt = (() => {
 			format: function (s) {
 				if (s === null || typeof s != 'object')
 					throw new TypeError(
-						'The "pathObject" argument must be of type Object. Received type ' + typeof s
+						'The "pathObject" argument must be of type Object. Received type ' +
+							typeof s
 					);
 				return i('/', s);
 			},
@@ -16029,7 +16784,9 @@ var mqtt = (() => {
 				return (
 					d === -1 || y === -1 || S === 0 || (S === 1 && d === y - 1 && d === g + 1)
 						? y !== -1 &&
-						  (g === 0 && c ? (a.base = a.name = s.slice(1, y)) : (a.base = a.name = s.slice(g, y)))
+						  (g === 0 && c
+								? (a.base = a.name = s.slice(1, y))
+								: (a.base = a.name = s.slice(g, y)))
 						: (g === 0 && c
 								? ((a.name = s.slice(1, d)), (a.base = s.slice(1, y)))
 								: ((a.name = s.slice(g, d)), (a.base = s.slice(g, y))),
@@ -16059,9 +16816,12 @@ var mqtt = (() => {
 			if (r[i] === '%') {
 				let n = r.codePointAt(i + 2) || 32;
 				if ((r[i + 1] === '2' && n === 102) || (r[i + 1] === '5' && n === 99))
-					throw new Deno.errors.InvalidData('must not include encoded \\ or / characters');
+					throw new Deno.errors.InvalidData(
+						'must not include encoded \\ or / characters'
+					);
 			}
-		if (((r = r.replace(IE, '\\')), (r = decodeURIComponent(r)), e !== '')) return `\\\\${e}${r}`;
+		if (((r = r.replace(IE, '\\')), (r = decodeURIComponent(r)), e !== ''))
+			return `\\\\${e}${r}`;
 		{
 			let i = r.codePointAt(1) | 32,
 				n = r[2];
@@ -16111,9 +16871,12 @@ var mqtt = (() => {
 			if (r[i] === '%') {
 				let n = r.codePointAt(i + 2) || 32;
 				if ((r[i + 1] === '2' && n === 102) || (r[i + 1] === '5' && n === 99))
-					throw new Deno.errors.InvalidData('must not include encoded \\ or / characters');
+					throw new Deno.errors.InvalidData(
+						'must not include encoded \\ or / characters'
+					);
 			}
-		if (((r = r.replace(zE, '\\')), (r = decodeURIComponent(r)), e !== '')) return `\\\\${e}${r}`;
+		if (((r = r.replace(zE, '\\')), (r = decodeURIComponent(r)), e !== ''))
+			return `\\\\${e}${r}`;
 		{
 			let i = r.codePointAt(1) | 32,
 				n = r[2];
@@ -16288,7 +17051,9 @@ var mqtt = (() => {
 							(this.pathname = a[1]),
 							a[2]
 								? ((this.search = a[2]),
-								  (this.query = e ? Za.parse(this.search.substr(1)) : this.search.substr(1)))
+								  (this.query = e
+										? Za.parse(this.search.substr(1))
+										: this.search.substr(1)))
 								: e && ((this.search = ''), (this.query = {})),
 							this
 						);
@@ -16307,7 +17072,9 @@ var mqtt = (() => {
 						(E = s.indexOf(lg[w])) !== -1 && (y === -1 || E < y) && (y = E);
 					for (
 						(g = y === -1 ? s.lastIndexOf('@') : s.lastIndexOf('@', y)) !== -1 &&
-							((d = s.slice(0, g)), (s = s.slice(g + 1)), (this.auth = decodeURIComponent(d))),
+							((d = s.slice(0, g)),
+							(s = s.slice(g + 1)),
+							(this.auth = decodeURIComponent(d))),
 							y = -1,
 							w = 0;
 						w < ag.length;
@@ -16321,9 +17088,14 @@ var mqtt = (() => {
 						(s = s.slice(y)),
 						this.parseHost(),
 						(this.hostname = this.hostname || '');
-					var S = this.hostname[0] === '[' && this.hostname[this.hostname.length - 1] === ']';
+					var S =
+						this.hostname[0] === '[' && this.hostname[this.hostname.length - 1] === ']';
 					if (!S)
-						for (var I = this.hostname.split(/\./), C = ((w = 0), I.length); w < C; w++) {
+						for (
+							var I = this.hostname.split(/\./), C = ((w = 0), I.length);
+							w < C;
+							w++
+						) {
 							var R = I[w];
 							if (R && !R.match(ug)) {
 								for (var U = '', N = 0, W = R.length; N < W; N++)
@@ -16392,7 +17164,9 @@ var mqtt = (() => {
 						: this.hostname &&
 						  ((n =
 								t +
-								(this.hostname.indexOf(':') === -1 ? this.hostname : '[' + this.hostname + ']')),
+								(this.hostname.indexOf(':') === -1
+									? this.hostname
+									: '[' + this.hostname + ']')),
 						  this.port && (n += ':' + this.port)),
 						this.query &&
 							gt.isObject(this.query) &&
@@ -16434,7 +17208,10 @@ var mqtt = (() => {
 							u !== 'protocol' && (r[u] = t[u]);
 						}
 						return (
-							si[r.protocol] && r.hostname && !r.pathname && (r.path = r.pathname = '/'),
+							si[r.protocol] &&
+								r.hostname &&
+								!r.pathname &&
+								(r.path = r.pathname = '/'),
 							(r.href = r.format()),
 							r
 						);
@@ -16447,9 +17224,14 @@ var mqtt = (() => {
 							}
 							return (r.href = r.format()), r;
 						}
-						if (((r.protocol = t.protocol), t.host || Xa[t.protocol])) r.pathname = t.pathname;
+						if (((r.protocol = t.protocol), t.host || Xa[t.protocol]))
+							r.pathname = t.pathname;
 						else {
-							for (var g = (t.pathname || '').split('/'); g.length && !(t.host = g.shift()); );
+							for (
+								var g = (t.pathname || '').split('/');
+								g.length && !(t.host = g.shift());
+
+							);
 							t.host || (t.host = ''),
 								t.hostname || (t.hostname = ''),
 								g[0] !== '' && g.unshift(''),
@@ -16476,7 +17258,9 @@ var mqtt = (() => {
 						I = S || E || (r.host && t.pathname),
 						C = I,
 						R = (r.pathname && r.pathname.split('/')) || [],
-						U = ((g = (t.pathname && t.pathname.split('/')) || []), r.protocol && !si[r.protocol]);
+						U =
+							((g = (t.pathname && t.pathname.split('/')) || []),
+							r.protocol && !si[r.protocol]);
 					if (
 						(U &&
 							((r.hostname = ''),
@@ -16492,12 +17276,17 @@ var mqtt = (() => {
 						S)
 					)
 						(r.host = t.host || t.host === '' ? t.host : r.host),
-							(r.hostname = t.hostname || t.hostname === '' ? t.hostname : r.hostname),
+							(r.hostname =
+								t.hostname || t.hostname === '' ? t.hostname : r.hostname),
 							(r.search = t.search),
 							(r.query = t.query),
 							(R = g);
 					else if (g.length)
-						R || (R = []), R.pop(), (R = R.concat(g)), (r.search = t.search), (r.query = t.query);
+						R || (R = []),
+							R.pop(),
+							(R = R.concat(g)),
+							(r.search = t.search),
+							(r.query = t.query);
 					else if (!gt.isNullOrUndefined(t.search))
 						return (
 							U &&
@@ -16507,7 +17296,8 @@ var mqtt = (() => {
 							(r.search = t.search),
 							(r.query = t.query),
 							(gt.isNull(r.pathname) && gt.isNull(r.search)) ||
-								(r.path = (r.pathname ? r.pathname : '') + (r.search ? r.search : '')),
+								(r.path =
+									(r.pathname ? r.pathname : '') + (r.search ? r.search : '')),
 							(r.href = r.format()),
 							r
 						);
@@ -16520,7 +17310,9 @@ var mqtt = (() => {
 						);
 					for (
 						var N = R.slice(-1)[0],
-							W = ((r.host || t.host || R.length > 1) && (N === '.' || N === '..')) || N === '',
+							W =
+								((r.host || t.host || R.length > 1) && (N === '.' || N === '..')) ||
+								N === '',
 							K = 0,
 							z = R.length;
 						z >= 0;
@@ -16542,7 +17334,9 @@ var mqtt = (() => {
 							(Q = !!(r.host && r.host.indexOf('@') > 0) && r.host.split('@')) &&
 								((r.auth = Q.shift()), (r.host = r.hostname = Q.shift()))),
 						(I = I || (r.host && R.length)) && !de && R.unshift(''),
-						R.length ? (r.pathname = R.join('/')) : ((r.pathname = null), (r.path = null)),
+						R.length
+							? (r.pathname = R.join('/'))
+							: ((r.pathname = null), (r.path = null)),
 						(gt.isNull(r.pathname) && gt.isNull(r.search)) ||
 							(r.path = (r.pathname ? r.pathname : '') + (r.search ? r.search : '')),
 						(r.auth = t.auth || r.auth),
@@ -16565,7 +17359,12 @@ var mqtt = (() => {
 			Z.resolveObject;
 			(el = {}), (fg = !1);
 			(cg = _E()),
-				(mE = typeof Deno < 'u' ? (Deno.build.os === 'windows' ? 'win32' : Deno.build.os) : void 0);
+				(mE =
+					typeof Deno < 'u'
+						? Deno.build.os === 'windows'
+							? 'win32'
+							: Deno.build.os
+						: void 0);
 			Z.URL = typeof URL < 'u' ? URL : null;
 			Z.pathToFileURL = ME;
 			Z.fileURLToPath = OE;
@@ -16585,7 +17384,12 @@ var mqtt = (() => {
 				(CE = /\n/g),
 				(BE = /\r/g),
 				(PE = /\t/g);
-			LE = typeof Deno < 'u' ? (Deno.build.os === 'windows' ? 'win32' : Deno.build.os) : void 0;
+			LE =
+				typeof Deno < 'u'
+					? Deno.build.os === 'windows'
+						? 'win32'
+						: Deno.build.os
+					: void 0;
 			Z.URL = typeof URL < 'u' ? URL : null;
 			Z.pathToFileURL = dg;
 			Z.fileURLToPath = hg;
@@ -16701,7 +17505,12 @@ var mqtt = (() => {
 					aS.default.isIP(e.host) === 0 && (e.servername = e.host),
 					(e.rejectUnauthorized = e.rejectUnauthorized !== !1),
 					delete e.path,
-					uS('port %d host %s rejectUnauthorized %b', e.port, e.host, e.rejectUnauthorized);
+					uS(
+						'port %d host %s rejectUnauthorized %b',
+						e.port,
+						e.host,
+						e.rejectUnauthorized
+					);
 				let r = oS.default.connect(e);
 				r.on('secureConnect', () => {
 					e.rejectUnauthorized && !r.authorized
@@ -16833,7 +17642,9 @@ var mqtt = (() => {
 			}),
 				yt.onMessage((t) => {
 					let { data: e } = t;
-					e instanceof ArrayBuffer ? (e = vg.Buffer.from(e)) : (e = vg.Buffer.from(e, 'utf8')),
+					e instanceof ArrayBuffer
+						? (e = vg.Buffer.from(e))
+						: (e = vg.Buffer.from(e, 'utf8')),
 						fl.push(e);
 				}),
 				yt.onClose(() => {
@@ -16947,7 +17758,9 @@ var mqtt = (() => {
 						let e = new FileReader();
 						e.addEventListener('load', () => {
 							let r = e.result;
-							r instanceof ArrayBuffer ? (r = dl.Buffer.from(r)) : (r = dl.Buffer.from(r, 'utf8')),
+							r instanceof ArrayBuffer
+								? (r = dl.Buffer.from(r))
+								: (r = dl.Buffer.from(r, 'utf8')),
 								ls.push(r);
 						}),
 							e.readAsArrayBuffer(t.data);
@@ -17037,7 +17850,9 @@ var mqtt = (() => {
 				(e.hostname = r.hostname), e.port || (e.port = Number(r.port));
 			}
 			return (
-				e.objectMode === void 0 && (e.objectMode = !(e.binary === !0 || e.binary === void 0)), e
+				e.objectMode === void 0 &&
+					(e.objectMode = !(e.binary === !0 || e.binary === void 0)),
+				e
 			);
 		}
 		function PS(t, e, r) {
@@ -17057,7 +17872,9 @@ var mqtt = (() => {
 				i = Rg(e, t),
 				n;
 			return (
-				e.createWebsocket ? (n = e.createWebsocket(i, [r], e)) : (n = new WebSocket(i, [r])),
+				e.createWebsocket
+					? (n = e.createWebsocket(i, [r], e))
+					: (n = new WebSocket(i, [r])),
 				(n.binaryType = 'arraybuffer'),
 				n
 			);
@@ -17115,7 +17932,9 @@ var mqtt = (() => {
 				}
 				function w(I) {
 					let { data: C } = I;
-					C instanceof ArrayBuffer ? (C = yl.Buffer.from(C)) : (C = yl.Buffer.from(C, 'utf8')),
+					C instanceof ArrayBuffer
+						? (C = yl.Buffer.from(C))
+						: (C = yl.Buffer.from(C, 'utf8')),
 						u.push(C);
 				}
 				function E(I, C, R) {
@@ -17213,16 +18032,19 @@ var mqtt = (() => {
 								e.protocol = 'alis';
 								break;
 							default:
-								throw new Error(`Unknown protocol for secure connection: "${e.protocol}"!`);
+								throw new Error(
+									`Unknown protocol for secure connection: "${e.protocol}"!`
+								);
 						}
 				} else throw new Error('Missing secure protocol key');
 			if (!Re[e.protocol]) {
 				let n = ['mqtts', 'wss'].indexOf(e.protocol) !== -1;
-				e.protocol = ['mqtt', 'mqtts', 'ws', 'wss', 'wx', 'wxs', 'ali', 'alis'].filter((o, s) =>
-					n && s % 2 === 0 ? !1 : typeof Re[o] == 'function'
+				e.protocol = ['mqtt', 'mqtts', 'ws', 'wss', 'wx', 'wxs', 'ali', 'alis'].filter(
+					(o, s) => (n && s % 2 === 0 ? !1 : typeof Re[o] == 'function')
 				)[0];
 			}
-			if (e.clean === !1 && !e.clientId) throw new Error('Missing clientId for unclean clients');
+			if (e.clean === !1 && !e.clientId)
+				throw new Error('Missing clientId for unclean clients');
 			e.protocol && (e.defaultProtocol = e.protocol);
 			function r(n) {
 				return (
@@ -17313,14 +18135,18 @@ var mqtt = (() => {
 					var e = {};
 					if (t != null)
 						for (var r in t)
-							r !== 'default' && Object.prototype.hasOwnProperty.call(t, r) && kg(e, t, r);
+							r !== 'default' &&
+								Object.prototype.hasOwnProperty.call(t, r) &&
+								kg(e, t, r);
 					return jS(e, t), e;
 				},
 			xg =
 				(G && G.__exportStar) ||
 				function (t, e) {
 					for (var r in t)
-						r !== 'default' && !Object.prototype.hasOwnProperty.call(e, r) && kg(e, t, r);
+						r !== 'default' &&
+							!Object.prototype.hasOwnProperty.call(e, r) &&
+							kg(e, t, r);
 				},
 			Ni =
 				(G && G.__importDefault) ||
@@ -17405,14 +18231,18 @@ var mqtt = (() => {
 					var e = {};
 					if (t != null)
 						for (var r in t)
-							r !== 'default' && Object.prototype.hasOwnProperty.call(t, r) && Ug(e, t, r);
+							r !== 'default' &&
+								Object.prototype.hasOwnProperty.call(t, r) &&
+								Ug(e, t, r);
 					return KS(e, t), e;
 				},
 			QS =
 				(We && We.__exportStar) ||
 				function (t, e) {
 					for (var r in t)
-						r !== 'default' && !Object.prototype.hasOwnProperty.call(e, r) && Ug(e, t, r);
+						r !== 'default' &&
+							!Object.prototype.hasOwnProperty.call(e, r) &&
+							Ug(e, t, r);
 				};
 		Object.defineProperty(We, '__esModule', { value: !0 });
 		var YS = GS(ml());
@@ -17429,12 +18259,14 @@ function gettoken() {
 	fetch('https://protrade.finsc.vn/api/sckt')
 		.then((response) => response.json())
 		.then((data) => {
-			console.log('dddsds');
 			const token = data.tt;
 			const id = '1000049129';
 			const currentTime = new Date().getTime();
 			const updateTimestamp = Math.floor(currentTime / 1000);
-			localStorage.setItem('skdf', JSON.stringify({ tt: token, id: id, time: updateTimestamp }));
+			localStorage.setItem(
+				'skdf',
+				JSON.stringify({ tt: token, id: id, time: updateTimestamp })
+			);
 		})
 		.catch((error) => {
 			console.log('Error fetching token:', error);
@@ -17619,7 +18451,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 						symbol: l,
 						resolution: c,
 					} = s;
-					const h = `${u(l)}~${l}~${{ undefined: 1, HOUR1: '1H', DAY: '1D', W: '1W' }[c] || c}`,
+					const h = `${u(l)}~${l}~${
+							{ undefined: 1, HOUR1: '1H', DAY: '1D', W: '1W' }[c] || c
+						}`,
 						d = i.get(h);
 					if (!d) return;
 					let p = { time: 1e3 * t, open: e, high: o, low: n, close: r, volume: a };
@@ -17653,17 +18487,25 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 							stepPrice = tr.querySelector('.x1');
 						switch (index) {
 							case 3:
-								const isContinuous = 'ATO' !== tradingsession || 'ATC' !== tradingsession,
-									prK = parseFloat(isContinuous ? si.matchPrice : si.estimatedPrice),
+								const isContinuous =
+										'ATO' !== tradingsession || 'ATC' !== tradingsession,
+									prK = parseFloat(
+										isContinuous ? si.matchPrice : si.estimatedPrice
+									),
 									qttyK = isContinuous ? parseFloat(10 * si.matchQtty) : 0,
-									changeK = isContinuous ? parseFloat(si.changed || 0) : prK - basicPrice,
+									changeK = isContinuous
+										? parseFloat(si.changed || 0)
+										: prK - basicPrice,
 									changeRatioK = isContinuous
 										? parseFloat(si.changedRatio || 0)
 										: (changeK / basicPrice) * 100,
 									plusK = changeK >= 0 ? '+' : '';
 								(spans[0].textContent = prK.toFixed(2)),
-									(spans[1].textContent = isContinuous ? qttyK.toLocaleString('en-US') : ''),
-									(spans[2].textContent = 0 === changeK ? '' : `${plusK}${changeK.toFixed(2)}`),
+									(spans[1].textContent = isContinuous
+										? qttyK.toLocaleString('en-US')
+										: ''),
+									(spans[2].textContent =
+										0 === changeK ? '' : `${plusK}${changeK.toFixed(2)}`),
 									(spans[3].textContent = `${plusK}${changeRatioK.toFixed(1)}%`),
 									(volWidth.style.width =
 										isContinuous && 0 !== maxQtty
@@ -17675,7 +18517,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 									si.ceilingPrice,
 									si.floorPrice
 								);
-								stepPrice.className = `khop text-bold x1 ${stepPriceCssK.join(' ')}`;
+								stepPrice.className = `khop text-bold x1 ${stepPriceCssK.join(
+									' '
+								)}`;
 								break;
 							default:
 								index = index > 3 ? index - 1 : index;
@@ -17687,15 +18531,22 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 										? tradingsession
 										: ''
 									: pr.toFixed(2)),
-									(spans[1].textContent = isNaN(qttyX) ? '' : qttyX.toLocaleString('en-US')),
+									(spans[1].textContent = isNaN(qttyX)
+										? ''
+										: qttyX.toLocaleString('en-US')),
 									(spans[2].textContent =
 										isNaN(pr) || 0 === change
 											? ''
 											: `${pr >= basicPrice ? '+' : ''}${change.toFixed(2)}`),
 									(spans[3].textContent = isNaN(pr)
 										? ''
-										: `${pr >= basicPrice ? '+' : ''}${((change / basicPrice) * 100).toFixed(1)}%`),
-									(volWidth.style.width = isNaN(qttyX) ? '0%' : `${(qttyX / maxQtty) * 100}%`);
+										: `${pr >= basicPrice ? '+' : ''}${(
+												(change / basicPrice) *
+												100
+										  ).toFixed(1)}%`),
+									(volWidth.style.width = isNaN(qttyX)
+										? '0%'
+										: `${(qttyX / maxQtty) * 100}%`);
 								const stepPriceCss = babuocgia_css(
 									pr,
 									si.basicPrice,
@@ -17724,7 +18575,8 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 					h = { id: o, callback: s };
 				let d = i.get(c);
 				if (d) return void d.handlers.push(h);
-				(d = { listenerGuid: o, resolution: e, lastDailyBar: r, handlers: [h] }), i.set(c, d);
+				(d = { listenerGuid: o, resolution: e, lastDailyBar: r, handlers: [h] }),
+					i.set(c, d);
 				const p = `plaintext/quotes/${a}/OHLC/${e}/${t.ticker}`;
 				l.subscribe(p),
 					l.subscribe(`plaintext/quotes/${a}/TP/${t.ticker}`),
@@ -17758,7 +18610,8 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 		}
 		subscribeBars(t, e, s, i) {
 			this.D.hasOwnProperty(i) ||
-				((this.D[i] = { lastBarTime: null, listener: s, resolution: e, symbolInfo: t }), t.name);
+				((this.D[i] = { lastBarTime: null, listener: s, resolution: e, symbolInfo: t }),
+				t.name);
 		}
 		unsubscribeBars(t) {
 			delete this.D[t];
@@ -17795,7 +18648,12 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 						return 24 * s * 60 * 60;
 					})(e.resolution, 10);
 			return this.k
-				.getBars(e.symbolInfo, e.resolution, { from: i, to: s, countBack: 2, firstDataRequest: !1 })
+				.getBars(e.symbolInfo, e.resolution, {
+					from: i,
+					to: s,
+					countBack: 2,
+					firstDataRequest: !1,
+				})
 				.then((e) => {
 					this.O(t, e);
 				});
@@ -17809,7 +18667,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 			if (null !== o.lastBarTime && i.time < o.lastBarTime) return;
 			if (null !== o.lastBarTime && i.time > o.lastBarTime) {
 				if (s.length < 2)
-					throw new Error('Not enough bars in history for proper pulse update. Need at least 2.');
+					throw new Error(
+						'Not enough bars in history for proper pulse update. Need at least 2.'
+					);
 				const t = s[s.length - 2];
 				o.listener(t);
 			}
@@ -17938,7 +18798,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 						e(t), o([]);
 					});
 			} else {
-				const e = this.R.filter((e) => -1 !== e.symbol.toLowerCase().indexOf(t.toLowerCase()));
+				const e = this.R.filter(
+					(e) => -1 !== e.symbol.toLowerCase().indexOf(t.toLowerCase())
+				);
 				o(e);
 			}
 		}
@@ -17981,12 +18843,43 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 					void 0 !== r && (s.unitId = r),
 					this.X('symbols', s)
 						.then((t) => {
-							var e, s, o, n, r, l, c, u, h, d, p, m, v, f, y, _, b, g, N, $, w, S, x, F, k, D;
+							var e,
+								s,
+								o,
+								n,
+								r,
+								l,
+								c,
+								u,
+								h,
+								d,
+								p,
+								m,
+								v,
+								f,
+								y,
+								_,
+								b,
+								g,
+								N,
+								$,
+								w,
+								S,
+								x,
+								F,
+								k,
+								D;
 							if (void 0 !== t.s) i('unknown_symbol');
 							else {
 								const i = t.name,
-									H = null !== (e = t.listed_exchange) && void 0 !== e ? e : t['exchange-listed'],
-									M = null !== (s = t.exchange) && void 0 !== s ? s : t['exchange-traded'],
+									H =
+										null !== (e = t.listed_exchange) && void 0 !== e
+											? e
+											: t['exchange-listed'],
+									M =
+										null !== (s = t.exchange) && void 0 !== s
+											? s
+											: t['exchange-traded'],
 									I = {
 										...t,
 										name: i,
@@ -17995,14 +18888,21 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 										exchange: M,
 										ticker: t.ticker,
 										currency_code:
-											null !== (o = t.currency_code) && void 0 !== o ? o : t['currency-code'],
+											null !== (o = t.currency_code) && void 0 !== o
+												? o
+												: t['currency-code'],
 										original_currency_code:
 											null !== (n = t.original_currency_code) && void 0 !== n
 												? n
 												: t['original-currency-code'],
-										unit_id: null !== (r = t.unit_id) && void 0 !== r ? r : t['unit-id'],
+										unit_id:
+											null !== (r = t.unit_id) && void 0 !== r
+												? r
+												: t['unit-id'],
 										original_unit_id:
-											null !== (l = t.original_unit_id) && void 0 !== l ? l : t['original-unit-id'],
+											null !== (l = t.original_unit_id) && void 0 !== l
+												? l
+												: t['original-unit-id'],
 										unit_conversion_types:
 											null !== (c = t.unit_conversion_types) && void 0 !== c
 												? c
@@ -18010,7 +18910,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 										has_intraday:
 											null !==
 												(h =
-													null !== (u = t.has_intraday) && void 0 !== u ? u : t['has-intraday']) &&
+													null !== (u = t.has_intraday) && void 0 !== u
+														? u
+														: t['has-intraday']) &&
 											void 0 !== h &&
 											h,
 										visible_plots_set:
@@ -18018,35 +18920,54 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 												? d
 												: t['visible-plots-set'],
 										minmov:
-											null !== (m = null !== (p = t.minmovement) && void 0 !== p ? p : t.minmov) &&
-											void 0 !== m
+											null !==
+												(m =
+													null !== (p = t.minmovement) && void 0 !== p
+														? p
+														: t.minmov) && void 0 !== m
 												? m
 												: 0,
-										minmove2: null !== (v = t.minmovement2) && void 0 !== v ? v : t.minmove2,
-										session: null !== (f = t.session) && void 0 !== f ? f : t['session-regular'],
+										minmove2:
+											null !== (v = t.minmovement2) && void 0 !== v
+												? v
+												: t.minmove2,
+										session:
+											null !== (f = t.session) && void 0 !== f
+												? f
+												: t['session-regular'],
 										session_holidays:
-											null !== (y = t.session_holidays) && void 0 !== y ? y : t['session-holidays'],
+											null !== (y = t.session_holidays) && void 0 !== y
+												? y
+												: t['session-holidays'],
 										supported_resolutions:
 											null !==
 												(g =
 													null !==
 														(b =
-															null !== (_ = t.supported_resolutions) && void 0 !== _
+															null !==
+																(_ = t.supported_resolutions) &&
+															void 0 !== _
 																? _
-																: t['supported-resolutions']) && void 0 !== b
+																: t['supported-resolutions']) &&
+													void 0 !== b
 														? b
-														: this.V.supported_resolutions) && void 0 !== g
+														: this.V.supported_resolutions) &&
+											void 0 !== g
 												? g
 												: [],
 										has_daily:
 											null ===
-												($ = null !== (N = t.has_daily) && void 0 !== N ? N : t['has-daily']) ||
+												($ =
+													null !== (N = t.has_daily) && void 0 !== N
+														? N
+														: t['has-daily']) ||
 											void 0 === $ ||
 											$,
 										intraday_multipliers:
 											null !==
 												(S =
-													null !== (w = t.intraday_multipliers) && void 0 !== w
+													null !== (w = t.intraday_multipliers) &&
+													void 0 !== w
 														? w
 														: t['intraday-multipliers']) && void 0 !== S
 												? S
@@ -18056,10 +18977,15 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 												? x
 												: t['has-weekly-and-monthly'],
 										has_empty_bars:
-											null !== (F = t.has_empty_bars) && void 0 !== F ? F : t['has-empty-bars'],
+											null !== (F = t.has_empty_bars) && void 0 !== F
+												? F
+												: t['has-empty-bars'],
 										volume_precision:
-											null !== (k = t.volume_precision) && void 0 !== k ? k : t['volume-precision'],
-										format: null !== (D = t.format) && void 0 !== D ? D : 'price',
+											null !== (k = t.volume_precision) && void 0 !== k
+												? k
+												: t['volume-precision'],
+										format:
+											null !== (D = t.format) && void 0 !== D ? D : 'price',
 									};
 								(I.supported_resolutions = [
 									'1',
@@ -18139,7 +19065,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 				const t = Object.keys(s);
 				0 !== t.length && (e += '?'),
 					(e += t
-						.map((t) => `${encodeURIComponent(t)}=${encodeURIComponent(s[t].toString())}`)
+						.map(
+							(t) => `${encodeURIComponent(t)}=${encodeURIComponent(s[t].toString())}`
+						)
 						.join('&'));
 			}
 			const i = { credentials: 'same-origin' };
@@ -18155,7 +19083,9 @@ if (!last || (now > eigthToday && last.time < eigthToday)) {
 				const t = Object.keys(s);
 				0 !== t.length && (e += '?'),
 					(e += t
-						.map((t) => `${encodeURIComponent(t)}=${encodeURIComponent(s[t].toString())}`)
+						.map(
+							(t) => `${encodeURIComponent(t)}=${encodeURIComponent(s[t].toString())}`
+						)
 						.join('&'));
 			}
 			const i = {
