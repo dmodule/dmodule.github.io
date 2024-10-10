@@ -1,1 +1,0 @@
-import{aJ as n,u,aL as r,bS as c,b3 as l,b1 as p,b5 as _}from"./DU-fRFFF.js";const m=n({__name:"auth",setup(d){const{$auth:e}=u(),{token:o,login:s,setGoto:a}=e;return r(()=>{if(!o){const{path:t}=c();a(t),s()}}),(t,f)=>(l(),p("div",null,[_(t.$slots,"default")]))}});export{m as default};
