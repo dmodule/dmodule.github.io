@@ -1,0 +1,1 @@
+import{bF as s,b3 as n,b1 as o,b5 as t}from"./DU-fRFFF.js";const _={},c={class:"keen-slider__slide"};function r(e,a){return n(),o("div",c,[t(e.$slots,"default")])}const d=s(_,[["render",r]]);export{d as _};
