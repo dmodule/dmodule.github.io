@@ -121,8 +121,8 @@ function finscChart(idd) {
 		type: 'text/css',
 	});
 	const cssBlobUrl = URL.createObjectURL(cssBlob);
-	const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+	// const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	const isDark = true;
 	const theme = getParameterByName('theme') || (isDark ? 'dark' : 'light');
 	var widget = (window.tvWidget = new TradingView.widget({
 		//debug: true, // uncomment this line to see Library errors and warnings in the console
