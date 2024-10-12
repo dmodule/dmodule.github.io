@@ -1,0 +1,1 @@
+import{bJ as a,b4 as r,b2 as s,bD as t}from"./PQ9VTHH8.js";const o={};function c(e,n){return r(),s("div",{class:"absolute inset-0",style:t({"background-color":e.$attrs.bg,"background-image":e.$attrs.pic})},null,4)}const i=a(o,[["render",c]]);export{i as default};

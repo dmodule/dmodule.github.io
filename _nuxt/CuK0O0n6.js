@@ -1,1 +1,0 @@
-import{bG as a,b4 as r,b2 as s,bH as t}from"./C6hTUVlg.js";const o={};function c(e,n){return r(),s("div",{class:"absolute inset-0",style:t({"background-color":e.$attrs.bg,"background-image":e.$attrs.pic})},null,4)}const i=a(o,[["render",c]]);export{i as default};
