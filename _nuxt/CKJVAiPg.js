@@ -1,1 +1,0 @@
-import{aJ as n,u,aL as r,bV as c,b4 as l,b2 as p,b6 as _}from"./CsE2J8A2.js";const m=n({__name:"auth",setup(d){const{$auth:e}=u(),{token:o,login:s,setGoto:a}=e;return r(()=>{if(!o){const{path:t}=c();a(t),s()}}),(t,f)=>(l(),p("div",null,[_(t.$slots,"default")]))}});export{m as default};
