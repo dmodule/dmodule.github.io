@@ -1,1 +1,0 @@
-import{b2 as a,u,b4 as r,cb as c,bp as p,bn as l,br as _}from"./DJaf_P2z.js";const i=a({__name:"auth",setup(b){const{$auth:e}=u(),{token:o,login:n,setGoto:s}=e;return r(()=>{if(!o){const{path:t}=c();s(t),n()}}),(t,d)=>(p(),l("div",null,[_(t.$slots,"default")]))}});export{i as default};

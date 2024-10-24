@@ -1,1 +1,0 @@
-import{bN as a,bp as r,bn as s,bW as t}from"./DJaf_P2z.js";const n={};function o(e,c){return r(),s("div",{class:"absolute inset-0",style:t({"background-color":e.$attrs.bg,"background-image":e.$attrs.pic})},null,4)}const i=a(n,[["render",o]]);export{i as default};
