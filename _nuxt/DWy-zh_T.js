@@ -1,0 +1,1 @@
+import{b9 as a,u,bb as c,cl as l,bs as r,bq as p,bt as _}from"./BD89yi6W.js";const i=a({__name:"auth",setup(b){const{$auth:e}=u(),{token:o,login:s,setGoto:n}=e;return c(()=>{if(!o){const{path:t}=l();n(t),s()}}),(t,d)=>(r(),p("div",null,[_(t.$slots,"default")]))}});export{i as default};
