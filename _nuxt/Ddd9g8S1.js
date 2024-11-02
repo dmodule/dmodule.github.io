@@ -1,0 +1,1 @@
+import e from"./Bx_IRG9M.js";import{bq as o,bx as t,bs as a}from"./sI-xKr0f.js";import"./Cm0dMa_n.js";const r={class:"flex gap-4"},l={__name:"test",setup(s){return(c,i)=>(a(),o("div",r,[t(e),t(e,{mode:{id:"limit",label:"Giới hạn"}})]))}};export{l as default};
