@@ -128,9 +128,9 @@
 	--tv-color-toolbar-toggle-button-background-active: red;
 	--tv-color-toolbar-toggle-button-background-active-hover: magenta;
 } */
-/* .theme-dark:root {
-	--tv-color-pane-background: #1d2330;
-} */
+.theme-dark:root {
+	--tv-color-pane-background: #282832;
+}
 .item-headbar {
 	display: flex;
 	align-items: center;
