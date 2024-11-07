@@ -1,1 +1,0 @@
-import{b9 as a,u,bb as c,cp as p,bs as r,bq as l,bu as _}from"./C-UWfBKM.js";const i=a({__name:"auth",setup(b){const{$auth:e}=u(),{token:o,login:s,setGoto:n}=e;return c(()=>{if(!o){const{path:t}=p();n(t),s()}}),(t,d)=>(r(),l("div",null,[_(t.$slots,"default")]))}});export{i as default};
