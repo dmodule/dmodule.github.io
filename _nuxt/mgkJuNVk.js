@@ -1,1 +1,0 @@
-import{m as r}from"./BVo3a_yY.js";class i{constructor(){return i.instance||(this.emitter=r(),i.instance=this),i.instance}on(t,e){this.emitter.on(t,e)}off(t,e){this.emitter.off(t,e)}clear(){this.emitter.all.clear()}emit(t,e){this.emitter.emit(t,e)}}const m=new i;export{m as e};
