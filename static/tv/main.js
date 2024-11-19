@@ -197,7 +197,6 @@ function finscChart(idd) {
 			.subscribe(null, function (e) {
 				sym = e.ticker;
 				symVar1 = e.ticker;
-				console.log(5555, sym);
 			});
 
 		widget
